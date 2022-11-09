@@ -239,13 +239,13 @@
             }
          },
          {
-            "name": "req_hdr_{request_header}",
+            "name": "req_hdr_request_header",
             "datatype": {
                "type": "string"
             }
          },
          {
-            "name": "resp_hdr_{response_header}",
+            "name": "resp_hdr_response_header",
             "datatype": {
                "type": "string"
             }
