@@ -1,0 +1,787 @@
+{
+    "name": "akamai_default",
+    "description": "Akamai default transform",
+    "type": "json",
+    "settings": {
+        "is_default": true,
+        "null_values": ["-","^"],
+        "sql_transform": "SELECT now() - reqTimeSec as latency, decodeURLComponent(assumeNotNull(UA)) as UA, decodeURLComponent(assumeNotNull(referer)) as referer, decodeURLComponent(assumeNotNull(queryStr)) as queryStr, extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '\\\/\\\/BC\\\/(\\S*)') as breadcrumbs, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'a=([^,\\]]+)') as Edge_IP, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'b=([^,\\]]+)') as Edge_RequestID, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'k=([^,\\]]+)') as Edge_RequestEndTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'l=([^,\\]]+)') as Edge_TurnAroundTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'm=([^,\\]]+)') as Edge_DNSLookupTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'n=([^,\\]]+)') as Edge_GeoInfo, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=g[^]]*\\])'), 'o=([^,\\]]+)') as Edge_ASN, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'a=([^,\\]]+)') as Origin_IP, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'b=([^,\\]]+)') as Origin_RequestID, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'k=([^,\\]]+)') as Origin_RequestEndTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'l=([^,\\]]+)') as Origin_TurnAroundTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'm=([^,\\]]+)') as Origin_DNSLookupTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'n=([^,\\]]+)') as Origin_GeoInfo, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\[[^[]*c=o[^]]*\\])'), 'o=([^,\\]]+)') as Origin_ASN, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'a=([^,\\]]+)') as Peer_IP, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'b=([^,\\]]+)') as Peer_RequestID, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'k=([^,\\]]+)') as Peer_RequestEndTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'l=([^,\\]]+)') as Peer_TurnAroundTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'm=([^,\\]]+)') as Peer_DNSLookupTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'n=([^,\\]]+)') as Peer_GeoInfo, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=p[^]]*\\])'), 'o=([^,\\]]+)') as Peer_ASN, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'a=([^,\\]]+)') as Parent_IP, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'b=([^,\\]]+)') as Parent_RequestID, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'k=([^,\\]]+)') as Parent_RequestEndTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'l=([^,\\]]+)') as Parent_TurnAroundTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'm=([^,\\]]+)') as Parent_DNSLookupTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'n=([^,\\]]+)') as Parent_GeoInfo, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=c[^]]*\\])'), 'o=([^,\\]]+)') as Parent_ASN, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'a=([^,\\]]+)') as CloudWrapper_IP, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'b=([^,\\]]+)') as CloudWrapper_RequestID, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'k=([^,\\]]+)') as CloudWrapper_RequestEndTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'l=([^,\\]]+)') as CloudWrapper_TurnAroundTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'm=([^,\\]]+)') as CloudWrapper_DNSLookupTime, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'n=([^,\\]]+)') as CloudWrapper_GeoInfo, extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\[[^[]*c=w[^]]*\\])'), 'o=([^,\\]]+)') as CloudWrapper_ASN, assumeNotNull(decodeURLComponent(queryStr)) as url_cmcd, if(startsWith(url_cmcd, 'CMCD='), substring(url_cmcd, 6), url_cmcd) as url, flatten(extractAllGroupsVertical(assumeNotNull(url), '([^=,\"]+)=\"?([^,=\"]+)\"? ?')) as groups, akamai.cmcd_query_param('bl', groups) as cmcd_buffer_length, akamai.cmcd_query_param('br', groups) as cmcd_encoded_bitrate, akamai.cmcd_query_param('bs', groups) as cmcd_buffer_starvation, akamai.cmcd_query_param('cid', groups) as cmcd_content_id, akamai.cmcd_query_param('d', groups) as cmcd_object_duration, akamai.cmcd_query_param('dl', groups) as cmcd_deadline, akamai.cmcd_query_param('mtp', groups) as cmcd_measured_throughput, akamai.cmcd_query_param('nor', groups) as cmcd_next_object_requests, akamai.cmcd_query_param('nrr', groups) as cmcd_next_range_request, akamai.cmcd_object_type(akamai.cmcd_query_param('ot', groups)) as cmcd_object_type, akamai.cmcd_query_param('pr', groups) as cmcd_playback_rate, akamai.cmcd_query_param('rtp', groups) as cmcd_requested_max_throughput, akamai.cmcd_streaming_format(akamai.cmcd_query_param('sf', groups)) as cmcd_streaming_format, akamai.cmcd_query_param('sid', groups) as cmcd_session_id, akamai.cmcd_stream_type(akamai.cmcd_query_param('st', groups)) as cmcd_stream_type, akamai.cmcd_query_param('su', groups) as cmcd_startup, akamai.cmcd_query_param('tb', groups) as cmcd_top_bitrate, akamai.cmcd_query_param('v', groups) as cmcd_version, flatten(extractAllGroups(assumeNotNull(queryStr),'(\\w+)=')) as key, flatten(extractAllGroups(assumeNotNull(queryStr),'\\\\w+=([^&]*)')) as value, queryStr, (key, value)::Map(String, String) AS querystring, splitByChar('\/', assumeNotNull(reqPath)) as path, * FROM {STREAM}",
+        "output_columns": [
+            {
+                "name": "version",
+                "datatype": {
+                    "type": "uint8"
+                }
+            },
+            {
+                "name": "customField",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "reqId",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "reqTimeSec",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "s",
+                    "primary": true,
+                    "resolution": "s"
+                }
+            },
+            {
+                "name": "city",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "state",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "country",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cacheStatus",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "breadcrumbs",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "dnsLookupTimeMSec",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "transferTimeMSec",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "turnAroundTimeMSec",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "errorCode",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "reqEndTimeMSec",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "xForwardedFor",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "maxAgeSec",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "referer",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "range",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cookie",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "accLang",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "reqPort",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "reqPath",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "reqMethod",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "reqHost",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "proto",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "statusCode",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cliIP",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cp",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "bytes",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "rspContentLen",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "rspContentType",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "UA",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "tlsOverheadTimeMSec",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "tlsVersion",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "objSize",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "uncompressedSize",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "overheadBytes",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "totalBytes",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "queryStr",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "Edge_IP",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Edge_RequestID",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Edge_RequestEndTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Edge_TurnAroundTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Edge_DNSLookupTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Edge_GeoInfo",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Edge_ASN",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_IP",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_RequestID",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_RequestEndTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_TurnAroundTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_DNSLookupTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_GeoInfo",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Origin_ASN",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_IP",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_RequestID",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_RequestEndTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_TurnAroundTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_DNSLookupTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_GeoInfo",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Parent_ASN",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_IP",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_RequestID",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_RequestEndTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_TurnAroundTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_DNSLookupTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_GeoInfo",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "CloudWrapper_ASN",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_IP",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_RequestID",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_RequestEndTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_TurnAroundTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_DNSLookupTime",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_GeoInfo",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "Peer_ASN",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "latency",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_buffer_length",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_encoded_bitrate",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_buffer_starvation",
+                "datatype": {
+                    "type": "uint8",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_content_id",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_object_duration",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_deadline",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_measured_throughput",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_next_object_requests",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_next_range_request",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_object_type",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_playback_rate",
+                "datatype": {
+                    "type": "uint8",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_requested_max_throughput",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_streaming_format",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_session_id",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_stream_type",
+                "datatype": {
+                    "type": "string",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_startup",
+                "datatype": {
+                    "type": "uint8",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_top_bitrate",
+                "datatype": {
+                    "type": "uint64",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "cmcd_version",
+                "datatype": {
+                    "type": "uint32",
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "querystring",
+                "datatype": {
+                    "type": "map",
+                    "elements": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "path",
+                "datatype": {
+                    "type": "array",
+                    "elements": [
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "source": {
+                        "from_input_field": "sql_transform"
+                    }
+                }
+            },
+            {
+                "name": "unknown",
+                "datatype": {
+                    "type": "map",
+                    "elements": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "catch_all": true
+                }
+            }
+        ],
+        "compression": "none",
+        "format_details": {
+            "flattening": {
+                "active": false
+            }
+        }
+    }
+}
