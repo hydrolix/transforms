@@ -1,0 +1,1611 @@
+{
+    "name": "transform",
+    "type": "json",
+    "settings": {
+        "is_default": true,
+        "output_columns": [
+            {
+                "name": "connector_list",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "customer_code",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "configuration_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "connector_config_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "dz_connector_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "dzMessageType",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.timestamp",
+                "datatype": {
+                    "type": "epoch",
+                    "primary": true,
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "event.metrics.bandwidth_kbps",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.buffer_duration_ads_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.buffer_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.buffer_duration_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.buffer_fill_percent",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "event.metrics.buffer_length_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.bytes_served",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "event.metrics.content_session_start_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "event.metrics.current_audio_track",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.metrics.current_subtitles",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.metrics.engagement_duration_ads_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.engagement_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.engagement_duration_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.event_count",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.num_ad_plays",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.num_content_plays",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.num_errors",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.num_errors_ads",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.num_errors_content",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.num_requests_content",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.playback_duration_ads_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.playback_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.playback_duration_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.playback_rate",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "event.metrics.player_state",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.metrics.player_viewable",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "event.metrics.player_viewable_percent",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "event.metrics.playhead_position_sec",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "event.metrics.rendition_audio_bitrate_kbps",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.rendition_height",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.rendition_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.metrics.rendition_video_bitrate_kbps",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.rendition_width",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.round_trip_time_mu",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.stall_count",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.stall_count_ads",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.stall_count_content",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.stall_duration_ads_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.stall_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.stall_duration_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.startup_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.startup_duration_total_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_ad_break_start_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_ad_completed_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_buffer_start_ad_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_buffer_start_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_buffer_start_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_heartbeat_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_milestone_ad_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_milestone_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_pause_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_rendition_change_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_request_ad_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_seek_start_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_stall_start_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_stall_start_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_started_ad_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_request_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_started_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_taken_mu",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_to_first_byte_mu",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.volume_level_percent",
+                "datatype": {
+                    "type": "uint8"
+                }
+            },
+            {
+                "name": "event.metrics.pause_duration_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.pause_duration_ads_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.pause_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_since_last_stall_start_ad_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.attributes.error_code",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.attributes.error_msg",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.attributes.seek_start_point_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.attributes.seek_end_point_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.attributes.abs_shift",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.attributes.qualified_view_sec",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.attributes.inner_error",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.attributes.milestone_percent",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "attempt.global_count",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "attempt.local_count",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "attempt.last_failure_message",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "attempt.success",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "attempt.terminal",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "attempt.status_code",
+                "datatype": {
+                    "type": "uint8"
+                }
+            },
+            {
+                "name": "cdn.host",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cdn.cdn",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cdn.cache_hit",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "cdn.http_status",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cdn.content_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.sid",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.nor",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.d",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.dl",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.mtp",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.cid",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.ot",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.pr",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.rid",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.st",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.tb",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.bl",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.rtp",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.br",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.bs",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "cmcd.sf",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "cmcd.v",
+                "datatype": {
+                    "type": "uint8"
+                }
+            },
+            {
+                "name": "cmcd.su",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "cmcd.nrr",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "egress.data_size",
+                "datatype": {
+                    "type": "uint64"
+                }
+            },
+            {
+                "name": "egress.timestamp",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "egress.dz_internal",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "sampling.in_sample",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "sampling.connector_sampling_rate",
+                "datatype": {
+                    "type": "uint8"
+                }
+            },
+            {
+                "name": "user_details.app_session_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "user_details.app_session_start_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "user_details.app_session_end_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "user_details.content_session_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "user_details.client_ip",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "user_details.user_agent",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.device_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.browser_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.device_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.os_version",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.browser_width",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "device.os_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.cookies_enabled",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "device.device_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.browser_version",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.browser_height",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "device.orientation",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.device_mfg",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.advertising_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "device.ad_tracking_opt_out",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.subtitles",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.streaming_protocol",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "player.controls",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.player_version",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "player.fullscreen",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.casting",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.loop",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.default_playback_rate",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "player.player_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "player.ready_state",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "player.autostart",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.streaming_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "player.muted",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.preload",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "player.default_muted",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "video.player_height",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "video.media_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "video.description",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "video.asset_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "video.source",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "video.title",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "video.duration_sec",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "video.player_width",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "video.frame_rate",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "geo_location.country",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.country_code",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.city",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.latitude",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "geo_location.postal_code",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.region",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.region_code",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.longitude",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "geo_location.district",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.continent",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.continent_code",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "geo_location.timezone_offset",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "geo_location.timezone_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "network.asn_org",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "network.isp",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "network.asn",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "network.connection_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "network.mobile_connection",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "page.page_url",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "page.dz_sdk_version",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "page.site_domain",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "page.page_title",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "page.referrer",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "page.referrer_url",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_blocker",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ad.ad_click_url",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_creative_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_position",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_skipped",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ad.ad_partner",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_system",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.advertiser_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.deal_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_break_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_session_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_time_offset_sec",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "ad.wrapper_creative_ids",
+                "datatype": {
+                    "type": "array",
+                    "index": false,
+                    "elements": [
+                        {
+                            "type": "string",
+                            "index": true
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ad.wrapper_systems",
+                "datatype": {
+                    "type": "array",
+                    "index": false,
+                    "elements": [
+                        {
+                            "type": "string",
+                            "index": true
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ad.wrapper_id",
+                "datatype": {
+                    "type": "array",
+                    "index": false,
+                    "elements": [
+                        {
+                            "type": "string",
+                            "index": true
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ad.cpm",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "ad.cpmMatch",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ad.price",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "ad.quantity",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "ad.revenueType",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.cpmCurrency",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.gam_advertiser_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.gam_request_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.gam_brand",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.gam_industry",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.creative_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ad.ad_duration_sec",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "ad.skip_time_offset_sec",
+                "datatype": {
+                    "type": "double",
+                    "index": false
+                }
+            },
+            {
+                "name": "ops_metadata.client_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "ops_metadata.msg_send_client_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "ops_metadata.server_ts_offset_ms",
+                "datatype": {
+                    "type": "int32"
+                }
+            },
+            {
+                "name": "ops_metadata.configuration_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.collector",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.duplicate",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ops_metadata.dedupe_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.collector_platform",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.customer",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.connector_config_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.connector",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.enriched",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ops_metadata.enrichment_types",
+                "datatype": {
+                    "type": "array",
+                    "index": false,
+                    "elements": [
+                        {
+                            "type": "string",
+                            "index": true
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_rate",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.from_cache",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_definition_params.key_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_definition_params.key_value",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_definition_params.namespace",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_criteria_params.sampling.key_value",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_criteria_params.sampling.key_name",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_criteria_params.matching",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.in_sample",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_override",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.matched",
+                "datatype": {
+                    "type": "boolean"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_request_id",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.request_received_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "ops_metadata.player_collector_sampling.sampling_decision_ts_ms",
+                "datatype": {
+                    "type": "epoch",
+                    "format": "ms",
+                    "resolution": "ms"
+                }
+            },
+            {
+                "name": "cdn.cache_result",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "uuid",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.request_params",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.request_headers",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.attributes.startup_duration_content_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "network.network_type",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "event.attributes.startup_duration_total_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_to_last_byte_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "event.metrics.time_to_first_byte_ms",
+                "datatype": {
+                    "type": "uint32"
+                }
+            },
+            {
+                "name": "cmcd.srid",
+                "datatype": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "custom",
+                "datatype": {
+                    "type": "map",
+                    "catch_all": true,
+                    "elements": [
+                        {
+                            "type": "string",
+                            "index": true
+                        },
+                        {
+                            "type": "string",
+                            "index": true
+                        }
+                    ]
+                }
+            }
+        ],
+        "compression": "none",
+        "format_details": {
+            "flattening": {
+                "active": true,
+                "map_flattening_strategy": {
+                    "left": "."
+                },
+                "slice_flattening_strategy": null
+            }
+        }
+    }
+}
