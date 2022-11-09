@@ -1,0 +1,326 @@
+{
+    "name": "EdgeCast-RTLD-Transform",
+    "description": "Real-time Log Delivery Edgecast logs transform",
+    "settings": {
+       "is_default": true,
+       "output_columns": [
+        {
+            "name": "account_number",
+            "datatype": {
+               "type": "uint32"
+            }
+         },
+         {
+            "name": "auth_user",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "background_fill_wait_time",
+            "datatype": {
+               "type": "uint32"
+            }
+         },
+         {
+            "name": "bytes_in",
+            "datatype": {
+               "type": "uint32"
+            }
+         },
+         {
+            "name": "bytes_out",
+            "datatype": {
+               "type": "uint32"
+            }
+         },
+         {
+            "name": "cache_status",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_as_org",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_asn",
+            "datatype": {
+               "type": "int32"
+            }
+         },
+         {
+            "name": "client_city",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_continent_code",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_country_code",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_geo_latitude",
+            "datatype": {
+               "type": "double"
+            }
+         },
+         {
+            "name": "client_geo_longitude",
+            "datatype": {
+               "type": "double"
+            }
+         },
+         {
+            "name": "client_ip_version",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_ip",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_isp",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_port",
+            "datatype": {
+               "type": "int32"
+            }
+         },
+         {
+            "name": "client_protocol",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_region",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_tls_cipher",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "client_tls_version",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "cookie_name",
+            "datatype": {
+            "type": "string"
+            }
+         },
+         {
+            "name": "custom_field",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "file_size",
+            "datatype": {
+               "type": "int64"
+            }
+         },
+         {
+            "name": "first_byte_served",
+            "datatype": {
+               "type": "int8"
+            }
+         },
+         {
+            "name": "host",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "last_byte_served",
+            "datatype": {
+               "type": "int8"
+            }
+         },
+         {
+            "name": "method",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "origin_name",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "path",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "platform",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "pop",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "prewrite_time",
+            "datatype": {
+               "type": "double"
+            }
+         },
+         {
+            "name": "proxy_ip",
+            "datatype": {
+               "type": "string"
+            }
+         }, 
+         {
+            "name": "proxy_port",
+            "datatype": {
+               "type": "uint32"
+            }
+         },
+         {
+            "name": "proxy_type",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "query",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "read_time",
+            "datatype": {
+               "type": "double"
+            }
+         },
+         {
+            "name": "referer",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "req_hdr_{request_header}",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "resp_hdr_{response_header}",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "rewritten_path",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "scheme",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "server_ip",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "server_port",
+            "datatype": {
+               "type": "int32"
+            }
+         },
+         {
+            "name": "status_code",
+            "datatype": {
+               "type": "int32"
+            }
+         },
+         {
+            "name": "status",
+            "datatype": {
+               "type": "string"
+            }
+         },
+        {
+             "name": "timestamp",
+             "datatype": {
+                "type": "epoch",
+                "format": "seconds",
+                "primary": true,
+                "resolution": "ms"
+             }
+        },
+        {
+            "name": "total_time",
+            "datatype": {
+               "type": "double"
+            }
+         },
+         {
+            "name": "user_agent",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "uuid",
+            "datatype": {
+               "type": "string"
+            }
+         },
+         {
+            "name": "write_time",
+            "datatype": {
+               "type": "double"
+            }
+         }
+       ],
+       "compression": "none"
+    },
+    "type": "json"
+ }
