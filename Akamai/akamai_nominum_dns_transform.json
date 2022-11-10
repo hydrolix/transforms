@@ -1,0 +1,462 @@
+{
+    "name": "nominum",
+    "type": "json",
+	"settings": {
+		"is_default": true,
+		"output_columns": [
+			{
+				"name": "timestamp",
+				"datatype": {
+					"type": "epoch",
+					"index": false,
+					"primary": true,
+					"source": {
+						"from_input_field": "start-time"
+					},
+					"format": "us",
+					"resolution": "ms",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "flags",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": null,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "client_port",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"source": {
+						"from_input_field": "client-port"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "address_family",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "address-family"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "elapsed_time",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"source": {
+						"from_input_field": "elapsed-time"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "dns_message.id",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"source": {
+						"from_input_field": "dns-message.id"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "dns_message.rcode",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "dns-message.rcode"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "dns_message.opcode",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "dns-message.opcode"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "dns_message.flags",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": {
+						"from_input_field": "dns-message.flags"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "dns_message.question",
+				"datatype": {
+					"type": "array",
+					"index": true,
+					"elements": [
+						{
+							"type": "map",
+							"elements": [
+								{
+									"type": "string",
+									"index": true
+								},
+								{
+									"type": "string",
+									"index": true,
+									"index_options": {
+										"fulltext": true
+									}
+								}
+							]
+						}
+					],
+					"source": {
+						"from_input_field": "dns-message.question"
+					}
+				}
+			},
+			{
+				"name": "dns_message.answer",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": {
+						"from_input_field": "dns-message.answer"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "dns_message.authority",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": {
+						"from_input_field": "dns-message.authority"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "dns_message.additional",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": {
+						"from_input_field": "dns-message.additional"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "client_address",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "client-address"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "server_address",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "server-address"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "view",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": null,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "lvp_policy",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": {
+						"from_input_field": "lvp-policy"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "lvp_parent_policy",
+				"datatype": {
+					"type": "array",
+					"index": false,
+					"source": {
+						"from_input_field": "lvp-parent-policy"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [
+						{
+							"type": "string",
+							"index": true
+						}
+					]
+				}
+			},
+			{
+				"name": "resolver",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": null,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "request_length",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"source": {
+						"from_input_field": "request-length"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "response_length",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"source": {
+						"from_input_field": "response-length"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "chunk_header.timestamp",
+				"datatype": {
+					"type": "epoch",
+					"index": true,
+					"source": {
+						"from_input_field": "chunk-header.timestamp"
+					},
+					"format": "s",
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "chunk_header.engine_type",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "chunk-header.engine-type"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "chunk_header.engine_version",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "chunk-header.engine-version"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "chunk_header.node_id",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"source": {
+						"from_input_field": "chunk-header.node-id"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "chunk_offset",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"source": {
+						"from_input_field": "chunk-offset"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "kafka_partition",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"source": {
+						"from_input_field": "kafka-partition"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			},
+			{
+				"name": "kafka_offset",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"source": {
+						"from_input_field": "kafka-offset"
+					},
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null
+				}
+			}
+		],
+		"compression": "none",
+		"format_details": {
+			"flattening": {
+				"depth": 1,
+				"active": true,
+				"map_flattening_strategy": {
+					"left": "."
+				}
+			}
+		}
+	}
+}
