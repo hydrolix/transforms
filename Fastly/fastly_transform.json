@@ -1,0 +1,396 @@
+{
+    "name": "fastly",
+    "description": "Fastly Default transform",
+    "type": "json",
+    "settings": {
+      "output_columns": [
+        {
+          "name": "cache_status",
+          "datatype": {
+            "type": "string"
+          }
+        },  
+        {
+          "name": "client_ip",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "content_type",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "geo_city",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "geo_continent_code",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "geo_country_code",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "geo_datacenter",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "geo_region",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "h2_stream_id",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "host",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "is_cacheable",
+          "datatype": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "is_h2",
+          "datatype": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "is_h2_push",
+          "datatype": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "is_ipv6",
+          "datatype": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "is_tls",
+          "datatype": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "origin_host",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "protocol",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "req_body_size",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "req_header_size",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "request",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_accept_charset",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_accept_content",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_accept_encoding",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_accept_language",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_cache_control",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_connection",
+          "datatype": {
+            "type": "string",
+          }
+        },
+        {
+          "name": "request_dnt",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_forwarded",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_referer",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_user_agent",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_via",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_x_forwarded_for",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "request_x_requested_with",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "resp_body_size",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "resp_header_size",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "response_age",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "response_cache_control",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "response_expires",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "response_last_modified",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "response_tsv",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "service_id",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "service_version",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "socket_cwnd",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_nexthop",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "socket_ploss",
+          "datatype": {
+            "type": "double"
+          }
+        },
+        {
+          "name": "socket_tcpi_delta_retrans",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_last_data_sent",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_rcv_mss",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_rcv_rtt",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_rcv_space",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_rtt",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_rttvar",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_snd_mss",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "socket_tcpi_total_retrans",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "status",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "time_elapsed",
+          "datatype": {
+            "type": "uint32"
+          }
+        },
+        {
+          "name": "time_end",
+          "datatype": {
+            "type": "datetime",
+            "format": "2006-01-02T15:04:05"
+          }
+        },
+        {
+          "name": "time_start",
+          "datatype":{
+            "type": "datetime",
+            "primary": true,
+            "format": "2006-01-02T15:04:05"
+          }
+        },
+        {
+          "name": "tls_client_cipher",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tls_client_cipher_sha",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tls_client_protocol",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tls_client_servername",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tls_client_tlsexts_sha",
+          "datatype": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "url",
+          "datatype": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  }
