@@ -3,7 +3,7 @@
         "name": "akamai_datastream",
         "description": "Akamai transform for all fields included in Datatream v2 product",
         "version": "1",
-        "url":"https://raw.githubusercontent.com/hydrolix/transforms/dev/Akamai/akamai_datastream2_transform.json",
+        "url":"/Akamai/akamai_datastream2_transform.json",
         "vendor":"akamai",
         "tags": ["cdn", "logs", "akamai"]
     },
@@ -11,7 +11,7 @@
         "name": "fastly",
         "description": "Fastly default transform for JSON based logging",
         "version": "1",
-        "url":"https://raw.githubusercontent.com/hydrolix/transforms/dev/Fastly/fastly_transform.json",
+        "url":"/Fastly/fastly_transform.json",
         "vendor":"fastly",
         "tags": ["cdn", "logs", "fastly"]
     },
@@ -19,7 +19,7 @@
         "name": "edgecast",
         "description": "Edgecast default transform for JSON based logging",
         "version": "1",
-        "url":"https://raw.githubusercontent.com/hydrolix/transforms/dev/EdgeCast/edgecast-real-time-log-delivery-transform.json",
+        "url":"/EdgeCast/edgecast-real-time-log-delivery-transform.json",
         "vendor":"edgescast",
         "tags": ["cdn", "logs", "edgecast"]
     },
@@ -27,7 +27,7 @@
         "name": "cloudfront",
         "description": "AWS Cloudfront default transform for Kinesis real time logging",
         "version": "1",
-        "url":"https://raw.githubusercontent.com/hydrolix/transforms/dev/AWS/Kinesis-Real-Time-Cloudfront-Logs.json",
+        "url":"/AWS/Kinesis-Real-Time-Cloudfront-Logs.json",
         "vendor":"aws",
         "tags": ["cdn", "logs", "cloudfront", "aws", "kinesis"]
     }
