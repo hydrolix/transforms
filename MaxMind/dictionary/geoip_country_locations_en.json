@@ -1,0 +1,112 @@
+{
+		"name": "geoip_country_locations_en",
+		"settings": {
+			"filename": "geoip_country_locations_en",
+			"layout": "hashed",
+			"lifetime_seconds": 5,
+			"output_columns": [
+				{
+					"name": "geoname_id",
+					"datatype": {
+						"type": "uint64",
+						"denullify": true
+					}
+				},
+				{
+					"name": "locale_code",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "continent_code",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "continent_name",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "country_iso_code",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "country_name",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "subdivision_1_iso_code",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "subdivision_1_name",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "subdivision_2_iso_code",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "subdivision_2_name",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "city_name",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "metro_code",
+					"datatype": {
+						"type": "uint32",
+						"denullify": true
+					}
+				},
+				{
+					"name": "time_zone",
+					"datatype": {
+						"type": "string",
+						"denullify": true
+					}
+				},
+				{
+					"name": "is_in_european_union",
+					"datatype": {
+						"type": "uint8",
+						"denullify": true
+					}
+				}
+			],
+			"primary_key": [
+				"geoname_id"
+			],
+			"format": "CSVWithNames"
+		}
+	}
