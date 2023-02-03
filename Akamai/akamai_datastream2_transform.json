@@ -84,6 +84,12 @@
         }
       },
       {
+        "name": "cacheable",
+        "datatype": {
+          "type": "boolean"
+        }
+      },
+      {
         "name": "breadcrumbs",
         "datatype": {
           "type": "string"
