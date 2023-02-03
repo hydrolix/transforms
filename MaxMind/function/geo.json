@@ -1,0 +1,4 @@
+{
+    "name": "geo",
+    "sql": "(type, ip) -> \n    multiIf(\n        type = 'asn', toString(maxmind_geo_asn(    assumeNotNull(ip))),\n        type = 'org', maxmind_geo_org(assumeNotNull(ip)),\n        type = 'country', maxmind_geo_country(    assumeNotNull(ip)),\n        type = 'subdivision1', maxmind_geo_subdivision1(    assumeNotNull(ip)),\n        type = 'state', maxmind_geo_subdivision1(    assumeNotNull(ip)),\n        type = 'subdivision2', maxmind_geo_subdivision2(    assumeNotNull(ip)),\n        type = 'city', maxmind_geo_city(assumeNotNull(ip)),\n        NULL        \n    )"
+}
