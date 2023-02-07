@@ -1,0 +1,4 @@
+{
+    "name": "time_zone",
+    "sql": "(ip) -> \n    dictGetString('maxmind_geoip_city_locations_en', \n                  'time_zone', \n                  maxmind_geoname_id(assumeNotNull(ip))\n    )"
+}

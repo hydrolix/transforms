@@ -1,0 +1,4 @@
+{
+    "name": "postal_code",
+    "sql": "    (ip) -> \n    toUInt64(multiIf(\n        isIPv4String(ip), dictGetUInt32('maxmind_geoip_city_blocks_ipv4', 'postal_code', tuple(IPv4StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n        isIPv6String(ip), dictGetUInt32('maxmind_geoip_city_blocks_ipv6', 'postal_code', tuple(IPv6StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n        0\n    ))"
+}

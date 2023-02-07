@@ -1,0 +1,4 @@
+{
+    "name": "continent_name",
+    "sql": "(ip) -> \n    dictGetString('maxmind_geoip_city_locations_en', \n                  'continent_name', \n                  maxmind_geoname_id(assumeNotNull(ip))\n    )"
+}
