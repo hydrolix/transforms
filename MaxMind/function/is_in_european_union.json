@@ -1,4 +1,4 @@
 {
     "name": "is_in_european_union",
-    "sql": "(ip) -> \n    dictGetString('maxmind_geoip_city_locations_en', \n                  'is_in_european_union', \n                  maxmind_geoname_id(assumeNotNull(ip))\n    )"
+    "sql": "(ip) -> \n    dictGetUInt8('maxmind_geoip_city_locations_en', \n                  'is_in_european_union', \n                  maxmind_geoname_id(assumeNotNull(ip))\n    )"
 }

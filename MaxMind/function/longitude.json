@@ -1,4 +1,4 @@
 {
     "name": "longitude",
-    "sql": "    (ip) -> \n    toUInt64(multiIf(\n        isIPv4String(ip), dictGetUInt32('maxmind_geoip_city_blocks_ipv4', 'longitude', tuple(IPv4StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n        isIPv6String(ip), dictGetUInt32('maxmind_geoip_city_blocks_ipv6', 'longitude', tuple(IPv6StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n        0\n    ))"
+    "sql": "    (ip) -> \n    toFloat64(multiIf(\n        isIPv4String(ip), dictGetFloat64('maxmind_geoip_city_blocks_ipv4', 'longitude', tuple(IPv4StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n        isIPv6String(ip), dictGetFloat64('maxmind_geoip_city_blocks_ipv6', 'longitude', tuple(IPv6StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n        0\n    ))"
 }
