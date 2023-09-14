@@ -2,10 +2,34 @@
     {
         "name": "akamai_datastream",
         "description": "Akamai transform for all fields included in Datatream v2 product",
-        "version": "1",
+        "version": "3",
         "url":"/Akamai/akamai_datastream2_transform.json",
         "vendor":"akamai",
         "tags": ["cdn", "logs", "akamai"]
+    },
+    {
+        "name": "akamai_siem",
+        "description": "Akamai transform for all fields included in SIEM connector",
+        "version": "1",
+        "url":"/Akamai/akamai_siem_transform.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "SIEM"]
+    },
+    {
+        "name": "akamai_media",
+        "description": "Akamai transform for Media Analytics replacement with Trafficpeak",
+        "version": "1",
+        "url":"/Akamai/akamai_media_transform.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "media", "streaming"]
+    },
+    {
+        "name": "akamai_dns",
+        "description": "Akamai transform for DNS logs via Nominum Kafka connector",
+        "version": "1",
+        "url":"/Akamai/akamai_nominum_dns_transform.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "dns"]
     },
     {
         "name": "fastly",
