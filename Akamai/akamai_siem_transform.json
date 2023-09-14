@@ -1,0 +1,765 @@
+{
+  "name": "siem",
+  "description": "Default SIEM integration for Akamai",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\n    NULL as requestHeadersStr,\n    NULL as ruleActionsStr,\n    NULL as ruleDataStr,\n    NULL as rulesStr,\n    NULL as ruleVersionsStr,\n    NULL as ruleMessagesStr,\n    NULL as ruleTagsStr,\n    NULL as ruleSelectorsStr,\n    NULL as responseHeadersStr,\n    *\n    EXCEPT(requestHeadersStr)\nFROM\n(SELECT\ndecodeURLComponent(requestHeadersStr) as requestHeadersStr, \ndecodeURLComponent(responseHeadersStr) as responseHeadersStr, \nakamai_siem_extract(rulesStr) as rules,\nakamai_siem_extract(ruleDataStr) as ruleData,\nakamai_siem_extract(ruleTagsStr) as ruleTags,\nakamai_siem_extract(ruleActionsStr) as ruleActions,\nakamai_siem_extract(ruleMessagesStr) as ruleMessages,\nakamai_siem_extract(ruleVersionsStr) as ruleVersions,\nakamai_siem_extract(ruleSelectorsStr) as ruleSelectors,            akamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') as requestHeaders,\nakamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') as responseHeaders,\n*\nFROM\n{STREAM}\n)",
+    "null_values": [],
+    "sample_data": {},
+    "output_columns": [
+      {
+        "name": "timestamp",
+        "datatype": {
+          "type": "epoch",
+          "index": false,
+          "primary": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/start"
+            ]
+          },
+          "format": "s",
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "format",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "clientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/clientIP"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "configId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/configId"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "policyId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/policyId"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "ruleActionsStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/ruleActions"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "ruleDataStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/ruleData"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rulesStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/rules"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "ruleVersionsStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/ruleVersions"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "ruleMessagesStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/ruleMessages"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "ruleTagsStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/ruleTags"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "ruleSelectorsStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/attackData/ruleSelectors"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "continent",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/geo/continent"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "country",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/geo/country"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "city",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/geo/city"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "regionCode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/geo/regionCode"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "asn",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/geo/asn"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "requestId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/requestId"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "protocol",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/protocol"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "tls",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/tls"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "method",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/method"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "host",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/host"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "port",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/port"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "path",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/path"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "requestHeadersStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/requestHeaders"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "status",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/status"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bytes",
+        "datatype": {
+          "type": "uint64",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/bytes"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "responseHeadersStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage/responseHeaders"
+            ]
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "userRiskData",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "clientData",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "botData",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "tor",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "source": {
+            "from_automatic_value": "current_time"
+          },
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "requestHeaders",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "responseHeaders",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "rules",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "ruleData",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "ruleTags",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "ruleActions",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "ruleMessages",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "ruleVersions",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "ruleSelectors",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ]
+        }
+      }
+    ],
+    "compression": "",
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
