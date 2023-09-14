@@ -3,18 +3,42 @@
   "description": "Akamai datastream v2 default template",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT datediff('s', reqTimeSec, now64(3)) as latency,\ndecodeURLComponent(assumeNotNull(UA)) as UA,\ndecodeURLComponent(assumeNotNull(referer)) as referer,\ndecodeURLComponent(assumeNotNull(queryStr)) as queryStr,\nextract(decodeURLComponent(assumeNotNull(breadcrumbs)), '\\\\\\/\\\\\\/BC\\\\\\/(\\\\S*)') as breadcrumbs,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'a=([^,\\\\]]+)') as Edge_IP,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'b=([^,\\\\]]+)') as Edge_RequestID,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'k=([^,\\\\]]+)') as Edge_RequestEndTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'l=([^,\\\\]]+)') as Edge_TurnAroundTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'm=([^,\\\\]]+)') as Edge_DNSLookupTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'n=([^,\\\\]]+)') as Edge_GeoInfo,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=g[^]]*\\\\])'), 'o=([^,\\\\]]+)') as Edge_ASN,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'a=([^,\\\\]]+)') as Origin_IP,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'b=([^,\\\\]]+)') as Origin_RequestID,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'k=([^,\\\\]]+)') as Origin_RequestEndTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'l=([^,\\\\]]+)') as Origin_TurnAroundTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'm=([^,\\\\]]+)') as Origin_DNSLookupTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'n=([^,\\\\]]+)') as Origin_GeoInfo,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(\\\\[[^[]*c=o[^]]*\\\\])'), 'o=([^,\\\\]]+)') as Origin_ASN,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'a=([^,\\\\]]+)') as Peer_IP,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'b=([^,\\\\]]+)') as Peer_RequestID,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'k=([^,\\\\]]+)') as Peer_RequestEndTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'l=([^,\\\\]]+)') as Peer_TurnAroundTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'm=([^,\\\\]]+)') as Peer_DNSLookupTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'n=([^,\\\\]]+)') as Peer_GeoInfo,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=p[^]]*\\\\])'), 'o=([^,\\\\]]+)') as Peer_ASN,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'a=([^,\\\\]]+)') as Parent_IP,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'b=([^,\\\\]]+)') as Parent_RequestID,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'k=([^,\\\\]]+)') as Parent_RequestEndTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'l=([^,\\\\]]+)') as Parent_TurnAroundTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'm=([^,\\\\]]+)') as Parent_DNSLookupTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'n=([^,\\\\]]+)') as Parent_GeoInfo,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=c[^]]*\\\\])'), 'o=([^,\\\\]]+)') as Parent_ASN,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'a=([^,\\\\]]+)') as CloudWrapper_IP,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'b=([^,\\\\]]+)') as CloudWrapper_RequestID,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'k=([^,\\\\]]+)') as CloudWrapper_RequestEndTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'l=([^,\\\\]]+)') as CloudWrapper_TurnAroundTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'm=([^,\\\\]]+)') as CloudWrapper_DNSLookupTime,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'n=([^,\\\\]]+)') as CloudWrapper_GeoInfo,\nextract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), '(,\\\\[[^[]*c=w[^]]*\\\\])'), 'o=([^,\\\\]]+)') as CloudWrapper_ASN,\nassumeNotNull(decodeURLComponent(cmcd)) as url_cmcd,\nconcat('/', assumeNotNull(reqPath)) as reqPath,\nif(startsWith(url_cmcd, '//x.x@U/'), substring(url_cmcd, 9), url_cmcd) as url,\nflatten(extractAllGroupsVertical(assumeNotNull(url), '([^=,\\\"]+)=\\\"?([^,=\\\"]+)\\\"? ?')) as groups,\nakamai_cmcd_query_param('bl', groups) as cmcd_buffer_length,\nakamai_cmcd_query_param('br', groups) as cmcd_encoded_bitrate,\nurl LIKE '%,bs,%' ? 1 : 0 as cmcd_buffer_starvation,\nakamai_cmcd_query_param('cid', groups) as cmcd_content_id,\nakamai_cmcd_query_param('d', groups) as cmcd_object_duration,\nakamai_cmcd_query_param('dl', groups) as cmcd_deadline,\nakamai_cmcd_query_param('mtp', groups) as cmcd_measured_throughput,\nakamai_cmcd_query_param('nor', groups) as cmcd_next_object_requests,\nakamai_cmcd_query_param('nrr', groups) as cmcd_next_range_request,\nakamai_cmcd_object_type(akamai_cmcd_query_param('ot', groups)) as cmcd_object_type,\nakamai_cmcd_query_param('pr', groups) as cmcd_playback_rate,\nakamai_cmcd_query_param('rtp', groups) as cmcd_requested_max_throughput,\nakamai_cmcd_streaming_format(akamai_cmcd_query_param('sf', groups)) as cmcd_streaming_format,\nakamai_cmcd_query_param('sid', groups) as cmcd_session_id,\nakamai_cmcd_stream_type(akamai_cmcd_query_param('st', groups)) as cmcd_stream_type,\nurl LIKE '%,su,%' ? 1 : 0 as cmcd_startup,\nakamai_cmcd_query_param('tb', groups) as cmcd_top_bitrate,\nakamai_cmcd_query_param('v', groups) as cmcd_version,\nakamai_cmcd_query_param('d', groups) as cmcd_playback_duration,\n*\nFROM {STREAM}",
+    "sql_transform": "SELECT datediff('s', reqTimeSec, now64(3)) as latency,\ndecodeURLComponent(assumeNotNull(UA)) as UA,\ndecodeURLComponent(assumeNotNull(referer)) as referer,\ndecodeURLComponent(assumeNotNull(queryStr)) as queryStr,\nextract(decodeURLComponent(assumeNotNull(breadcrumbs)), '\\/\\/BC\\/(\\S*)') as breadcrumbs,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'a=([^,\\]]+)') as Edge_IP,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'b=([^,\\]]+)') as Edge_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'k=([^,\\]]+)') as Edge_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'l=([^,\\]]+)') as Edge_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'm=([^,\\]]+)') as Edge_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'n=([^,\\]]+)') as Edge_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'o=([^,\\]]+)') as Edge_ASN,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'a=([^,\\]]+)') as Origin_IP,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'b=([^,\\]]+)') as Origin_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'k=([^,\\]]+)') as Origin_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'l=([^,\\]]+)') as Origin_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'm=([^,\\]]+)') as Origin_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'n=([^,\\]]+)') as Origin_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'o=([^,\\]]+)') as Origin_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'a=([^,\\]]+)') as Peer_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'b=([^,\\]]+)') as Peer_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'k=([^,\\]]+)') as Peer_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'l=([^,\\]]+)') as Peer_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'm=([^,\\]]+)') as Peer_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'n=([^,\\]]+)') as Peer_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'o=([^,\\]]+)') as Peer_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'a=([^,\\]]+)') as Parent_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'b=([^,\\]]+)') as Parent_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'k=([^,\\]]+)') as Parent_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'l=([^,\\]]+)') as Parent_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'm=([^,\\]]+)') as Parent_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'n=([^,\\]]+)') as Parent_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'o=([^,\\]]+)') as Parent_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'a=([^,\\]]+)') as CloudWrapper_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'b=([^,\\]]+)') as CloudWrapper_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'k=([^,\\]]+)') as CloudWrapper_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'l=([^,\\]]+)') as CloudWrapper_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'm=([^,\\]]+)') as CloudWrapper_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'n=([^,\\]]+)') as CloudWrapper_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'o=([^,\\]]+)') as CloudWrapper_ASN,\nassumeNotNull(decodeURLComponent(cmcd)) as url_cmcd,\nconcat('/', assumeNotNull(reqPath)) as reqPath,\nif(startsWith(url_cmcd, '//x.x@U/'), substring(url_cmcd, 9), url_cmcd) as url,\nflatten(extractAllGroupsVertical(assumeNotNull(url), '([^=,\"]+)=\"?([^,=\"]+)\"? ?')) as groups,\nakamai_cmcd_query_param('bl', groups) as cmcd_buffer_length,\nakamai_cmcd_query_param('br', groups) as cmcd_encoded_bitrate,\nurl LIKE '%,bs,%' ? 1 : 0 as cmcd_buffer_starvation,\nakamai_cmcd_query_param('cid', groups) as cmcd_content_id,\nakamai_cmcd_query_param('d', groups) as cmcd_object_duration,\nakamai_cmcd_query_param('dl', groups) as cmcd_deadline,\nakamai_cmcd_query_param('mtp', groups) as cmcd_measured_throughput,\nakamai_cmcd_query_param('nor', groups) as cmcd_next_object_requests,\nakamai_cmcd_query_param('nrr', groups) as cmcd_next_range_request,\nakamai_cmcd_object_type(akamai_cmcd_query_param('ot', groups)) as cmcd_object_type,\nakamai_cmcd_query_param('pr', groups) as cmcd_playback_rate,\nakamai_cmcd_query_param('rtp', groups) as cmcd_requested_max_throughput,\nakamai_cmcd_streaming_format(akamai_cmcd_query_param('sf', groups)) as cmcd_streaming_format,\nakamai_cmcd_query_param('sid', groups) as cmcd_session_id,\nakamai_cmcd_stream_type(akamai_cmcd_query_param('st', groups)) as cmcd_stream_type,\nurl LIKE '%,su,%' ? 1 : 0 as cmcd_startup,\nakamai_cmcd_query_param('tb', groups) as cmcd_top_bitrate,\nakamai_cmcd_query_param('v', groups) as cmcd_version,\nakamai_cmcd_query_param('d', groups) as cmcd_playback_duration,\n*\nFROM {STREAM}",
     "null_values": [
       "-",
       "-1",
       "^"
     ],
-    "sample_data": false,
+    "sample_data": {},
     "output_columns": [
       {
         "name": "version",
         "datatype": {
           "type": "uint8",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "asn",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "timeToFirstByte",
+        "datatype": {
+          "type": "uint32",
           "index": true,
           "source": null,
           "format": null,
@@ -160,7 +184,7 @@
         "name": "breadcrumbs",
         "datatype": {
           "type": "string",
-          "index": true,
+          "index": false,
           "source": null,
           "format": null,
           "resolution": "seconds",
@@ -184,10 +208,7 @@
         "name": "cmcd",
         "datatype": {
           "type": "string",
-          "index": true,
-          "index_options": {
-            "fulltext": true
-          },
+          "index": false,
           "source": null,
           "format": null,
           "resolution": "seconds",
@@ -380,9 +401,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": null,
           "format": null,
           "resolution": "seconds",
@@ -419,9 +437,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": null,
           "format": null,
           "resolution": "seconds",
@@ -542,9 +557,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": null,
           "format": null,
           "resolution": "seconds",
@@ -629,9 +641,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": null,
           "format": null,
           "resolution": "seconds",
