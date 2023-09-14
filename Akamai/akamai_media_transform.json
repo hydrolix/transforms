@@ -1,0 +1,2259 @@
+{
+  "name": "media",
+  "description": "Media Analytics Transform",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\nNULL as queryStr,\n* EXCEPT(queryStr) FROM (\nSELECT\nflatten(extractAllGroupsVertical(assumeNotNull(decodeURLComponent(queryStr)), '([^~=\"]+)=\\\"?([^~\"]+)\\\"? ?')) as groups,\nakamai_ma_eventcode(akamai_cmcd_query_param('a', groups)) as eventCode,\nakamai_cmcd_query_param('b', groups) as beaconId,\nakamai_cmcd_query_param('c', groups) as sessionId,\nakamai_cmcd_query_param('d', groups) as clientId,\nakamai_cmcd_query_param('e', groups) as sequenceId,\nakamai_cmcd_query_param('f', groups) as logType,\nakamai_cmcd_query_param('g', groups) as endOfStream,\nakamai_cmcd_query_param('h', groups) as logVersion,\nakamai_cmcd_query_param('i', groups) as formatVersion,\nakamai_cmcd_query_param('k', groups) as visitId,\nakamai_cmcd_query_param('sd', groups) as scriptDisabled,\nakamai_cmcd_query_param('xd', groups) as xViewerId,\nakamai_cmcd_query_param('VV', groups) as xViewerIdVersion,\nakamai_cmcd_query_param('pd', groups) as playerId,\ndecodeURLComponent(akamai_cmcd_query_param('tt', groups)) as title,\nakamai_cmcd_query_param('sh', groups) as show,\nakamai_cmcd_query_param('cg', groups) as category,\nakamai_cmcd_query_param('sc', groups) as subcategory,\nakamai_cmcd_query_param('cy', groups) as contentType,\nakamai_cmcd_query_param('cl', groups) as contentLength,\nakamai_cmcd_query_param('sa', groups) as device,\nakamai_cmcd_query_param('ca', groups) as errorCode,\nakamai_cmcd_query_param('za', groups) as partNumber,\nakamai_cmcd_query_param('zb', groups) as totalParts,\nakamai_cmcd_query_param('aa', groups) as hostName,\nakamai_cmcd_query_param('ab', groups) as appName,\nakamai_cmcd_query_param('ac', groups) as streamName,\nakamai_cmcd_query_param('ad', groups) as port,\nakamai_cmcd_query_param('ae', groups) as protocol,\ndecodeURLComponent(akamai_cmcd_query_param('af', groups)) as playerReferrer,\ndecodeURLComponent(akamai_cmcd_query_param('pu', groups)) as pageUrl,\ndecodeURLComponent(akamai_cmcd_query_param('pr', groups)) as pageReferrer,\ndecodeURLComponent(akamai_cmcd_query_param('ai', groups)) as userAgent,\nakamai_cmcd_query_param('aj', groups) as playerversion,\nakamai_cmcd_query_param('ak', groups) as playerType,\ndecodeURLComponent(akamai_cmcd_query_param('al', groups)) as OS,\nakamai_ma_format(akamai_cmcd_query_param('am', groups)) as format,\nakamai_cmcd_query_param('an', groups) as connectTime,\nakamai_cmcd_query_param('ao', groups) as bufferingTime,\nakamai_cmcd_query_param('ap', groups) as startupTime,\nakamai_cmcd_query_param('aq', groups) as streamLength,\nakamai_cmcd_query_param('ar', groups) as bytesTotal,\nakamai_cmcd_query_param('as', groups) as encodedFPS,\ndecodeURLComponent(akamai_cmcd_query_param('at', groups)) as browser,\nakamai_cmcd_query_param('au', groups) as browserSize,\nakamai_cmcd_query_param('s', groups) as videoSize,\ndecodeURLComponent(akamai_cmcd_query_param('aw', groups)) as streamUrl,\nakamai_ma_deliverytype(akamai_cmcd_query_param('ax', groups)) as deliveryType,\nakamai_cmcd_query_param('ba', groups) as bucketlength,\nakamai_cmcd_query_param('bb', groups) as serverIp,\nakamai_cmcd_query_param('be', groups) as playerFormat,\nakamai_cmcd_query_param('cm', groups) as cdn,\nakamai_cmcd_query_param('ft', groups) as isFirstTitle,\nakamai_cmcd_query_param('rh', groups) as rebufferSessionH,\nakamai_cmcd_query_param('he', groups) as sequenceIdH,\nakamai_cmcd_query_param('hdw', groups) as isSessionWithRebufferH,\nakamai_ma_playerstate(akamai_cmcd_query_param('m', groups)) as playerState,\nakamai_cmcd_query_param('n', groups) as playBackBitRate,\nakamai_cmcd_query_param('o', groups) as audioBandwidth,\nakamai_cmcd_query_param('p', groups) as videoBandwidth,\nakamai_cmcd_query_param('q', groups) as dataBandwidth,\nakamai_cmcd_query_param('u', groups) as droppedFrames,\nakamai_cmcd_query_param('v', groups) as currentStreamTime,\nakamai_cmcd_query_param('w', groups) as currentClockTime,\nakamai_cmcd_query_param('x', groups) as playClockTime,\nakamai_cmcd_query_param('y', groups) as playStreamTime,\nakamai_cmcd_query_param('z', groups) as rebufferCount,\nakamai_cmcd_query_param('da', groups) as rebufferTime,\nakamai_cmcd_query_param('db', groups) as averageFPS,\nakamai_cmcd_query_param('dc', groups) as bytesLoaded,\nakamai_cmcd_query_param('dd', groups) as pauseCount,\nakamai_cmcd_query_param('de', groups) as pauseDuration,\nakamai_cmcd_query_param('df', groups) as pauseIntervalsAsString,\nakamai_cmcd_query_param('dg', groups) as seekCount,\nakamai_cmcd_query_param('dh', groups) as seekTime,\nakamai_cmcd_query_param('di', groups) as seekIntervalsAsString,\nakamai_cmcd_query_param('dj', groups) as pauseSeekSession,\nakamai_cmcd_query_param('dk', groups) as bandwidthPercent,\nakamai_cmcd_query_param('dl', groups) as bufferLength,\nakamai_cmcd_query_param('dm', groups) as averageFPSPercent,\nakamai_cmcd_query_param('dn', groups) as totalBandwidth,\nakamai_cmcd_query_param('do', groups) as resumeBufferCount,\nakamai_cmcd_query_param('dp', groups) as resumeBufferTime,\nakamai_cmcd_query_param('dq', groups) as bytesPlayed,\nakamai_cmcd_query_param('dr', groups) as availableBandwidth,\nakamai_cmcd_query_param('dt', groups) as encodedBitRate,\nakamai_cmcd_query_param('du', groups) as bufferTime,\nakamai_cmcd_query_param('dv', groups) as isView,\nakamai_cmcd_query_param('dw', groups) as isSessionWithRebuffer,\nakamai_cmcd_query_param('dx', groups) as logInterval,\nakamai_cmcd_query_param('dy', groups) as liveDelay,\nakamai_cmcd_query_param('dz', groups) as rtt,\nakamai_cmcd_query_param('ea', groups) as bucketCount,\nakamai_cmcd_query_param('eb', groups) as bucketPlays,\nakamai_cmcd_query_param('ec', groups) as bucketPauseCounts,\nakamai_cmcd_query_param('ed', groups) as bucketPauseTimes,\nakamai_cmcd_query_param('ee', groups) as bucketSeeks,\nakamai_cmcd_query_param('ef', groups) as bucketForwardSeeks,\nakamai_cmcd_query_param('eg', groups) as bucketBackwardSeeks,\nakamai_cmcd_query_param('eh', groups) as bucketRebufferCounts,\nakamai_cmcd_query_param('ei', groups) as bucketRebufferTimes,\nakamai_cmcd_query_param('ej', groups) as bucketResumeBufferCounts,\nakamai_cmcd_query_param('ek', groups) as bucketResumeBufferTimes,\nakamai_cmcd_query_param('el', groups) as bucketSeekTimes,\nakamai_cmcd_query_param('em', groups) as bucketFullScreenTimes,\nakamai_cmcd_query_param('fb', groups) as transitionCount,\nakamai_cmcd_query_param('fd', groups) as transitionUpSwitchCount,\nakamai_cmcd_query_param('fe', groups) as transitionDownSwitchCount,\nakamai_cmcd_query_param('ff', groups) as transitionTime,\nakamai_cmcd_query_param('fg', groups) as upSwitchReasonCounts,\nakamai_cmcd_query_param('fh', groups) as downSwitchReasonCounts,\nakamai_cmcd_query_param('fi', groups) as transitionStreamTimeSession,\nakamai_cmcd_query_param('fj', groups) as transitionStreamTimes,\nakamai_cmcd_query_param('fk', groups) as bitRateBuckettimes,\nakamai_cmcd_query_param('fl', groups) as averagedBitRate,\nakamai_cmcd_query_param('rs', groups) as rebufferSession,\nakamai_cmcd_query_param('gb', groups) as adSession,\nakamai_cmcd_query_param('gc', groups) as adCount,\nakamai_cmcd_query_param('gd', groups) as adPlayClockTime,\nakamai_cmcd_query_param('ge', groups) as adStartupTime,\nakamai_cmcd_query_param('gf', groups) as adPauseTime,\nakamai_cmcd_query_param('ss', groups) as asmSession,\nakamai_cmcd_query_param('ia', groups) as isASMEnabled,\nakamai_cmcd_query_param('rst', groups) as rebufferStatus,\nakamai_cmcd_query_param('so', groups) as socialSharing,\nakamai_cmcd_query_param('xa', groups) as endReasonCode,\nakamai_cmcd_query_param('tx', groups) as totalPlayClockTime,\nakamai_cmcd_query_param('ty', groups) as totalPlayStreamTime,\nakamai_cmcd_query_param('tz', groups) as totalRebufferCount,\nakamai_cmcd_query_param('ta', groups) as totalRebufferTime,\nakamai_cmcd_query_param('tb', groups) as maxPersistentBitRate,\nakamai_cmcd_query_param('td', groups) as totalAdPlayClockTime,\nakamai_cmcd_query_param('te', groups) as totalAdStartCount,\nakamai_cmcd_query_param('tf', groups) as totalAdAbandonCount,\nakamai_cmcd_query_param('hdx', groups) as lastHTime,\nakamai_cmcd_query_param('ti', groups) as maxBandwidth,\nakamai_cmcd_query_param('va', groups) as isVisitStart,\nakamai_cmcd_query_param('vb', groups) as isVisitEnd,\nakamai_cmcd_query_param('vc', groups) as visitAttempts,\nakamai_cmcd_query_param('vd', groups) as visitPlays,\nakamai_cmcd_query_param('ve', groups) as visitViews,\nakamai_cmcd_query_param('vf', groups) as visitErrors,\nakamai_cmcd_query_param('vg', groups) as visitInterval,\nakamai_cmcd_query_param('vh', groups) as visitPlayClockTime,\nakamai_cmcd_query_param('vi', groups) as visitPlayStreamTime,\nakamai_cmcd_query_param('Yj', groups) as visitRebufferCount,\nakamai_cmcd_query_param('vk', groups) as visitRebufferTime,\nakamai_cmcd_query_param('vl', groups) as visitMaxPersistentBitRateBucket,\nakamai_cmcd_query_param('vm', groups) as visitStartupErrors,\nakamai_cmcd_query_param('vo', groups) as visitAdPlayClockTime,\nakamai_cmcd_query_param('vp', groups) as visitAdStartCount,\nakamai_cmcd_query_param('vq', groups) as visitAdAbandonCount,\nakamai_cmcd_query_param('vr', groups) as visitUniqueTitles,\n*\nFROM {STREAM})",
+    "null_values": [
+      "-",
+      "^",
+      "0"
+    ],
+    "sample_data": {},
+    "output_columns": [
+      {
+        "name": "reqTimeSec",
+        "datatype": {
+          "type": "epoch",
+          "index": false,
+          "primary": true,
+          "source": null,
+          "format": "s",
+          "resolution": "ms",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "queryStr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "country",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "state",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "city",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "eventCode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "beaconId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "sessionId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "clientId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "sequenceId",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "logType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "endOfStream",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "logVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "formatVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "scriptDisabled",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "xViewerId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "xViewerIdVersion",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playerId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "title",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "show",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "category",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "subcategory",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "contentType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "contentLength",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "device",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "errorCode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "partNumber",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalParts",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "hostName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "appName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "streamName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "port",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "protocol",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playerReferrer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "pageUrl",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "pageReferrer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "userAgent",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": true
+          },
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playerversion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playerType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "OS",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "format",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "connectTime",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bufferingTime",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "startupTime",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "streamLength",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bytesTotal",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "encodedFPS",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "browser",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "browserSize",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "videoSize",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "streamUrl",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "deliveryType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketlength",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "serverIp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playerFormat",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "cdn",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isFirstTitle",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rebufferSessionH",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "sequenceIdH",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isSessionWithRebufferH",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playerState",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playBackBitRate",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "audioBandwidth",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "videoBandwidth",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "dataBandwidth",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "droppedFrames",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "currentStreamTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "currentClockTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playClockTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "playStreamTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rebufferCount",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rebufferTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "averageFPS",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bytesLoaded",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "pauseCount",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "pauseDuration",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "pauseIntervalsAsString",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "seekCount",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "seekTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "seekIntervalsAsString",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "pauseSeekSession",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bandwidthPercent",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bufferLength",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "averageFPSPercent",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalBandwidth",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "resumeBufferCount",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "resumeBufferTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bytesPlayed",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "availableBandwidth",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "encodedBitRate",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bufferTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isView",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isSessionWithRebuffer",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "logInterval",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "liveDelay",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rtt",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketPlays",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketPauseCounts",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketPauseTimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketSeeks",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketForwardSeeks",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketBackwardSeeks",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketRebufferCounts",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketRebufferTimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketResumeBufferCounts",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketResumeBufferTimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketSeekTimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bucketFullScreenTimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "transitionCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "transitionUpSwitchCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "transitionDownSwitchCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "transitionTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "upSwitchReasonCounts",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "downSwitchReasonCounts",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "transitionStreamTimeSession",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "transitionStreamTimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "bitRateBuckettimes",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "averagedBitRate",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rebufferSession",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "adSession",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "adCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "adPlayClockTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "adStartupTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "adPauseTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "asmSession",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isASMEnabled",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "rebufferStatus",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "socialSharing",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "endReasonCode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalPlayClockTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalPlayStreamTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalRebufferCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalRebufferTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "maxPersistentBitRate",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalAdPlayClockTime",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalAdStartCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "totalAdAbandonCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "lastHTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "maxBandwidth",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isVisitStart",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "isVisitEnd",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitAttempts",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitPlays",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitViews",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitErrors",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitInterval",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitPlayClockTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitPlayStreamTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitRebufferCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitRebufferTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitMaxPersistentBitRateBucket",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitStartupErrors",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitAdPlayClockTime",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitAdStartCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitAdAbandonCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      },
+      {
+        "name": "visitUniqueTitles",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null
+        }
+      }
+    ],
+    "compression": "",
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
