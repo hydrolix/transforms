@@ -1,0 +1,5 @@
+{
+  "name": "cmcd_stream_type",
+  "description": "CMCD Stream Type",
+  "sql": "(stream_type) -> multiIf(\n    stream_type  = 'v', 'VOD', stream_type = 'l', 'Live', stream_type\n)"
+}

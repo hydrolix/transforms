@@ -1,0 +1,5 @@
+{
+  "name": "subdivision_2_iso_code",
+  "description": "Subdivision 2 ISO Code",
+  "sql": "(ip) -> dictGetString('akamai_geoip_city_locations_en',\n              'subdivision_2_iso_code',\n              akamai_geoname_id(assumeNotNull(ip))\n)"
+}

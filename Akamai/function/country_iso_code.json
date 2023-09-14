@@ -1,0 +1,5 @@
+{
+  "name": "country_iso_code",
+  "description": "Country ISO Code",
+  "sql": "(ip) -> dictGetString('akamai_geoip_city_locations_en',\n              'country_iso_code',\n              akamai_geoname_id(assumeNotNull(ip))\n)"
+}

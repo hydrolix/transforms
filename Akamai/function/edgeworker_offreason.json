@@ -1,0 +1,5 @@
+{
+  "name": "edgeworker_offreason",
+  "description": "",
+  "sql": "(edgeworker_offreason) -> multiIf (\n  edgeworker_offreason = '-',\n  'Metadata indicated EdgeWorkers should be on',\n  edgeworker_offreason = 'm',\n  'Metadata indicated EdgeWorkers should be off',\n  edgeworker_offreason = 'i',\n  'Request is internal',\n  edgeworker_offreason = 'n',\n  'Request not on supported network',\n  edgeworker_offreason = 'g',\n  'Akamai edge server failed EdgeWorkers',\n  edgeworker_offreason = 's',\n  'Request was denied by a security product',\n  edgeworker_offreason\n)"
+}

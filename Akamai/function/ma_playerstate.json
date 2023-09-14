@@ -1,0 +1,5 @@
+{
+  "name": "ma_playerstate",
+  "description": "MA Player State",
+  "sql": "(playerstate) -> multiIf (\n      playerstate = 'I',\n      'Init',\n      playerstate = 'C',\n      'Connecting',\n      playerstate = 'IB',\n      'Init Buffering',\n      playerstate = 'PL',\n      'Playing',\n      playerstate = 'B',\n      'Rebuffering',\n      playerstate = 'SK',\n      'Seeking',\n      playerstate = 'SB',\n      'Seek Buffering',\n      playerstate = 'PS',\n      'Pausing',\n      playerstate = 'RB',\n      'Resume Buffering',\n      playerstate = 'AL',\n      'Ad Loading',\n      playerstate = 'AP',\n      'Ad Playing',\n      playerstate = 'E',\n      'End',\n      playerstate\n    )"
+}

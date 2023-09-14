@@ -1,0 +1,5 @@
+{
+  "name": "is_in_european_union",
+  "description": "Is in European Union",
+  "sql": "(ip) -> dictGetUInt8('akamai_geoip_city_locations_en',\n              'is_in_european_union',\n              akamai_geoname_id(assumeNotNull(ip))\n)"
+}

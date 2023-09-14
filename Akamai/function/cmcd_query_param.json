@@ -1,0 +1,5 @@
+{
+  "name": "cmcd_query_param",
+  "description": "CMCD Query Param",
+  "sql": "(param, groups_arr) -> (multiIf(\n    has(groups_arr, param),\n    empty(groups_arr[indexOf(groups_arr, param)+1]) ? NULL\n        :groups_arr[indexOf(groups_arr, param)+1],\n    NULL));"
+}

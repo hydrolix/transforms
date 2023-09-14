@@ -1,0 +1,5 @@
+{
+  "name": "city_name",
+  "description": "City Name",
+  "sql": "(ip) -> dictGetString('akamai_geoip_city_locations_en',\n              'city_name',\n              akamai_geoname_id(assumeNotNull(ip))\n)"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "asn_name",
+  "description": "ASN Name",
+  "sql": "(ip) -> multiIf(\n    isIPv4String(ip), dictGetUInt32('akamai_geoip_asn_blocks_ipv4',\n                                    'autonomous_system_number',\n                                    tuple(IPv4StringToNumOrDefault(toString(\n                                        assumeNotNull(ip))))),\n    isIPv6String(ip), dictGetUInt32('akamai_geoip_asn_blocks_ipv6',\n                                    'autonomous_system_number',\n                                    tuple(IPv6StringToNumOrDefault(toString(\n                                    assumeNotNull(ip))))),\n    NULL\n)"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "accuracy_radius",
+  "description": "Accuracy Radius",
+  "sql": "(ip) -> toUInt64(multiIf(\n    isIPv4String(ip),\n    dictGetUInt32(\n        'akamai_geoip_city_blocks_ipv4',\n        'accuracy_radius',\n        tuple(IPv4StringToNumOrDefault(toString(assumeNotNull(ip))))\n    ),\n    isIPv6String(ip),\n    dictGetUInt32(\n        'akamai_geoip_city_blocks_ipv6',\n        'accuracy_radius',\n        tuple(IPv6StringToNumOrDefault(toString(assumeNotNull(ip))))\n    ),\n    0\n))"
+}

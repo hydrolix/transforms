@@ -1,0 +1,5 @@
+{
+  "name": "siem_trim_array",
+  "description": "SIEM Trim Array",
+  "sql": "array -> if(reverse(array)[1] = '', arrayPopBack(array), array)"
+}

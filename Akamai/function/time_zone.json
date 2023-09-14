@@ -1,0 +1,5 @@
+{
+  "name": "time_zone",
+  "description": "Timezone",
+  "sql": "(ip) -> dictGetString('akamai_geoip_city_locations_en',\n              'time_zone',\n              akamai_geoname_id(assumeNotNull(ip))\n)"
+}

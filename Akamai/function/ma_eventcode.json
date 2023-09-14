@@ -1,0 +1,5 @@
+{
+  "name": "ma_eventcode",
+  "description": "MA Event Code",
+  "sql": "(eventcode) -> multiIf (\n      eventcode = 'I',\n      'Init',\n      eventcode = 'S',\n      'Play Start',\n      eventcode = 'P',\n      'Playing',\n      eventcode = 'H',\n      'Heart Beat',\n      eventcode = 'C',\n      'Complete',\n      eventcode = 'E',\n      'Error',\n      eventcode = 'V',\n      'Visit',\n      eventcode = 'F',\n      'Feedback',\n      eventcode\n    )"
+}

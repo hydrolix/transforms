@@ -1,0 +1,5 @@
+{
+  "name": "longitude",
+  "description": "Longitude",
+  "sql": "(ip) -> toFloat64(multiIf(\n    isIPv4String(ip), dictGetFloat64('akamai_geoip_city_blocks_ipv4', 'longitude',\n        tuple(IPv4StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n    isIPv6String(ip), dictGetFloat64('akamai_geoip_city_blocks_ipv6', 'longitude',\n        tuple(IPv6StringToNumOrDefault(toString(    assumeNotNull(ip))))),\n    0\n))"
+}

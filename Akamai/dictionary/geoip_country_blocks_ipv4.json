@@ -1,0 +1,56 @@
+{
+	"name": "geoip_country_blocks_ipv4",
+	"settings": {
+		"filename": "geoip_country_blocks_ipv4",
+		"layout": "ip_trie",
+		"lifetime_seconds": 5,
+		"output_columns": [
+			{
+				"name": "network",
+				"datatype": {
+					"type": "string",
+					"denullify": true
+				}
+			},
+			{
+				"name": "geoname_id",
+				"datatype": {
+					"type": "uint32",
+					"denullify": true
+				}
+			},
+			{
+				"name": "registered_country_geoname_id",
+				"datatype": {
+					"type": "uint32",
+					"denullify": true
+				}
+			},
+			{
+				"name": "represented_country_geoname_id",
+				"datatype": {
+					"type": "uint32",
+					"denullify": true
+				}
+			},
+			{
+				"name": "is_anonymous_proxy",
+				"datatype": {
+					"type": "uint8",
+					"denullify": true
+				}
+			},
+			{
+				"name": "is_satellite_provider",
+				"datatype": {
+					"type": "uint8",
+					"denullify": true
+				}
+			}
+		],
+		"primary_key": [
+			"network"
+		],
+		"format": "CSVWithNames"
+	}
+}

@@ -1,0 +1,5 @@
+{
+  "name": "cmcd_streaming_format",
+  "description": "CMCD Streaming Formet",
+  "sql": "(streaming_format) -> multiIf(\nstreaming_format = 'h', 'hls',\nstreaming_format = 'd', 'dash',\nstreaming_format = 's', 'smooth_streaming',\nstreaming_format = 'o', 'other',\nstreaming_format)"
+}

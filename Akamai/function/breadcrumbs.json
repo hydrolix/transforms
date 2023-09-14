@@ -1,0 +1,5 @@
+{
+  "name": "breadcrumbs",
+  "description": "Breadcrumbs extraction",
+  "sql": "(breadcrumbs, mainregex, valuextract) -> nullIf(extract(extract(decodeURLComponent(assumeNotNull(breadcrumbs)), mainregex), valuextract),'')"
+}

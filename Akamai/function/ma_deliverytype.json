@@ -1,0 +1,5 @@
+{
+  "name": "ma_deliverytype",
+  "description": "MA Delivery Type",
+  "sql": "(deliverytype) -> multiIf (\n      deliverytype = 'O',\n      'On Demand',\n      deliverytype = 'L',\n      'Live',\n      deliverytype = 'T',\n      '24x7',\n      deliverytype\n)"
+}

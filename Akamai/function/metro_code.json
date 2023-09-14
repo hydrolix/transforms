@@ -1,0 +1,5 @@
+{
+  "name": "metro_code",
+  "description": "Metro Code",
+  "sql": "(ip) -> dictGetUInt32('akamai_geoip_city_locations_en',\n              'metro_code',\n              akamai_geoname_id(assumeNotNull(ip))\n)"
+}

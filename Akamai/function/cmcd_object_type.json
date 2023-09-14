@@ -1,0 +1,5 @@
+{
+  "name": "cmcd_object_type",
+  "description": "CMCD Object Type",
+  "sql": "(object_type) -> multiIf(\n    object_type  = 'av', 'muxed_audio_video',\n    object_type = 'v', 'video_only',\n    object_type = 'a', 'audio_only',\n    object_type = 'm', 'manifest',\n    object_type = 'i', 'init_segment',\n    object_type = 'c', 'caption_subtitle',\n    object_type = 'tt', 'timed_text_track',\n    object_type = 'k', 'key_license_cert',\n    object_type)"
+}

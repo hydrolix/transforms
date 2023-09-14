@@ -1,0 +1,5 @@
+{
+  "name": "ma_format",
+  "description": "MA Format",
+  "sql": "(format) -> multiIf (\n      format = 'W',\n      'Windows Media Streaming',\n      format = 'H',\n      'Flash HD',\n      format = 'F',\n      'Flash Streaming',\n      format = 'D',\n      'Flash Dynamic',\n      format = 'P',\n      'Progressive Downloads',\n      format = 'A',\n      'Smooth Streaming',\n      format = 'Z',\n      'Adobe HTTP Streaming',\n      format = 'L',\n      'HTTP Live Streaming',\n      format\n)"
+}

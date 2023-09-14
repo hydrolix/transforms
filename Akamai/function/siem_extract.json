@@ -1,0 +1,5 @@
+{
+  "name": "siem_extract",
+  "description": "SIEM Extract",
+  "sql": "string -> akamai_siem_trim_array (\n      arrayMap (\n        x -> base64Decode (x),\n        splitByChar (';', decodeURLComponent (assumeNotNull (string)))\n      )\n)"
+}
