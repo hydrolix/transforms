@@ -29,9 +29,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": null,
           "format": null,
           "resolution": "seconds",
@@ -108,9 +105,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },
@@ -125,9 +119,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },
@@ -240,9 +231,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },
@@ -495,9 +483,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },
@@ -512,9 +497,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },
@@ -529,9 +511,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },
@@ -546,9 +525,6 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "index_options": {
-            "fulltext": true
-          },
           "source": {
             "from_input_field": "sql_transform"
           },

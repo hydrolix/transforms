@@ -156,10 +156,7 @@
 								},
 								{
 									"type": "string",
-									"index": true,
-									"index_options": {
-										"fulltext": true
-									}
+									"index": true
 								}
 							]
 						}
