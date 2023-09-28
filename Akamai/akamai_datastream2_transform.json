@@ -26,7 +26,7 @@
       {
         "name": "asn",
         "datatype": {
-          "type": "uint32",
+          "type": "string",
           "index": true,
           "source": null,
           "format": null,
