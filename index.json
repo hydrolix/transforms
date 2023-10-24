@@ -44,7 +44,7 @@
         "description": "Edgecast default transform for JSON based logging",
         "version": "1",
         "url":"/EdgeCast/edgecast-real-time-log-delivery-transform.json",
-        "vendor":"edgescast",
+        "vendor":"edgecast",
         "tags": ["cdn", "logs", "edgecast"]
     },
     {
