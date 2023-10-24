@@ -157,7 +157,7 @@
         {
           "name": "request_connection",
           "datatype": {
-            "type": "string",
+            "type": "string"
           }
         },
         {
