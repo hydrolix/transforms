@@ -1,0 +1,5 @@
+{
+  "name": "epd_detection",
+  "description": "Return Edge Detection Dimension",
+  "sql": "(epd) -> multiIf (  splitByChar('/',assumeNotNull(epd))[5] = 'av',  'VPN hits',  splitByChar('/',assumeNotNull(epd))[5]= 'pp',  'Proxy hits',  splitByChar('/',assumeNotNull(epd))[5] = 'hp',  'Hosting provider hits',  splitByChar('/',assumeNotNull(epd))[5] = 'tn',  'TOR exit hits',  splitByChar('/',assumeNotNull(epd))[5] = 'dp',  'Smart DNS hits',  splitByChar('/',assumeNotNull(epd))[5] = 'vp',  'VPN datacenter hits',  null)"
+}
