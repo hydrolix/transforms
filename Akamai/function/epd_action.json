@@ -1,0 +1,5 @@
+{
+  "name": "epd_action",
+  "description": "Actions taken by EPD",
+  "sql": "(epd) -> multiIf (  splitByChar('/',assumeNotNull(epd))[6] = '1',  'Allowed',  splitByChar('/',assumeNotNull(epd))[6] = '2',  'Redirected',  splitByChar('/',assumeNotNull(epd))[6]= '0',  'Blocked',  null)"
+}
