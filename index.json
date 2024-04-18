@@ -54,5 +54,13 @@
         "url":"/AWS/Kinesis-Real-Time-Cloudfront-Logs.json",
         "vendor":"aws",
         "tags": ["cdn", "logs", "cloudfront", "aws", "kinesis"]
+    },
+    {
+	"name": "prometheus",
+	"description": "Prometheus remote read and write transform table",
+	"version": "1",
+	"url":"/Prom/prom2hdx.json",
+	"vendor":"prometheus",
+	"tags": ["metrics", "prometheus"]
     }
 ]

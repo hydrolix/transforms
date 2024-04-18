@@ -1,0 +1,96 @@
+{
+  "name": "prom2hdx",
+  "description": "Prometheus remote write and read",
+  "settings": {
+    "is_default": true,
+    "sql_transform": null,
+    "null_values": [],
+    "sample_data": [
+      {
+        "__hdx_timestamp__": 1670412559121
+      }
+    ],
+    "output_columns": [
+      {
+        "name": "__hdx_label_map__",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "suppress": false
+        }
+      },
+      {
+        "name": "__hdx_metric_name__",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "__hdx_metric_value__",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "__hdx_timestamp__",
+        "datatype": {
+          "type": "epoch",
+          "index": false,
+          "primary": true,
+          "source": null,
+          "format": "ms",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
