@@ -1,0 +1,233 @@
+{
+  "name": "edns",
+  "description": "Datastream schema for Akamai eDNS services",
+  "settings": {
+    "is_default": true,
+    "sql_transform": null,
+    "null_values": [
+      "-"
+    ],
+    "sample_data": [
+      {
+        "date": "07/12/2020",
+        "time": "19:10:07",
+        "answers": "3:NXDOMAIN",
+        "tcpFlag": "T",
+        "version": 1,
+        "dnsClass": "IN",
+        "edns0Flag": "E",
+        "edns0Size": "1220",
+        "requestIP": "2600:141b:b000::1736:a142",
+        "timeStamp": "1607368207",
+        "dnssecFlag": "D",
+        "requestName": "nxdomain.edgedns.zone",
+        "requestPort": "37041",
+        "requestType": "A"
+      }
+    ],
+    "output_columns": [
+      {
+        "name": "version",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "timeStamp",
+        "datatype": {
+          "type": "epoch",
+          "index": false,
+          "primary": true,
+          "source": null,
+          "format": "s",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "date",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "source": null,
+          "format": "02/01/2006",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "time",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "source": null,
+          "format": "15:04:05",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "requestIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "requestPort",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "requestName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dnsClass",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "requestType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "edns0Flag",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "answers",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "tcpFlag",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dnssecFlag",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "edns0Size",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
