@@ -32,7 +32,7 @@
         "tags": ["cdn", "logs", "akamai", "media", "streaming"]
     },
     {
-        "name": "akamai_dns",
+        "name": "akamai_nominum_dns",
         "description": "Akamai transform for DNS logs via Nominum Kafka connector",
         "version": "1",
         "url":"/Akamai/akamai_nominum_dns_transform.json",
