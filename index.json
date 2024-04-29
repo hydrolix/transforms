@@ -8,6 +8,14 @@
         "tags": ["cdn", "logs", "akamai"]
     },
     {
+        "name": "akamai_edns_datastream",
+        "description": "Akamai transform for all fields included in eDNS Datatream",
+        "version": "1",
+        "url":"/Akamai/akamai_datastream2_edns_transform.json",
+        "vendor":"akamai",
+        "tags": ["dns", "logs", "akamai"]
+    },
+    {
         "name": "akamai_siem",
         "description": "Akamai transform for all fields included in SIEM connector",
         "version": "1",
