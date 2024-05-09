@@ -1696,6 +1696,63 @@
           "script": null,
           "suppress": false
         }
+      },
+      {
+          "name": "contentProtectionInfo",
+          "datatype": {
+              "type": "string",
+              "index": true,
+              "source": null,
+              "format": null,
+              "resolution": "seconds",
+              "default": null,
+              "script": null,
+              "suppress": false
+          }
+      },
+      {
+          "name": "deliveryFormat",
+          "datatype": {
+              "type": "string",
+              "index": true,
+              "source": null,
+              "format": null,
+              "resolution": "seconds",
+              "default": null,
+              "script": null,
+              "suppress": false
+          }
+      },
+      {
+          "name": "deliveryType",
+          "datatype": {
+              "type": "string",
+              "index": true,
+              "source": null,
+              "format": null,
+              "resolution": "seconds",
+              "default": null,
+              "script": null,
+              "suppress": false
+          }
+      },
+      {
+          "name": "mediaEncryption",
+          "datatype": {
+              "type": "boolean",
+              "index": true,
+              "index_options": {
+                  "fulltext": false
+              },
+              "primary": false,
+              "source": null,
+              "ignore": false,
+              "format": null,
+              "resolution": "seconds",
+              "default": null,
+              "script": null,
+              "suppress": false
+          }
       }
     ],
     "compression": "none",
