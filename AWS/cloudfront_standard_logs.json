@@ -1,0 +1,332 @@
+{
+    "name": "aws_cloudfront_transform",
+	  "description":"standard CloudFront logs transform",
+    "type": "csv",
+    "settings": {
+        "is_default": true,
+        "compression": "gzip",
+        "output_columns": [
+            {
+              "name": "timestamp",
+              "datatype": {
+                "type": "datetime",
+                "script": "row['date'] + ' ' + row['hour']",
+                "format": "2006-01-02 15:04:05",
+                "resolution": "seconds",
+                "virtual": true,
+                "primary": true
+              }
+            },
+            {
+              "name": "date",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 0
+                }
+              }
+            },
+            {
+              "name": "hour",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 1
+                }
+              }
+            },
+            {
+              "name": "x-edge-location",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 2
+                }
+              }
+            },
+            {
+              "name": "bytes_server_to_client",
+              "datatype": {
+                "type": "uint64",
+                "source": {
+                  "from_input_index": 3
+                }
+              }
+            },
+            {
+              "name": "clientip",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 4
+                }
+              }
+            },
+            {
+              "name": "method",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 5
+                }
+              }
+            },
+            {
+              "name": "host",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 6
+                }
+              }
+            },
+            {
+              "name": "url",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 7
+                }
+              }
+            },
+            {
+              "name": "status",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 8
+                }
+              }
+            },
+            {
+              "name": "referer",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 9
+                }
+              }
+            },
+            {
+              "name": "user-agent",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 10
+                }
+              }
+            },
+            {
+              "name": "query-string",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 11
+                }
+              }
+            },
+            {
+              "name": "cookie",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 12
+                }
+              }
+            },
+            {
+              "name": "x-edge-result-type",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 13
+                }
+              }
+            },
+            {
+              "name": "x-edge-request-id",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 14
+                }
+              }
+            },
+            {
+              "name": "x-host-header",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 15
+                }
+              }
+            },
+            {
+              "name": "protocol",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 16
+                }
+              }
+            },
+            {
+              "name": "bytes_client_to_server",
+              "datatype": {
+                "type": "uint64",
+                "source": {
+                  "from_input_index": 17
+                }
+              }
+            },
+            {
+              "name": "time-taken",
+              "datatype": {
+                "type": "double",
+                "source": {
+                  "from_input_index": 18
+                }
+              }
+            },
+            {
+              "name": "x-forwarded-for",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 19
+                }
+              }
+            },
+            {
+              "name": "ssl-protocol",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 20
+                }
+              }
+            },
+            {
+              "name": "ssl-cipher",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 21
+                }
+              }
+            },
+            {
+              "name": "x-edge-response-result-type",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 22
+                }
+              }
+            },
+            {
+              "name": "protocol-version",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 23
+                }
+              }
+            },
+            {
+              "name": "fle-status",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 24
+                }
+              }
+            },
+            {
+              "name": "fle-encrypted-fields",
+              "datatype": {
+                "type": "string",
+                "null_values": ["-"],      
+                "source": {
+                  "from_input_index": 25
+                }
+              }
+            },
+            {
+              "name": "client_port",
+              "datatype": {
+                "type": "uint64",
+                "source": {
+                  "from_input_index": 26
+                }
+              }
+            },
+            {
+              "name": "ttfb",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 27
+                }
+              }
+            },
+            {
+              "name": "x-edge-detailed-result-type",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 28
+                }
+              }
+            },
+            {
+              "name": "content-type-response",
+              "datatype": {
+                "type": "string",
+                "source": {
+                  "from_input_index": 29
+                }
+              }
+            },
+            {
+              "name": "content-length-response",
+              "datatype": {
+                "type": "uint64",
+                "source": {
+                  "from_input_index": 30
+                }
+              }
+            },
+            {
+              "name": "content-range-response-start",
+              "datatype": {
+                "type": "uint64",
+                "null_values": ["-"],
+                "source": {
+                  "from_input_index": 31
+                }
+              }
+            },
+            {
+              "name": "content-range-response-end",
+              "datatype": {
+                "type": "uint64",
+                "null_values": ["-"],
+                "source": {
+                  "from_input_index": 32
+                }
+              }
+            }
+          ],
+        "format_details": {
+            "skip_head": 2,
+            "delimiter": "\t"
+        }
+    }
+}
