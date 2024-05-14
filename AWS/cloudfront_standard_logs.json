@@ -1,5 +1,5 @@
 {
-    "name": "cloudfront_standards_v1",
+    "name": "cloudfront_standard_v1",
 	  "description":"CloudFront standard logs transform",
     "type": "csv",
     "settings": {
