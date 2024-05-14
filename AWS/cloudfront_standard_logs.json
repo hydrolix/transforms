@@ -1,6 +1,6 @@
 {
-    "name": "aws_cloudfront_transform",
-	  "description":"standard CloudFront logs transform",
+    "name": "cloudfront_standards_v1",
+	  "description":"CloudFront standard logs transform",
     "type": "csv",
     "settings": {
         "is_default": true,
