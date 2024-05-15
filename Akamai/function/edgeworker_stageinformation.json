@@ -1,0 +1,5 @@
+{
+  "name": "edgeworker_stageinformation",
+  "description": "function to parse EdgeWorkers Execution stage information",
+  "sql": "(edgeworker_stageinformation) -> multiIf (\n  edgeworker_stageinformation = 'S',\n  'Sub-request',\n  edgeworker_stageinformation = 'c',\n  'onClientRequest',\n  edgeworker_stageinformation = 'o',\n  'onOriginRequest',\n  edgeworker_stageinformation = 'C',\n  'onClientResponse',\n  edgeworker_stageinformation = 'O',\n  'onOriginResponse',\n  edgeworker_stageinformation = 'R',\n  'responseProvider',\n  edgeworker_stageinformation = 'm',\n  'Missing stage',\n  edgeworker_stageinformation\n)"
+}
