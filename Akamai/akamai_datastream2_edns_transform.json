@@ -1,6 +1,6 @@
 {
-  "name": "edns",
-  "description": "Datastream schema for Akamai eDNS services",
+  "name": "dns",
+  "description": "Datastream schema for Akamai eDNS and GTM services",
   "settings": {
     "is_default": true,
     "sql_transform": null,
