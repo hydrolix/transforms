@@ -1,0 +1,302 @@
+{
+  "name": "edgeworker",
+  "description": "EdgeWorker Transform for Datastream",
+  "settings": {
+    "is_default": false,
+    "sql_transform": "SELECT decodeURLComponent(assumeNotNull(body)) as body, *\nFROM {STREAM}",
+    "null_values": [],
+    "sample_data": {
+      "body": "THISISTHELOGMESSAGE%20URLENCODEDSONOSPACES",
+      "time": "1695396523000",
+      "ds2id": "1234",
+      "format": "1",
+      "spanId": "0703020100000000000001111",
+      "traceId": "08040201000000000000000",
+      "version": 1,
+      "resource": {
+        "ew": "1234",
+        "ip": "192.168.0.1",
+        "sc": "3.20",
+        "ewv": "0.1",
+        "cloud.provider": "AkamaiEdgeWorkers"
+      },
+      "severity": "DEBUG",
+      "attributes": {
+        "requestId": "123456"
+      },
+      "traceflags": "ff"
+    },
+    "output_columns": [
+      {
+        "name": "timestamp",
+        "datatype": {
+          "type": "epoch",
+          "index": false,
+          "primary": true,
+          "format": "ns",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/time"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "ignore": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/attributes/requestId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "body",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "ds2id",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "format",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource_cloud_provider",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/resource/cloud.provider"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource_ew",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/resource/ew"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource_ewv",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/resource/ewv"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource_sc",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/resource/sc"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource_ip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/resource/ip"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "severity",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "traceId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "spanId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "traceflags",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "version",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
