@@ -24,6 +24,14 @@
         "tags": ["cdn", "logs", "akamai", "SIEM"]
     },
     {
+        "name": "akamai_edgeworker_datastream",
+        "description": "Akamai transform for all fields included in Edgeworker Datastream",
+        "version": "1",
+        "url":"/Akamai/akamai_datastream2_edgeworker_transform.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "EdgeWorker"]
+    },
+    {
         "name": "akamai_media",
         "description": "Akamai transform for Media Analytics replacement with Trafficpeak",
         "version": "1",
