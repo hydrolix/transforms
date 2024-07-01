@@ -1,306 +1,594 @@
 {
-    "name": "cloudFrontTransform",
-    "description": "Real_time CloudFront logs transform",
-    "settings": {
-       "is_default": true,
-       "output_columns": [
-          {
-             "name": "timestamp",
-             "datatype": {
-                "type": "epoch",
-                "format": "seconds",
-                "primary": true,
-                "resolution": "seconds",
-                "source": { "from_input_index": 0 }
-             }
-          },
-          {
-             "name": "c_ip",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 1 }
-             }
-          },
-          {
-             "name": "time_to_first_byte",
-             "datatype": {
-                "type": "double",
-                "index": false,
-                "source": { "from_input_index": 2 }
-             }
-          },
-          {
-             "name": "sc_status",
-             "datatype": {
-                "type": "uint64",
-                "source": { "from_input_index": 3 }
-             }
-          },
-          {
-             "name": "sc_bytes",
-             "datatype": {
-                "type": "uint64",
-                "source": { "from_input_index": 4 }
-             }
-          },
-          {
-             "name": "cs_method",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 5 }
-             }
-          },
-          {
-             "name": "cs_protocol",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 6 }
-             }
-          },
-          {
-             "name": "cs_host",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 7 }
-             }
-          },
-          {
-             "name": "cs_uri_stem",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 8 }
-             }
-          },
-          {
-             "name": "cs_bytes",
-             "datatype": {
-                "type": "uint64",
-                "source": { "from_input_index": 9 }
-             }
-          },
-          {
-             "name": "x_edge_location",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 10 }
-             }
-          },
-          {
-             "name": "x_edge_request_id",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 11 }
-             }
-          },
-          {
-             "name": "x_host_header",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 12 }
-             }
-          },
-          {
-             "name": "time_taken",
-             "datatype": {
-                "type": "double",
-                "index": false,
-                "source": { "from_input_index": 13 }
-             }
-          },
-          {
-             "name": "cs_protocol_version",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 14 }
-             }
-          },
-          {
-             "name": "c_ip_version",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 15 }
-             }
-          },
-          {
-             "name": "cs_user_agent",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 16 }
-             }
-          },
-          {
-             "name": "cs_referer",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 17 }
-             }
-          },
-          {
-             "name": "cs_cookie",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 18 }
-             }
-          },
-          {
-             "name": "cs_uri_query",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 19 }
-             }
-          },
-          {
-             "name": "x_edge_response_result_type",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 20 }
-             }
-          },
-          {
-             "name": "x_forwarded_for",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 21 }
-             }
-          },
-          {
-             "name": "ssl_protocol",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 22 }
-             }
-          },
-          {
-             "name": "ssl_cipher",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 23 }
-             }
-          },
-          {
-             "name": "x_edge_result_type",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 24 }
-             }
-          },
-          {
-             "name": "fle_encrypted_fields",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 25 }
-             }
-          },
-          {
-             "name": "fle_status",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 26 }
-             }
-          },
-          {
-             "name": "sc_content_type",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 27 }
-             }
-          },
-          {
-             "name": "sc_content_len",
-             "datatype": {
-                "type": "uint64",
-                "source": { "from_input_index": 28 }
-             }
-          },
-          {
-             "name": "sc_range_start",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 29 }
-             }
-          },
-          {
-             "name": "sc_range_end",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 30 }
-             }
-          },
-          {
-             "name": "c_port",
-             "datatype": {
-                "type": "uint64",
-                "source": { "from_input_index": 31 }
-             }
-          },
-          {
-             "name": "x_edge_detailed_result_type",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 32 }
-             }
-          },
-          {
-             "name": "c_country",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 33 }
-             }
-          },
-          {
-             "name": "cs_accept_encoding",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 34 }
-             }
-          },
-          {
-             "name": "cs_accept",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 35 }
-             }
-          },
-          {
-             "name": "cache_behavior_path_pattern",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 36 }
-             }
-          },
-          {
-             "name": "cs_headers",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 37 }
-             }
-          },
-          {
-             "name": "cs_header_names",
-             "datatype": {
-                "type": "string",
-                "source": { "from_input_index": 38 }
-             }
-          },
-          {
-             "name": "cs_headers_count",
-             "datatype": {
-                "type": "uint64",
-                "source": { "from_input_index": 39 }
-             }
-          }
-       ],
-       "compression": "none",
-       "format_details": {
-          "delimiter": "\t",
-          "skip_head": 0,
-          "quote": "\"",
-          "comment": "#",
-          "skip_comments": false,
-          "escape": "\"",
-          "windows_ending": false,
-          "buffer_size": 4096
-       }
+  "name": "cloudFrontTransform",
+  "type": "csv",
+  "description": "Real_time CloudFront logs transform",
+  "settings": {
+    "is_default": true,
+    "compression": "none",
+    "format_details": {
+      "delimiter": "\t",
+      "skip_head": 0,
+      "quote": "\"",
+      "comment": "#",
+      "skip_comments": false,
+      "escape": "\"",
+      "windows_ending": false,
+      "buffer_size": 4096
     },
-    "type": "csv"
- }
+    "output_columns": [
+      {
+        "name": "timestamp",
+        "datatype": {
+          "type": "epoch",
+          "primary": true,
+          "format": "seconds",
+          "resolution": "seconds",
+          "source": {
+            "from_input_index": 0
+          }
+        }
+      },
+      {
+        "name": "c_ip",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 1
+          }
+        }
+      },
+      {
+        "name": "time_to_first_byte",
+        "datatype": {
+          "type": "double",
+          "source": {
+            "from_input_index": 2
+          }
+        }
+      },
+      {
+        "name": "sc_status",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 3
+          }
+        }
+      },
+      {
+        "name": "sc_bytes",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 4
+          }
+        }
+      },
+      {
+        "name": "cs_method",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 5
+          }
+        }
+      },
+      {
+        "name": "cs_protocol",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 6
+          }
+        }
+      },
+      {
+        "name": "cs_host",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 7
+          }
+        }
+      },
+      {
+        "name": "cs_uri_stem",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 8
+          }
+        }
+      },
+      {
+        "name": "cs_bytes",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 9
+          }
+        }
+      },
+      {
+        "name": "x_edge_location",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 10
+          }
+        }
+      },
+      {
+        "name": "x_edge_request_id",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 11
+          }
+        }
+      },
+      {
+        "name": "x_host_header",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 12
+          }
+        }
+      },
+      {
+        "name": "time_taken",
+        "datatype": {
+          "type": "double",
+          "source": {
+            "from_input_index": 13
+          }
+        }
+      },
+      {
+        "name": "cs_protocol_version",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 14
+          }
+        }
+      },
+      {
+        "name": "c_ip_version",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 15
+          }
+        }
+      },
+      {
+        "name": "cs_user_agent",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 16
+          }
+        }
+      },
+      {
+        "name": "cs_referer",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 17
+          }
+        }
+      },
+      {
+        "name": "cs_cookie",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 18
+          }
+        }
+      },
+      {
+        "name": "cs_uri_query",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 19
+          }
+        }
+      },
+      {
+        "name": "x_edge_response_result_type",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 20
+          }
+        }
+      },
+      {
+        "name": "x_forwarded_for",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 21
+          }
+        }
+      },
+      {
+        "name": "ssl_protocol",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 22
+          }
+        }
+      },
+      {
+        "name": "ssl_cipher",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 23
+          }
+        }
+      },
+      {
+        "name": "x_edge_result_type",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 24
+          }
+        }
+      },
+      {
+        "name": "fle_encrypted_fields",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 25
+          }
+        }
+      },
+      {
+        "name": "fle_status",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 26
+          }
+        }
+      },
+      {
+        "name": "sc_content_type",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 27
+          }
+        }
+      },
+      {
+        "name": "sc_content_len",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 28
+          }
+        }
+      },
+      {
+        "name": "sc_range_start",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 29
+          }
+        }
+      },
+      {
+        "name": "sc_range_end",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 30
+          }
+        }
+      },
+      {
+        "name": "c_port",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 31
+          }
+        }
+      },
+      {
+        "name": "x_edge_detailed_result_type",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 32
+          }
+        }
+      },
+      {
+        "name": "c_country",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 33
+          }
+        }
+      },
+      {
+        "name": "cs_accept_encoding",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 34
+          }
+        }
+      },
+      {
+        "name": "cs_accept",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 35
+          }
+        }
+      },
+      {
+        "name": "cache_behavior_path_pattern",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 36
+          }
+        }
+      },
+      {
+        "name": "cs_headers",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 37
+          }
+        }
+      },
+      {
+        "name": "cs_header_names",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 38
+          }
+        }
+      },
+      {
+        "name": "cs_headers_count",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 39
+          }
+        }
+      },
+      {
+        "name": "primary_distribution_id",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 40
+          }
+        }
+      },
+      {
+        "name": "primary_distribution_dns_name",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 41
+          }
+        }
+      },
+      {
+        "name": "origin_fbl",
+        "datatype": {
+          "type": "double",
+          "source": {
+            "from_input_index": 42
+          }
+        }
+      },
+      {
+        "name": "origin_lbl",
+        "datatype": {
+          "type": "double",
+          "source": {
+            "from_input_index": 43
+          }
+        }
+      },
+      {
+        "name": "asn",
+        "datatype": {
+          "type": "uint32",
+          "source": {
+            "from_input_index": 44
+          }
+        }
+      },
+      {
+        "name": "cmcd_encoded_bitrate",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 45
+          }
+        }
+      },
+      {
+        "name": "cmcd_buffer_length",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 46
+          }
+        }
+      },
+      {
+        "name": "cmcd_buffer_starvation",
+        "datatype": {
+          "type": "boolean",
+          "source": {
+            "from_input_index": 47
+          }
+        }
+      },
+      {
+        "name": "cmcd_content_id",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 48
+          }
+        }
+      },
+      {
+        "name": "cmcd_object_duration",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 49
+          }
+        }
+      },
+      {
+        "name": "cmcd_deadline",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 50
+          }
+        }
+      },
+      {
+        "name": "cmcd_measured_throughput",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 51
+          }
+        }
+      },
+      {
+        "name": "cmcd_next_object_request",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 52
+          }
+        }
+      },
+      {
+        "name": "cmcd_next_range_request",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 53
+          }
+        }
+      },
+      {
+        "name": "cmcd_object_type",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 54
+          }
+        }
+      },
+      {
+        "name": "cmcd_playback_rate",
+        "datatype": {
+          "type": "uint8",
+          "source": {
+            "from_input_index": 55
+          }
+        }
+      },
+      {
+        "name": "cmcd_requested_maximum_throughput",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 56
+          }
+        }
+      },
+      {
+        "name": "cmcd_streaming_format",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 57
+          }
+        }
+      },
+      {
+        "name": "cmcd_session_id",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 58
+          }
+        }
+      },
+      {
+        "name": "cmcd_stream_type",
+        "datatype": {
+          "type": "string",
+          "source": {
+            "from_input_index": 59
+          }
+        }
+      },
+      {
+        "name": "cmcd_startup",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 60
+          }
+        }
+      },
+      {
+        "name": "cmcd_top_bitrate",
+        "datatype": {
+          "type": "uint64",
+          "source": {
+            "from_input_index": 61
+          }
+        }
+      },
+      {
+        "name": "cmcd_version",
+        "datatype": {
+          "type": "uint32",
+          "source": {
+            "from_input_index": 62
+          }
+        }
+      }
+    ],
+    "null_values": [
+      "-"
+    ]
+  }
+}
