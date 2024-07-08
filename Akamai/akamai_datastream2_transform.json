@@ -204,7 +204,7 @@
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "suppress": false
+          "suppress": true
         }
       },
       {
@@ -1586,7 +1586,7 @@
               "index": true
             }
           ],
-          "suppress": false
+          "suppress": true
         }
       },
       {
