@@ -1707,7 +1707,7 @@
               "resolution": "seconds",
               "default": null,
               "script": null,
-              "suppress": false
+              "suppress": true
           }
       },
       {
@@ -1788,7 +1788,7 @@
           "source": {
             "from_input_field": "sql_transform"
           },
-          "suppress": false
+          "suppress": true
         }
       },
       {
@@ -1805,7 +1805,7 @@
           "source": {
             "from_input_field": "sql_transform"
           },
-          "suppress": false
+          "suppress": true
         }
       },
       {
