@@ -3,9 +3,67 @@
   "description": "Default SIEM integration for Akamai",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\n    NULL as requestHeadersStr,\n    NULL as ruleActionsStr,\n    NULL as ruleDataStr,\n    NULL as rulesStr,\n    NULL as ruleVersionsStr,\n    NULL as ruleMessagesStr,\n    NULL as ruleTagsStr,\n    NULL as ruleSelectorsStr,\n    NULL as responseHeadersStr,\n    *\n    EXCEPT(requestHeadersStr)\nFROM\n(SELECT\ndecodeURLComponent(requestHeadersStr) as requestHeadersStr, \ndecodeURLComponent(responseHeadersStr) as responseHeadersStr, \nakamai_siem_extract(rulesStr) as rules,\nakamai_siem_extract(ruleDataStr) as ruleData,\nakamai_siem_extract(ruleTagsStr) as ruleTags,\nakamai_siem_extract(ruleActionsStr) as ruleActions,\nakamai_siem_extract(ruleMessagesStr) as ruleMessages,\nakamai_siem_extract(ruleVersionsStr) as ruleVersions,\nakamai_siem_extract(ruleSelectorsStr) as ruleSelectors,            akamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') as requestHeaders,\nakamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') as responseHeaders,\n*\nFROM\n{STREAM}\n)",
+    "sql_transform": "SELECT\ndecodeURLComponent(requestHeadersStr) as requestHeadersStr, \ndecodeURLComponent(responseHeadersStr) as responseHeadersStr, \nakamai_siem_extract(rulesStr) as rules,\nakamai_siem_extract(ruleTagsStr) as ruleTags,\narrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') as ruleData, \nakamai_siem_extract(ruleActionsStr) as ruleActions,\nakamai_siem_extract(ruleMessagesStr) as ruleMessages,\nakamai_siem_extract(ruleVersionsStr) as ruleVersions,\narrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') as ruleSelectors, \nakamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') as requestHeaders,\nakamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') as responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL']), ruleTags) as attack_bot, \narrayExists(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, 'AKAMAI/CUSTOM'), ruleTags) as attack_custom,\narrayExists(x -> position(x, 'IPBLOCK') !=0, ruleTags) as attack_dos,\nmultiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \n Null) as ruleMessage,\n arrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos]) AS attackTypes,\n arrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL',':']), ruleTags)) as ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/',':']), ruleTags)) as ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) as ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) as has_CH_UA,\n*\nFROM\n{STREAM}",
     "null_values": [],
-    "sample_data": {},
+    "sample_data": {
+      "geo": {
+        "asn": "14618",
+        "city": "ASHBURN",
+        "country": "US",
+        "continent": "288",
+        "regionCode": "VA"
+      },
+      "type": "akamai_siem",
+      "format": "json",
+      "botData": {
+        "botScore": "100",
+        "responseSegment": "3"
+      },
+      "version": "1.0",
+      "attackData": {
+        "rules": "OTUwMDAy%3bOTUwMDA2%3bQ01ELUlOSkVDVElPTi1BTk9NQUxZ",
+        "clientIP": "52.91.36.10",
+        "configId": "14227",
+        "policyId": "qik1_26545",
+        "ruleData": "dGVsbmV0LmV4ZQ%3d%3d%3bdGVsbmV0LmV4ZQ%3d%3d%3bVmVjdG9yIFNjb3JlOiAxMCwgREVOWSB0aHJlc2hvbGQ6IDksIEFsZXJ0IFJ1bGVzOiA5NTAwMDI6OTUwMDA2LCBEZW55IFJ1bGU6ICwgTGFzdCBNYXRjaGVkIE1lc3NhZ2U6IFN5c3RlbSBDb21tYW5kIEluamVjdGlvbg%3d%3d",
+        "ruleTags": "T1dBU1BfQ1JTL1dFQl9BVFRBQ0svRklMRV9JTkpFQ1RJT04%3d%3bT1dBU1BfQ1JTL1dFQl9BVFRBQ0svQ09NTUFORF9JTkpFQ1RJT04%3d%3bQUtBTUFJL1BPTElDWS9DTURfSU5KRUNUSU9OX0FOT01BTFk%3d",
+        "ruleActions": "YWxlcnQ%3d%3bYWxlcnQ%3d%3bZGVueQ%3d%3d",
+        "ruleMessages": "U3lzdGVtIENvbW1hbmQgQWNjZXNz%3bU3lzdGVtIENvbW1hbmQgSW5qZWN0aW9u%3bQW5vbWFseSBTY29yZSBFeGNlZWRlZCBmb3IgQ29tbWFuZCBJbmplY3Rpb24%3d",
+        "ruleVersions": "NA%3d%3d%3bNA%3d%3d%3bMQ%3d%3d",
+        "ruleSelectors": "QVJHUzpvcHRpb24%3d%3bQVJHUzpvcHRpb24%3d%3b"
+      },
+      "clientData": {
+        "appVersion": "1.23",
+        "sdkVersion": "4.7.1",
+        "appBundleId": "com.mydomain.myapp",
+        "telemetryType": "2"
+      },
+      "httpMessage": {
+        "host": "www.hmapi.com",
+        "path": "/",
+        "port": "80",
+        "bytes": "266",
+        "query": "option=com_jce%20telnet.exe",
+        "start": "1491303422",
+        "method": "GET",
+        "status": "200",
+        "protocol": "HTTP/1.1",
+        "requestId": "1158db1758e37bfe67b7c09",
+        "requestHeaders": "User-Agent%3a%20BOT%2f0.1%20(BOT%20for%20JCE)%0d%0aAccept%3a%20text%2fhtml,application%2fxhtml+xml,application%2fxml%3bq%3d0.9,*%2f*%3bq%3d0.8%0d%0auniqueID%3a%20CR_H8%0d%0aAccept-Language%3a%20en-US,en%3bq%3d0.5%0d%0aAccept-Encoding%3a%20gzip,%20deflate%0d%0aConnection%3a%20keep-alive%0d%0aHost%3a%20www.hmapi.com%0d%0aContent-Length%3a%200%0d%0a",
+        "responseHeaders": "Server%3a%20AkamaiGHost%0d%0aMime-Version%3a%201.0%0d%0aContent-Type%3a%20text%2fhtml%0d%0aContent-Length%3a%20266%0d%0aExpires%3a%20Tue,%2004%20Apr%202017%2010%3a57%3a02%20GMT%0d%0aDate%3a%20Tue,%2004%20Apr%202017%2010%3a57%3a02%20GMT%0d%0aConnection%3a%20close%0d%0aSet-Cookie%3a%20ak_bmsc%3dAFE4B6D8CEEDBD286FB10F37AC7B256617DB580D417F0000FE7BE3580429E23D%7epluPrgNmaBdJqOLZFwxqQLSkGGMy4zGMNXrpRIc1Md4qtsDfgjLCojg1hs2HC8JqaaB97QwQRR3YS1ulk+6e9Dbto0YASJAM909Ujbo6Qfyh1XpG0MniBzVbPMUV8oKhBLLPVSNCp0xXMnH8iXGZUHlUsHqWONt3+EGSbWUU320h4GKiGCJkig5r+hc6V1pi3tt7u3LglG3DloEilchdo8D7iu4lrvvAEzyYQI8Hao8M0%3d%3b%20expires%3dTue,%2004%20Apr%202017%2012%3a57%3a02%20GMT%3b%20max-age%3d7200%3b%20path%3d%2f%3b%20domain%3d.hmapi.com%3b%20HttpOnly%0d%0a"
+      },
+      "userRiskData": {
+        "risk": "udfp:1325gdg4g4343g/M|unp:74256/H",
+        "uuid": "964d54b7-0821-413a-a4d6-8131770ec8d5",
+        "allow": "0",
+        "score": "75",
+        "trust": "ugp:US",
+        "status": "0",
+        "general": "duc_1h:10|duc_1d:30",
+        "username": "jsmith@example.com",
+        "originUserId": "jsmith007"
+      }
+    },
     "output_columns": [
       {
         "name": "timestamp",
@@ -13,15 +71,16 @@
           "type": "epoch",
           "index": false,
           "primary": true,
+          "format": "s",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/start"
             ]
           },
-          "format": "s",
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -29,11 +88,12 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
           "resolution": "seconds",
           "default": null,
-          "script": null
+          "script": null,
+          "source": null,
+          "suppress": false
         }
       },
       {
@@ -41,11 +101,12 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
           "resolution": "seconds",
           "default": null,
-          "script": null
+          "script": null,
+          "source": null,
+          "suppress": false
         }
       },
       {
@@ -53,11 +114,12 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
           "resolution": "seconds",
           "default": null,
-          "script": null
+          "script": null,
+          "source": null,
+          "suppress": false
         }
       },
       {
@@ -65,15 +127,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/clientIP"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -81,15 +144,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/configId"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -97,15 +161,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/policyId"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -113,15 +178,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/ruleActions"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -129,15 +195,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/ruleData"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -145,15 +212,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/rules"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -161,15 +229,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/ruleVersions"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -177,15 +246,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/ruleMessages"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -193,15 +263,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/ruleTags"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -209,15 +280,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/attackData/ruleSelectors"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -225,15 +297,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/geo/continent"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -241,15 +314,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/geo/country"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -257,15 +331,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/geo/city"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -273,15 +348,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/geo/regionCode"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -289,15 +365,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/geo/asn"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -305,15 +382,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/requestId"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -321,15 +399,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/protocol"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -337,15 +416,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/tls"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -353,15 +433,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/method"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -369,15 +450,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/host"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -385,15 +467,16 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/port"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -401,15 +484,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/path"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -417,15 +501,16 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/requestHeaders"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
@@ -433,15 +518,16 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/status"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -449,15 +535,16 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/bytes"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": false
         }
       },
       {
@@ -465,81 +552,271 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_json_pointers": [
               "/httpMessage/responseHeaders"
             ]
           },
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null
+          "suppress": true
         }
       },
       {
-        "name": "userRiskData",
+        "name": "userRiskData_allow",
         "datatype": {
-          "type": "map",
+          "type": "boolean",
           "index": true,
-          "source": null,
           "format": null,
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "elements": [
-            {
-              "type": "string",
-              "index": true
-            },
-            {
-              "type": "string",
-              "index": true
-            }
-          ]
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/allow"
+            ]
+          },
+          "suppress": false
         }
       },
       {
-        "name": "clientData",
+        "name": "userRiskData_general",
         "datatype": {
-          "type": "map",
+          "type": "string",
           "index": true,
-          "source": null,
           "format": null,
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "elements": [
-            {
-              "type": "string",
-              "index": true
-            },
-            {
-              "type": "string",
-              "index": true
-            }
-          ]
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/general"
+            ]
+          },
+          "suppress": false
         }
       },
       {
-        "name": "botData",
+        "name": "userRiskData_originUserId",
         "datatype": {
-          "type": "map",
+          "type": "string",
           "index": true,
-          "source": null,
           "format": null,
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "elements": [
-            {
-              "type": "string",
-              "index": true
-            },
-            {
-              "type": "string",
-              "index": true
-            }
-          ]
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/originUserId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userRiskData_risk",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/risk"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userRiskData_score",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/score"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userRiskData_status",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/status"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userRiskData_trust",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/trust"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userRiskData_username",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/username"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userRiskData_uuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData/uuid"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientData_appBundleId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/clientData/appBundleId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientData_appVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/clientData/appVersion"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientData_sdkVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/clientData/sdkVersion"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientData_telemetryType",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/clientData/telemetryType"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "botScore",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/botData/botScore"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "botData_responseSegment",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/botData/responseSegment"
+            ]
+          },
+          "suppress": false
         }
       },
       {
@@ -547,13 +824,14 @@
         "datatype": {
           "type": "datetime",
           "index": true,
-          "source": {
-            "from_automatic_value": "current_time"
-          },
           "format": "2006-01-02T15:04:05Z",
           "resolution": "seconds",
           "default": null,
-          "script": null
+          "script": null,
+          "source": {
+            "from_automatic_value": "current_time"
+          },
+          "suppress": false
         }
       },
       {
@@ -561,9 +839,6 @@
         "datatype": {
           "type": "map",
           "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -577,7 +852,11 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
@@ -585,9 +864,6 @@
         "datatype": {
           "type": "map",
           "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -601,17 +877,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "rules",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -621,17 +898,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "ruleData",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -641,17 +919,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "ruleTags",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -661,17 +940,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "ruleActions",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -681,17 +961,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "ruleMessages",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -701,17 +982,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "ruleVersions",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -721,17 +1003,18 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       },
       {
         "name": "ruleSelectors",
         "datatype": {
           "type": "array",
-          "index": true,
-          "source": {
-            "from_input_field": "sql_transform"
-          },
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -741,11 +1024,235 @@
               "type": "string",
               "index": true
             }
-          ]
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_bot",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_waf",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_reputation",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_custom",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_dos",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attackTypes",
+        "datatype": {
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ruleMessage",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ruleTagsBot",
+        "datatype": {
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ruleTagsWAF",
+        "datatype": {
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ruleTagsDOS",
+        "datatype": {
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "CH_UA",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "UA",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "has_CH_UA",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
         }
       }
     ],
     "compression": "",
+    "wurfl": null,
     "format_details": {
       "flattening": {
         "depth": null,
