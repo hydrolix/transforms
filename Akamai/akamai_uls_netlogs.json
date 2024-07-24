@@ -1,0 +1,563 @@
+{
+  "name": "default_uls_netlogs",
+  "description": "",
+  "uuid": "2ee74655-d498-4122-9534-5f549607cac3",
+  "created": "2024-07-12T15:51:14.838239Z",
+  "modified": "2024-07-12T15:55:21.678290Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": null,
+    "null_values": [],
+    "sample_data": {
+      "id": "123",
+      "stats": {
+        "inBytes": 0,
+        "outBytes": 0,
+        "httpRequestCount": 1
+      },
+      "domain": "123.123.123.123",
+      "siteId": 1234536,
+      "clientIP": "222.111.222.111",
+      "dropInfo": {
+        "wasDropped": true,
+        "droppedReason": "Destination Filter - Internal Host IP"
+      },
+      "siteName": "ETP DEMO",
+      "machineId": "",
+      "clientPort": 35593,
+      "onrampType": "explicit_proxy_tls",
+      "connEndTime": "2023-08-23T07:59:11Z",
+      "httpVersion": "N/A",
+      "machineName": "",
+      "ovfActionId": -1,
+      "connectionId": "0xABCDEF1234567890",
+      "policyAction": "onramp",
+      "connStartTime": "2023-08-23T07:59:11Z",
+      "destinationIP": "111.222.111.222",
+      "deviceOwnerId": "",
+      "httpUserAgent": "",
+      "ovfActionName": "N/A",
+      "sublocationId": "-1",
+      "clientRequestId": "",
+      "destinationPort": 80,
+      "sublocationName": "N/A",
+      "internalClientIP": "",
+      "decryptedInternalClientIP": "192.168.11.168",
+      "encryptedInternalClientIP": "123123123123123123/ABCDEF",
+      "encryptedInternalClientName": ""
+    },
+    "output_columns": [
+      {
+        "name": "id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectionId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "domain",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connStartTime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connEndTime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": false,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientPort",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "destinationIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "destinationPort",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "siteId",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "siteName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "policyAction",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "onrampType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "internalClientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "httpVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "httpUserAgent",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "machineId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "machineName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientRequestId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "ovfActionId",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "ovfActionName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "httpRequestCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/stats/httpRequestCount"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "inBytes",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/stats/inBytes"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "outBytes",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/stats/outBytes"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "wasDropped",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/dropInfo/wasDropped"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "droppedReason",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/dropInfo/droppedReason"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "encryptedInternalClientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "decryptedInternalClientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "sublocationId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "sublocationName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceOwnerId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "encryptedInternalClientName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "source": null,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "suppress": true
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://osa.trafficpeak.live/config/v1/orgs/b73ef931-f569-40b0-bfb6-84fd79196d9f/projects/70622314-0786-42b4-8833-cd7c48c1b560/tables/2a17d39a-3de8-4832-a9c9-04406514b7d8/transforms/2ee74655-d498-4122-9534-5f549607cac3",
+  "type": "json",
+  "table": "2a17d39a-3de8-4832-a9c9-04406514b7d8"
+}
