@@ -1,0 +1,1136 @@
+{
+  "name": "enterprise_app_access",
+  "description": "",
+  "uuid": "d3fb73b0-c90b-4cef-96a9-dc1936e1b806",
+  "created": "2024-07-25T19:37:38.686645Z",
+  "modified": "2024-07-26T12:16:40.403058Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\n\tif(isNull(datetimeString), null,  parseDateTimeBestEffort(datetimeString)) as datetime,\n    JSONExtractString(risk_posture_tiers) as risk_posture_tiers_str,\n    JSONExtractString(risk_posture_tags) as risk_posture_tags,\n    JSONExtractString(browsers) as browsers,\n    JSONExtractString(anti_malware_running) as anti_malware_running,\n    JSONExtractString(anti_malware_status) as anti_malware_status,\n    JSONExtractString(anti_malware_info) as anti_malware_info,\n    JSONExtractString(certificate_profile) as certificate_profile,\n    JSONExtractString(etp_signals) as etp_signals_str,\n    JSONExtractString(etp_signals_str, 'threat_detected') as threat_detected,\n\n* FROM {STREAM}",
+    "null_values": [
+      "null"
+    ],
+    "sample_data": false,
+    "output_columns": [
+      {
+        "name": "timestamp",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "virtual": true,
+          "primary": true,
+          "format": "2006-01-02T15:04:05.999Z",
+          "resolution": "sec",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_automatic_value": "receive_time"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "username",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "apphost",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "http_method",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "url_path",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "http_ver",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "referer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "status_code",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "idpinfo",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "http_verb2",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "total_resp_time",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connector_resp_time",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "datetime",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "format": "2006-01-02T15:04:05",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "datetimeString",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/datetime"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "origin_resp_time",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "req_size",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "content_type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "user_agent",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "device_os",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "device_type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "geo_city",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "geo_state",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "geo_statecode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "geo_countrycode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "geo_country",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "internal_host",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "session_info",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "groups",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "session_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource_type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "event",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "event_type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connector_uuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "reachable",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "status",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "privateip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "publicip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "debugchan",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "ts",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "format": "2006-01-02T15:04:05.999Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "cpu",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "disk",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "network",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dialout_total",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dialout_idle",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dialout_active",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "device_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "device_name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "risk_posture_tiers",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "risk_posture_tags",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "client_version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "idp_username",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "user_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "browsers",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "os_name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "os_version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "signal_timestamp",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "format": "2006-01-02T15:04:05.999999Z07:00",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "os_update_timestamp",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "os_auto_update",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "anti_malware_running",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "anti_malware_status",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "anti_malware_info",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "firewall_status",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "system_disk_encryption",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "etp_client_status",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "mobile_device",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "certificate_profile",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "etp_signals",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "threat_detected",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dir_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "service",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connector_count",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "directory_status",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "group_count",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "user_count",
+        "datatype": {
+          "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "last_sync",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "format": "2006-01-02T15:04:05.000000",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "sync_state",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "conf_state",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://se-linode-playpen.trafficpeak.live/config/v1/orgs/aa6cab5e-2ab9-4806-a909-d469a8e83764/projects/c7b248dc-4a5d-4f3a-9e1b-bc9d0655a563/tables/4d0980b5-7705-4ea6-bc2c-8c628f60dc21/transforms/d3fb73b0-c90b-4cef-96a9-dc1936e1b806",
+  "type": "json",
+  "table": "4d0980b5-7705-4ea6-bc2c-8c628f60dc21"
+}
