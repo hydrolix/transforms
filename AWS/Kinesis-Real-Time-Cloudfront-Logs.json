@@ -1,594 +1,1015 @@
 {
   "name": "cloudFrontTransform",
-  "type": "csv",
   "description": "Real_time CloudFront logs transform",
   "settings": {
     "is_default": true,
-    "compression": "none",
-    "format_details": {
-      "delimiter": "\t",
-      "skip_head": 0,
-      "quote": "\"",
-      "comment": "#",
-      "skip_comments": false,
-      "escape": "\"",
-      "windows_ending": false,
-      "buffer_size": 4096
-    },
+    "sql_transform": "SELECT arrayPopBack(splitByString('%0A', assumeNotNull(cs_header_names_string))) as cs_header_names\n,\narrayPopBack(arrayMap(x -> decodeURLComponent(x), arrayMap(x -> replaceOne(x, ':',''), arrayMap(x -> extract(x,'^.[^:]*(.*)') ,splitByString('%0A', assumeNotNull(cs_headers_string)))))) as cs_header_values,\ndecodeURLComponent(assumeNotNull(sc_content_type)) as sc_content_type,\ndecodeURLComponent(assumeNotNull(cs_user_agent)) as cs_user_agent,\ndecodeURLComponent(assumeNotNull(cs_referer)) as cs_referer,\n*\nFROM {STREAM}",
+    "null_values": [
+      "-"
+    ],
+    "sample_data": "1722571980.802\t66.58.176.77\t0.013\t200\t386\tGET\thttps\tdmg3j8t66naeg.cloudfront.net\t/\t256\tSEA73-P2\tp-TURWJuCqHrv6DdZhj4uausuDMXq2dunidCTVLn8PVkg0itvFJhDQ==\tdmg3j8t66naeg.cloudfront.net\t0.014\tHTTP/2.0\tIPv4\tMozilla/5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/605.1.15%20(KHTML,%20like%20Gecko)%20Version/17.5%20Safari/605.1.15\t-\t-\t-\tHit\t-\tTLSv1.3\tTLS_AES_128_GCM_SHA256\tHit\t-\t-\ttext/html\t77\t-\t-\t59844\tHit\tUS\tgzip,%20deflate,%20br\ttext/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\t*\thost:dmg3j8t66naeg.cloudfront.net%0Aaccept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8%0Asec-fetch-site:none%0Aaccept-encoding:gzip,%20deflate,%20br%0Asec-fetch-mode:navigate%0Auser-agent:Mozilla/5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/605.1.15%20(KHTML,%20like%20Gecko)%20Version/17.5%20Safari/605.1.15%0Aaccept-language:en-US,en;q=0.9%0Asec-fetch-dest:document%0A\thost%0Aaccept%0Asec-fetch-site%0Aaccept-encoding%0Asec-fetch-mode%0Auser-agent%0Aaccept-language%0Asec-fetch-dest%0A\t8\tEDSB5IQNTX2OR\tdmg3j8t66naeg.cloudfront.net\t-\t-\t8047\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-\t-",
     "output_columns": [
       {
         "name": "timestamp",
         "datatype": {
           "type": "epoch",
+          "index": false,
           "primary": true,
           "format": "seconds",
           "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 0
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "c_ip",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 1
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "time_to_first_byte",
         "datatype": {
           "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 2
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "sc_status",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 3
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "sc_bytes",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 4
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_method",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 5
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_protocol",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 6
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_host",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 7
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_uri_stem",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 8
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_bytes",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 9
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_edge_location",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 10
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_edge_request_id",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 11
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_host_header",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 12
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "time_taken",
         "datatype": {
           "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 13
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_protocol_version",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 14
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "c_ip_version",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 15
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_user_agent",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 16
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_referer",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 17
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_cookie",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 18
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_uri_query",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 19
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_edge_response_result_type",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 20
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_forwarded_for",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 21
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "ssl_protocol",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 22
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "ssl_cipher",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 23
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_edge_result_type",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 24
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "fle_encrypted_fields",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 25
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "fle_status",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 26
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "sc_content_type",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 27
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "sc_content_len",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 28
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "sc_range_start",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 29
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "sc_range_end",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 30
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "c_port",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 31
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "x_edge_detailed_result_type",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 32
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "c_country",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 33
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_accept_encoding",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 34
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_accept",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 35
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cache_behavior_path_pattern",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 36
-          }
+          },
+          "suppress": false
         }
       },
       {
-        "name": "cs_headers",
+        "name": "cs_headers_string",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 37
-          }
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "cs_header_values",
+        "datatype": {
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_index": 37
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cs_header_names_string",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_index": 38
+          },
+          "suppress": true
         }
       },
       {
         "name": "cs_header_names",
         "datatype": {
-          "type": "string",
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
           "source": {
             "from_input_index": 38
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cs_headers_count",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 39
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "primary_distribution_id",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 40
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "primary_distribution_dns_name",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 41
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "origin_fbl",
         "datatype": {
           "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 42
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "origin_lbl",
         "datatype": {
           "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 43
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "asn",
         "datatype": {
           "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 44
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_encoded_bitrate",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 45
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_buffer_length",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 46
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_buffer_starvation",
         "datatype": {
           "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 47
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_content_id",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 48
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_object_duration",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 49
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_deadline",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 50
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_measured_throughput",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 51
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_next_object_request",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 52
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_next_range_request",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 53
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_object_type",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 54
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_playback_rate",
         "datatype": {
           "type": "uint8",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 55
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_requested_maximum_throughput",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 56
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_streaming_format",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 57
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_session_id",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 58
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_stream_type",
         "datatype": {
           "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 59
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_startup",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 60
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_top_bitrate",
         "datatype": {
           "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 61
-          }
+          },
+          "suppress": false
         }
       },
       {
         "name": "cmcd_version",
         "datatype": {
           "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "source": {
             "from_input_index": 62
-          }
+          },
+          "suppress": false
         }
       }
     ],
-    "null_values": [
-      "-"
-    ]
-  }
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "quote": "\"",
+      "escape": "\"",
+      "comment": "#",
+      "delimiter": "\t",
+      "skip_head": 0,
+      "buffer_size": 4096,
+      "skip_comments": false,
+      "windows_ending": false
+    }
+  },
+  "type": "csv"
 }
