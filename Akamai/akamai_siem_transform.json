@@ -3,7 +3,7 @@
   "description": "Default SIEM integration for Akamai",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\ndecodeURLComponent(requestHeadersStr) as requestHeadersStr, \ndecodeURLComponent(responseHeadersStr) as responseHeadersStr, \nakamai_siem_extract(rulesStr) as rules,\nakamai_siem_extract(ruleTagsStr) as ruleTags,\narrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') as ruleData, \nakamai_siem_extract(ruleActionsStr) as ruleActions,\nakamai_siem_extract(ruleMessagesStr) as ruleMessages,\nakamai_siem_extract(ruleVersionsStr) as ruleVersions,\narrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') as ruleSelectors, \nakamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') as requestHeaders,\nakamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') as responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL']), ruleTags) as attack_bot, \narrayExists(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, 'AKAMAI/CUSTOM'), ruleTags) as attack_custom,\narrayExists(x -> position(x, 'IPBLOCK') !=0, ruleTags) as attack_dos,\nmultiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \n Null) as ruleMessage,\n arrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos]) AS attackTypes,\n arrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL',':']), ruleTags)) as ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/',':']), ruleTags)) as ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) as ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) as has_CH_UA,\n*\nFROM\n{STREAM}",
+    "sql_transform": "SELECT\ndecodeURLComponent(requestHeadersStr) as requestHeadersStr, \ndecodeURLComponent(responseHeadersStr) as responseHeadersStr, \nakamai_siem_extract(rulesStr) as rules,\nakamai_siem_extract(ruleTagsStr) as ruleTags,\narrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') as ruleData, \nakamai_siem_extract(ruleActionsStr) as ruleActions,\nakamai_siem_extract(ruleMessagesStr) as ruleMessages,\nakamai_siem_extract(ruleVersionsStr) as ruleVersions,\narrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') as ruleSelectors, \nakamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') as requestHeaders,\nakamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') as responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL']), ruleTags) as attack_bot, \narrayExists(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, 'AKAMAI/CUSTOM'), ruleTags) as attack_custom,\narrayExists(x -> position(x, 'IPBLOCK') !=0, ruleTags) as attack_dos,\nmultiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \n Null) as ruleMessage,\n arrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos]) AS attackTypes,\n arrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL',':']), ruleTags)) as ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/',':']), ruleTags)) as ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) as ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) as has_CH_UA,\ndatediff('s', timestamp, now64(3)) as hdx_source_latency,\n*\nFROM\n{STREAM}",
     "null_values": [],
     "sample_data": {
       "geo": {
@@ -1249,7 +1249,22 @@
           },
           "suppress": false
         }
-      }
+      },
+			{
+			  "name": "hdx_source_latency",
+			  "datatype": {
+				"type": "uint32",
+				"index": true,
+				"source": {
+				  "from_input_field": "sql_transform"
+				},
+				"format": null,
+				"resolution": "seconds",
+				"default": null,
+				"script": null,
+				"suppress": false
+			  }
+			}
     ],
     "compression": "",
     "wurfl": null,

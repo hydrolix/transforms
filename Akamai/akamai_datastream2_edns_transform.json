@@ -3,7 +3,7 @@
   "description": "Datastream schema for Akamai eDNS and GTM services",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\n    akamai_geo('country', assumeNotNull(requestIP)) AS country,\n    akamai_geo('state', assumeNotNull(requestIP)) AS state,\n    akamai_geo('city', assumeNotNull(requestIP)) AS city,\n    splitByChar(':', assumeNotNull(answers))[1] as ttl,\n    splitByChar(':', assumeNotNull(answers))[2] as answer,\n* FROM {STREAM}",
+    "sql_transform": "SELECT\n    akamai_geo('country', assumeNotNull(requestIP)) AS country,\n    akamai_geo('state', assumeNotNull(requestIP)) AS state,\n    akamai_geo('city', assumeNotNull(requestIP)) AS city,\n    splitByChar(':', assumeNotNull(answers))[1] as ttl,\n    splitByChar(':', assumeNotNull(answers))[2] as answer,\ndatediff('s', timeStamp, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
     "null_values": [
       "-"
     ],
@@ -269,6 +269,21 @@
           "type": "string",
           "index": true,
           "source": null,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
           "format": null,
           "resolution": "seconds",
           "default": null,
