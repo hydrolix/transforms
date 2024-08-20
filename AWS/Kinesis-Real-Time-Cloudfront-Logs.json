@@ -3,7 +3,7 @@
   "description": "Real_time CloudFront logs transform",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT arrayPopBack(splitByString('%0A', assumeNotNull(cs_header_names_string))) as cs_header_names\n,\narrayPopBack(arrayMap(x -> decodeURLComponent(x), arrayMap(x -> replaceOne(x, ':',''), arrayMap(x -> extract(x,'^.[^:]*(.*)') ,splitByString('%0A', assumeNotNull(cs_headers_string)))))) as cs_header_values,\ndecodeURLComponent(assumeNotNull(sc_content_type)) as sc_content_type,\ndecodeURLComponent(assumeNotNull(cs_user_agent)) as cs_user_agent,\ndecodeURLComponent(assumeNotNull(cs_referer)) as cs_referer,\n*\nFROM {STREAM}",
+    "sql_transform": "SELECT arrayPopBack(splitByString('%0A', assumeNotNull(cs_header_names_string))) as cs_header_names\n,\narrayPopBack(arrayMap(x -> decodeURLComponent(x), arrayMap(x -> replaceOne(x, ':',''), arrayMap(x -> extract(x,'^.[^:]*(.*)') ,splitByString('%0A', assumeNotNull(cs_headers_string)))))) as cs_header_values,\ndecodeURLComponent(assumeNotNull(sc_content_type)) as sc_content_type,\ndecodeURLComponent(assumeNotNull(cs_user_agent)) as cs_user_agent,\ndecodeURLComponent(assumeNotNull(cs_referer)) as cs_referer,\ndatediff('s', timestamp, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM}",
     "null_values": [
       "-"
     ],
@@ -994,6 +994,21 @@
           "source": {
             "from_input_index": 62
           },
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
           "suppress": false
         }
       }

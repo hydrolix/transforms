@@ -6,7 +6,7 @@
   "modified": "2024-07-26T12:16:40.403058Z",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\n\tif(isNull(datetimeString), null,  parseDateTimeBestEffort(datetimeString)) as datetime,\n    JSONExtractString(risk_posture_tiers) as risk_posture_tiers_str,\n    JSONExtractString(risk_posture_tags) as risk_posture_tags,\n    JSONExtractString(browsers) as browsers,\n    JSONExtractString(anti_malware_running) as anti_malware_running,\n    JSONExtractString(anti_malware_status) as anti_malware_status,\n    JSONExtractString(anti_malware_info) as anti_malware_info,\n    JSONExtractString(certificate_profile) as certificate_profile,\n    JSONExtractString(etp_signals) as etp_signals_str,\n    JSONExtractString(etp_signals_str, 'threat_detected') as threat_detected,\n\n* FROM {STREAM}",
+    "sql_transform": "SELECT\n\tif(isNull(datetimeString), null,  parseDateTimeBestEffort(datetimeString)) as datetime,\n    JSONExtractString(risk_posture_tiers) as risk_posture_tiers_str,\n    JSONExtractString(risk_posture_tags) as risk_posture_tags,\n    JSONExtractString(browsers) as browsers,\n    JSONExtractString(anti_malware_running) as anti_malware_running,\n    JSONExtractString(anti_malware_status) as anti_malware_status,\n    JSONExtractString(anti_malware_info) as anti_malware_info,\n    JSONExtractString(certificate_profile) as certificate_profile,\n    JSONExtractString(etp_signals) as etp_signals_str,\n    JSONExtractString(etp_signals_str, 'threat_detected') as threat_detected,\ndatediff('s', timestamp, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
     "null_values": [
       "null"
     ],
@@ -1111,7 +1111,22 @@
           "source": null,
           "suppress": true
         }
-      }
+      },
+			{
+			  "name": "hdx_source_latency",
+			  "datatype": {
+				"type": "uint32",
+				"index": true,
+				"source": {
+				  "from_input_field": "sql_transform"
+				},
+				"format": null,
+				"resolution": "seconds",
+				"default": null,
+				"script": null,
+				"suppress": false
+			  }
+			}
     ],
     "compression": "",
     "wurfl": null,

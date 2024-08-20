@@ -6,7 +6,7 @@
   "modified": "2024-07-12T15:55:21.678290Z",
   "settings": {
     "is_default": true,
-    "sql_transform": null,
+    "sql_transform": "SELECT\ndatediff('s', connStartTime, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM})",
     "null_values": [],
     "sample_data": {
       "id": "123",
@@ -538,7 +538,22 @@
           ],
           "suppress": true
         }
-      }
+      },
+			{
+			  "name": "hdx_source_latency",
+			  "datatype": {
+				"type": "uint32",
+				"index": true,
+				"source": {
+				  "from_input_field": "sql_transform"
+				},
+				"format": null,
+				"resolution": "seconds",
+				"default": null,
+				"script": null,
+				"suppress": false
+			  }
+			}
     ],
     "compression": "",
     "wurfl": null,

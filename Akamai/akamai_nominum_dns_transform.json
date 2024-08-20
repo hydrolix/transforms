@@ -3,6 +3,7 @@
     "type": "json",
 	"settings": {
 		"is_default": true,
+		"sql_transform": "SELECT\ndatediff('s', timestamp, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM})",
 		"output_columns": [
 			{
 				"name": "timestamp",
@@ -443,6 +444,21 @@
 					"default": null,
 					"script": null
 				}
+			},
+			{
+			  "name": "hdx_source_latency",
+			  "datatype": {
+				"type": "uint32",
+				"index": true,
+				"source": {
+				  "from_input_field": "sql_transform"
+				},
+				"format": null,
+				"resolution": "seconds",
+				"default": null,
+				"script": null,
+				"suppress": false
+			  }
 			}
 		],
 		"compression": "none",
