@@ -4,6 +4,7 @@
 	"settings": {
 		"is_default": true,
 		"sql_transform": "SELECT\ndatediff('s', timestamp, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM})",
+		"sample_data": {"timestamp": 1725353165},
 		"output_columns": [
 			{
 				"name": "timestamp",

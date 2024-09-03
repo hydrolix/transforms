@@ -3,6 +3,7 @@
     "description": "Real-time Log Delivery Edgecast logs transform",
     "settings": {
        "is_default": true,
+       "sample_data": {"timestamp": 1725353165},
        "output_columns": [
         {
             "name": "account_number",

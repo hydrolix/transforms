@@ -5,6 +5,7 @@
     "settings": {
         "is_default": true,
         "compression": "gzip",
+        "sample_data": {"timestamp": "2006-01-02 15:04:05"},
         "output_columns": [
             {
               "name": "timestamp",
