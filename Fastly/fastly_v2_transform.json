@@ -1,0 +1,875 @@
+{
+  "name": "fastly_v2",
+  "description": "Fastly CDN Transform",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT IF(ISNULL(tlsVersion), 0, 1) as is_tls,\nassumeNotNull(splitByChar('?', assumeNotNull(fullReqPath))[1]) AS reqPath,\nif(Length(assumeNotNull(splitByChar('?', assumeNotNull(fullReqPath)))) > 1, assumeNotNull(assumeNotNull(splitByChar('?', assumeNotNull(fullReqPath))))[2], '') AS query_params_raw,\nConcat('.', splitByChar('.', assumeNotNull(reqPath))[2]) AS file_extension,\nreplaceOne(assumeNotNull(range), 'bytes=', '') as range,\nmultiIf(\n    assumeNotNull(reqHost) LIKE '%linear%', 'linear',\n    assumeNotNull(reqHost) LIKE '%live%', 'live',\n    assumeNotNull(reqHost) LIKE '%lvod%', 'lvod',\n    assumeNotNull(reqHost) LIKE '%vod%', 'vod',\n    assumeNotNull(reqHost) LIKE '%aserv%', 'ads',\n    NULL\n) AS content_category,\ndatediff('s', reqTimeSec, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM}",
+    "null_values": [],
+    "sample_data": null,
+    "output_columns": [
+      {
+        "name": "hdx_cdn",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": "fastly",
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_transform",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": "fastly_v2",
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_layer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": "edge",
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "cache_status",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_state"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cliIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_ip"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "rspContentType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_content_type"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "rspContentLength",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_content_length"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "city",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_city"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "continent",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "country",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_country_code"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "serverCountry",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "region",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "h2_stream_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "reqHost",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_host"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cacheable",
+        "datatype": {
+          "type": "bool",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "is_cacheable"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "is_h2",
+        "datatype": {
+          "type": "bool",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_is_h2"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "is_h2_push",
+        "datatype": {
+          "type": "bool",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "is_ipv6",
+        "datatype": {
+          "type": "bool",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_is_ipv6"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "is_tls",
+        "datatype": {
+          "type": "bool",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": false,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "tlsVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_tls_version"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "origin_host",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "origin_host"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "proto",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_protocol"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "req_body_size",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "req_header_size",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "reqMethod",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_method"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_accept_charset",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_accept_content",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_accept_encoding",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_accept_language",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_cache_control",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_cache_control"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_connection",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_dnt",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "request_forwarded",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "referer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_referer"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "UA",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_user_agent"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "objSize",
+        "datatype": {
+          "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_bytes_body"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "resp_header_size",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_bytes_header"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "statusCode",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_status"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "time_elapsed",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_rtt"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "reqTimeSec",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05.999999Z",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "timestamp"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "reqPath",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "fullReqPath",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "request_url"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "token_string",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "token_full"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "token_result",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "token_result"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "timeToFirstByte",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_ttfb"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "file_extension",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "range",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "range_request"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "Edge_IP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "fastly_server_ip"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "Edge_Hostname",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "fastly_server"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cdn_pop",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "fastly_pop"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "client_latitude",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_latitude"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "client_longitude",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_longitude"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "Origin_IP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "origin_ip"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "query_params_raw",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "content_category",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "totalBytes",
+        "datatype": {
+          "type": "uint64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "response_bytes"
+          },
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "none",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
