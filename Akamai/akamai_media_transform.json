@@ -9,7 +9,7 @@
       "^",
       "0"
     ],
-    "sample_data": {},
+    "sample_data": {"reqTimeSec": 1725353165},
     "output_columns": [
       {
         "name": "reqTimeSec",

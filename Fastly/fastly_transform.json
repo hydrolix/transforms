@@ -3,6 +3,7 @@
     "description": "Fastly Default transform",
     "type": "json",
     "settings": {
+      "sample_data": {"time_start": "2006-01-02T15:04:05"},
       "output_columns": [
         {
           "name": "cache_status",
