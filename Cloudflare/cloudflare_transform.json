@@ -1,0 +1,1273 @@
+{
+	"name": "cloudflare_transform",
+	"description": "Cloudflare Transform",
+	"settings": {
+		"is_default": true,
+		--"sql_transform": "SELECT toUnixTimestamp64Milli(EdgeEndTimestamp) - toUnixTimestamp64Milli(EdgeStartTimestamp) AS EdgeResponseTimeMS,\n*\nFROM {STREAM}",
+		"sql_transform": "SELECT datediff('ms', EdgeStartTimestamp, EdgeEndTimestamp) as EdgeResponseTimeMS,\n*\nFROM {STREAM}",
+		"sample_data": null,
+		"output_columns": [
+			{
+				"name": "EdgeStartTimestamp",
+				"datatype":
+				{
+					"type": "datetime",
+					"index": false,
+					"primary": true,
+					"source":
+					{
+						"from_json_pointers":
+						[
+							"/EdgeStartTimestamp"
+						]            },
+					"format": "2006-01-02T15:04:05Z",
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeEndTimestamp",
+				"datatype": {
+					"type": "datetime",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/EdgeEndTimestamp"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": "2006-01-02T15:04:05Z",
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "cacheStatus",
+				"datatype": {
+					"type": "boolean",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/CacheCacheStatus"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "CacheResponseBytes",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "CacheResponseStatus",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "CacheTieredFill",
+				"datatype": {
+					"type": "boolean",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "asn",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientASN"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "country",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientCountry"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientDeviceType",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "cliIP",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientIP"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientIPClass",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "bytes",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestBytes"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "reqHost",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestHost"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "reqMethod",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestMethod"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "reqPath",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestPath"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "proto",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestProtocol"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientRequestReferer",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestReferer"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientRequestURI",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "UA",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientRequestUserAgent"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientSSLCipher",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientSSLProtocol",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "reqPort",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/ClientSrcPort"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ClientXRequestedWith",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeColoCode",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeColoID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgePathingOp",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgePathingSrc",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgePathingStatus",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeRateLimitAction",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeRateLimitID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeRequestHost",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeResponseBytes",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeResponseCompressionRatio",
+				"datatype": {
+					"type": "double",
+					"index": false,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "SecurityAction",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeResponseContentType",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeResponseStatus",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "EdgeResponseTimeMS",
+				"datatype": {
+					"type": "uint64",
+					"index": true,
+					"virtual": true,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "Edge_IP",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/EdgeServerIP"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "FirewallMatchesActions",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "FirewallMatchesRuleIDs",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "FirewallMatchesSources",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "Origin_IP",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": {
+                       "from_json_pointers": ["/OriginIP"]
+                    },
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "OriginResponseHTTPExpires",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "OriginResponseHTTPLastModified",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "OriginResponseStatus",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "OriginResponseTime",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "OriginSSLProtocol",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ParentRayID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "RayID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "SecurityLevel",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "SecurityRuleID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "SecurityRuleDescription",
+				"datatype": {
+				  "type": "string",
+				  "index": false,
+				  "format": null,
+				  "resolution": "seconds",
+				  "default": null,
+				  "script": null,
+				  "source": {
+					"from_input_field": "SecurityRuleDescription"
+				  },
+				  "suppress": false
+				}
+			  },
+			  {
+				"name": "SecurityActions",
+				"datatype": {
+				  "type": "array",
+				  "index": false,
+				  "format": null,
+				  "resolution": "seconds",
+				  "default": null,
+				  "script": null,
+				  "elements": [
+					{
+					  "type": "string",
+					  "index": true
+					}
+				  ],
+				  "source": {
+					"from_input_field": "SecurityActions"
+				  },
+				  "suppress": false
+				}
+			  },
+			  {
+				"name": "SecurityRuleIDs",
+				"datatype": {
+				  "type": "array",
+				  "index": false,
+				  "format": null,
+				  "resolution": "seconds",
+				  "default": null,
+				  "script": null,
+				  "elements": [
+					{
+					  "type": "string",
+					  "index": true
+					}
+				  ],
+				  "source": {
+					"from_input_field": "SecurityRuleIDs"
+				  },
+				  "suppress": false
+				}
+			  },
+			  {
+				"name": "SecuritySources",
+				"datatype": {
+				  "type": "array",
+				  "index": false,
+				  "format": null,
+				  "resolution": "seconds",
+				  "default": null,
+				  "script": null,
+				  "elements": [
+					{
+					  "type": "string",
+					  "index": true
+					}
+				  ],
+				  "source": {
+					"from_input_field": "SecuritySources"
+				  },
+				  "suppress": false
+				}
+			},
+			{
+				"name": "WAFAction",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WAFFlags",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WAFMatchedVar",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WAFProfile",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WAFRuleID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WAFRuleMessage",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WorkerCPUTime",
+				"datatype": {
+					"type": "uint32",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WorkerStatus",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WorkerSubrequest",
+				"datatype": {
+					"type": "boolean",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "WorkerSubrequestCount",
+				"datatype": {
+					"type": "uint8",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+				"name": "ZoneID",
+				"datatype": {
+					"type": "string",
+					"index": true,
+					"virtual": false,
+					"primary": false,
+					"source": null,
+					"catch_all": false,
+					"ignore": false,
+					"format": null,
+					"resolution": "seconds",
+					"default": null,
+					"script": null,
+					"elements": [],
+					"suppress": false
+				}
+			},
+			{
+	        "name": "unknown",
+	        "datatype": {
+	          "type": "map",
+	          "index": true,
+	          "source": null,
+	          "catch_all": true,
+	          "format": null,
+	          "resolution": "seconds",
+	          "default": null,
+	          "script": null,
+	          "elements": [
+	            {
+	              "type": "string",
+	              "index": true
+	            },
+	            {
+	              "type": "string",
+	              "index": true
+	            }
+	          ],
+	          "suppress": false
+	        }
+	      }	      
+		],
+		"compression": "none",
+		"wurfl": null,
+		"format_details": {
+			"flattening": {
+				"active": false,
+				"map_flattening_strategy": null,
+				"slice_flattening_strategy": null,
+				"depth": null
+			}
+		}
+	},
+	"type": "json"
+}

@@ -1,0 +1,1149 @@
+{
+    "name": "myra",
+    "description": "",
+    "settings": {
+      "is_default": true,
+      "sql_transform": "SELECT\ndatediff('s', reqTimeSec, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM}",
+      "null_values": [
+        "-",
+        "-1",
+        "^"
+      ],
+      "sample_data": {},
+      "output_columns": [
+    {
+        "name": "reqTimeSec",
+        "datatype":
+        {
+            "type": "datetime",
+            "index": false,
+            "primary": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/logtime"
+                ]            },
+            "format": "2006-01-02T15:04:05-07:00",
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "cdnProvider",
+        "datatype":
+        {
+            "type": "string",
+            "index": false,
+            "primary": false,
+            "source": null,
+            "format": null,
+            "resolution": "seconds",
+            "default": "myra",
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "suppress": false
+        }
+    },
+    {
+        "name": "requestTime",
+        "datatype":
+        {
+            "type": "double",
+            "index": false,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/request_time"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "pid",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/pid"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "remoteUser",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/remote_user"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqMethod",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/method"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "target",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/target"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqBytes",
+        "datatype":
+        {
+            "type": "uint64",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/bytes"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "pipelined",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/pipelined"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "uri",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/uri"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqHost",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/host"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "UA",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/user-agent"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqCacheControl",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/cache-control"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqPragma",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/pragma"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqExpect",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/expect"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "referer",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/referer"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqContentType",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/content-type"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqOrigin",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/origin"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "reqVia",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/via"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "cookie",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/req/headers/cookie"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "statusCode",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/status"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "respBytes",
+        "datatype":
+        {
+            "type": "uint64",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/bytes"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspVhost",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/vhost"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspLocation",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/location"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspCacheControl",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/cache-control"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspExpires",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/expires"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspContentType",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/content-type"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspSetCookie",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/set-cookie"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspHsts",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/hsts"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspVia",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/via"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "rspWarning",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/resp/headers/warning"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connSerial",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/serial"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connRequestCount",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/request_count"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connProtocol",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/protocol"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "cliIP",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/socket/remote_ip"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "conRemotePort",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/socket/remote_port"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "edgeIP",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/socket/local_ip"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connLocalPort",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/socket/local_port"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "tlsVersion",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/tls/version"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connCipher",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/tls/cipher"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connSni",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/tls/sni"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connTlsSessionid",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/tls/sessionid"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connSessionReused",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/tls/session_reused"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connFp",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/client_ssl/fp"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connDn",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/client_ssl/dn"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "connClientSslStatus",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/conn/client_ssl/status"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "upstreamStatus",
+        "datatype":
+        {
+            "type": "uint32",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/upstream/status"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "upstreamAddress",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/upstream/address"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "upstreamResponseBytes",
+        "datatype":
+        {
+            "type": "uint64",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/upstream/response_bytes"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "upstreamConnect",
+        "datatype":
+        {
+            "type": "double",
+            "index": false,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/upstream/timing/connect"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "upstreamHeader",
+        "datatype":
+        {
+            "type": "double",
+            "index": false,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/upstream/timing/header"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "upstreamResponseTime",
+        "datatype":
+        {
+            "type": "double",
+            "index": false,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/upstream/timing/response_time"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "myraStatus",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/myra/status"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": false
+        }
+    },
+    {
+        "name": "logtime",
+        "datatype":
+        {
+            "type": "string",
+            "index": true,
+            "source":
+            {
+                "from_json_pointers":
+                [
+                    "/logtime"
+                ]
+            },
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "suppress": true
+        }
+    },
+    {
+        "name": "unknown",
+        "datatype":
+        {
+            "type": "map",
+            "index": true,
+            "source": null,
+            "catch_all": true,
+            "format": null,
+            "resolution": "seconds",
+            "default": null,
+            "script": null,
+            "elements":
+            [
+                {
+                    "type": "string",
+                    "index": true
+                },
+                {
+                    "type": "string",
+                    "index": true
+                }
+            ],
+            "suppress": true
+        }
+    }
+],
+"compression": "none",
+"wurfl": null,
+"format_details": {
+  "flattening": {
+    "depth": null,
+    "active": false,
+    "map_flattening_strategy": {
+      "left": "",
+      "right": ""
+    },
+    "slice_flattening_strategy": {
+      "left": "",
+      "right": ""
+    }
+  }
+}
+},
+"type": "json"
+}
