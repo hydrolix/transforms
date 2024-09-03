@@ -3,8 +3,7 @@
 	"description": "Cloudflare Transform",
 	"settings": {
 		"is_default": true,
-		--"sql_transform": "SELECT toUnixTimestamp64Milli(EdgeEndTimestamp) - toUnixTimestamp64Milli(EdgeStartTimestamp) AS EdgeResponseTimeMS,\n*\nFROM {STREAM}",
-		"sql_transform": "SELECT datediff('ms', EdgeStartTimestamp, EdgeEndTimestamp) as EdgeResponseTimeMS,\n*\nFROM {STREAM}",
+		"sql_transform": "SELECT datediff('ms', EdgeStartTimestamp, EdgeEndTimestamp) as EdgeResponseTimeMS,\ndatediff('s', EdgeStartTimestamp, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM}",
 		"sample_data": null,
 		"output_columns": [
 			{
@@ -14,12 +13,10 @@
 					"type": "datetime",
 					"index": false,
 					"primary": true,
-					"source":
-					{
+					"source": {
 						"from_json_pointers":
-						[
-							"/EdgeStartTimestamp"
-						]            },
+						["/EdgeStartTimestamp"]
+					},
 					"format": "2006-01-02T15:04:05Z",
 					"resolution": "seconds",
 					"default": null,
@@ -45,6 +42,21 @@
 					"script": null,
 					"elements": [],
 					"suppress": false
+				}
+			},
+			{
+				"name": "hdx_source_latency",
+				"datatype": {
+				  "type": "uint32",
+				  "index": true,
+				  "source": {
+					"from_input_field": "sql_transform"
+				  },
+				  "format": null,
+				  "resolution": "seconds",
+				  "default": null,
+				  "script": null,
+				  "suppress": false
 				}
 			},
 			{

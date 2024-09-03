@@ -9,7 +9,7 @@
         "-1",
         "^"
       ],
-      "sample_data": {},
+      "sample_data": null,
       "output_columns": [
     {
         "name": "reqTimeSec",
