@@ -48,12 +48,36 @@
         "tags": ["cdn", "logs", "akamai", "dns"]
     },
     {
+        "name": "akamai_mpulse",
+        "description": "Akamai transform for mPulse data",
+        "version": "1",
+        "url":"/mPulse/mpulse_transform.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "rum"]
+    },
+    {
         "name": "fastly",
         "description": "Fastly default transform for JSON based logging",
         "version": "1",
         "url":"/Fastly/fastly_transform.json",
         "vendor":"fastly",
         "tags": ["cdn", "logs", "fastly"]
+    },
+    {
+        "name": "cloudflare",
+        "description": "Cloudflare default transform for JSON based logging",
+        "version": "1",
+        "url":"/Cloudflare/cloudflare_transform.json",
+        "vendor":"cloudflare",
+        "tags": ["cdn", "logs", "cloudflare"]
+    },
+    {
+        "name": "myra",
+        "description": "Myra default transform for JSON based logging",
+        "version": "1",
+        "url":"/Myra/myra_transform.json",
+        "vendor":"myra",
+        "tags": ["cdn", "logs", "myra"]
     },
     {
         "name": "edgecast",
@@ -78,5 +102,13 @@
 	"url":"/Prom/prom2hdx.json",
 	"vendor":"prometheus",
 	"tags": ["metrics", "prometheus"]
+    },
+    {
+        "name": "datazoom",
+        "description": "Datazoom integration",
+        "version": "1",
+        "url":"/Datazoom/datazoom_transform.json",
+        "vendor":"datazoom",
+        "tags": ["logs", "datazoom", "cmcd", "video", "player"]
     }
 ]
