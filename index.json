@@ -37,6 +37,18 @@
         ]
     },
     {
+        "name": "akamai_edgeworker_logs_datastream",
+        "description": "Akamai transform for only Edgeworker logs",
+        "version": "1",
+        "url": "/Akamai/akamai_datastream2_edgeworker_only_transform.json",
+        "vendor": "akamai",
+        "tags": [
+            "logs",
+            "akamai",
+            "EdgeWorker"
+        ]
+    },
+    {
         "name": "akamai_edgeworker_datastream",
         "description": "Akamai transform for all fields included in Edgeworker Datastream",
         "version": "1",
