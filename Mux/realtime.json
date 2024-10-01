@@ -1,0 +1,571 @@
+{
+  "name": "mux_realtime",
+  "description": "Mux transform / schema for realtime feed",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\n  arrayMap(x -> x['type'], metrics) as metric_name,\n  arrayMap(x -> x['value'], metrics) as metric_value,\n  metric_value[indexOf(metric_name, 'START_LATENCY_MS')] as  start_latency_ms,\n  metric_value[indexOf(metric_name, 'EXIT_BEFORE_VIDEO_START')] as  exit_before_video_start,\n  metric_value[indexOf(metric_name, 'WATCH_DURATION_MS')] as  watch_duration_ms,\n  metric_value[indexOf(metric_name, 'SEEK_LATENCY_MS')] as  seek_latency_ms,\n  metric_value[indexOf(metric_name, 'REBUFFER_DURATION_MS')] as  rebuffer_duration_ms,\n  metric_value[indexOf(metric_name, 'REBUFFER_COUNT')] as  rebuffer_count,\n  metric_value[indexOf(metric_name, 'PLAYBACK_ERROR')] as  playback_error,\n  start + duration / 1000 as end,\n  *\nFROM\n{STREAM}",
+    "null_values": [],
+    "sample_data": [
+      {
+        "samples": [
+          {
+            "ip": "212.98.190.27",
+            "asn": 31143,
+            "ip_raw": "1GK+Gw==",
+            "source": {
+              "host_id": "cloudflare",
+              "hostname": "stream.mux.com"
+            },
+            "records": [
+              {
+                "start": "2024-08-23T07:13:46Z",
+                "metrics": [
+                  {
+                    "type": "SEEK_LATENCY_MS",
+                    "value": 1
+                  },
+                  {
+                    "type": "WATCH_DURATION_MS",
+                    "value": 32047
+                  }
+                ],
+                "duration": 40050
+              }
+            ],
+            "view_id": "a6ab1379-01f6-4418-b670-52dc86cbce5f",
+            "customer_id": 26675,
+            "stream_type": "on-demand",
+            "view_id_raw": "pqsTeQH2RBi2cFLchsvOXw==",
+            "viewer_os_family": "Ubuntu",
+            "viewer_device_category": "desktop"
+          }
+        ]
+      },
+      {
+        "samples": [
+          {
+            "ip": "70.23.57.2",
+            "asn": 701,
+            "ip_raw": "Rhc5Ag==",
+            "source": {
+              "host_id": "fastly",
+              "hostname": "stream.mux.com"
+            },
+            "records": [
+              {
+                "start": "2024-08-23T07:11:27Z",
+                "metrics": [
+                  {
+                    "type": "WATCH_DURATION_MS",
+                    "value": 31989
+                  }
+                ],
+                "duration": 30265
+              }
+            ],
+            "view_id": "0ff98976-e557-4786-96ba-eb41ec9e10f6",
+            "customer_id": 26675,
+            "stream_type": "on-demand",
+            "view_id_raw": "D/mJduVXR4aWuutB7J4Q9g==",
+            "view_session_id": "2604a48a-37f2-4834-9d67-9aa40be09a00",
+            "viewer_os_family": "Windows",
+            "viewer_os_version": "10",
+            "viewer_device_category": "desktop"
+          }
+        ]
+      }
+    ],
+    "output_columns": [
+      {
+        "name": "start",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/records/0/start"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "end",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "source_hostname",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/source/hostname"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "source_host_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/source/host_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "view_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/view_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "player_name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/player_name"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "view_has_ad",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/view_has_ad"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "video_startup_failure",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/video_startup_failure"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "exit_before_video_start",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/exit_before_video_start"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "sub_property_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/sub_property_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "view_session_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/view_session_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/ip"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "asn",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/asn"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "viewer_os_family",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/viewer_os_family"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cmcd_session_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/view_session_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "viewer_device_category",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/viewer_device_category"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "viewer_os_version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/viewer_os_version"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "stream_type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/stream_type"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "customer_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/customer_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "duration",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/records/0/duration"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "metrics",
+        "datatype": {
+          "type": "array",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "map",
+              "index": true,
+              "elements": [
+                {
+                  "type": "string",
+                  "index": true
+                },
+                {
+                  "type": "string",
+                  "index": true
+                }
+              ]
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/samples/0/records/0/metrics"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "start_latency_ms",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "watch_duration_ms",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "seek_latency_ms",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "rebuffer_duration_ms",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "rebuffer_count",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "playback_error",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "type": "json"
+}
