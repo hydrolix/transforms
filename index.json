@@ -56,10 +56,98 @@
         "tags": ["cdn", "logs", "akamai", "rum"]
     },
     {
+        "name": "akamai_uls_eaa_access",
+        "description": "Akamai Enterprise Application Access (EAA) Access Logs (ACCESS)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_eaa_access.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "eaa", "access", "user"]
+    },
+    {
+        "name": "akamai_uls_eaa_admin",
+        "description": "Akamai Enterprise Application Access (EAA) Admin Logs (ADMIN)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_eaa_admin.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "eaa", "admin", "audit"]
+    },
+    {
+        "name": "akamai_uls_eaa_conhealth",
+        "description": "Akamai Enterprise Application Access (EAA) Connector Health (CONHEALTH)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_eaa_conhealth.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "eaa", "connector", "health", "CONHEALTH"]
+    },
+    {
+        "name": "akamai_uls_eaa_devinv",
+        "description": "Akamai Enterprise Application Access (EAA) Device Posture Inventory (DEVINV)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_eaa_devinv.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "eaa", "devinv", "inventory", "device"]
+    },
+    {
+        "name": "akamai_uls_eaa_dirhealth",
+        "description": "Akamai Enterprise Application Access (EAA) Directory Health (DIRHEALTH)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_eaa_dirhealth.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "eaa", "DIRHEALTH", "directory", "health"]
+    },
+    {
+        "name": "akamai_uls_guardicore_netlog",
+        "description": "Akamai Guardicore NETLOG",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_guardicore_netlog.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "Guardicore", "netlog"]
+    },
+    {
+        "name": "akamai_uls_mfa_auth",
+        "description": "Akamai MFA Authentication Logs (AUTH)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_mfa_auth.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "mfa", "auth"]
+    },
+    {
+        "name": "akamai_uls_siae_aup",
+        "description": "Akamai Secure Internet Access Enterprise (SIA-E) Accceptable Use Policy Logs (AUP)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_siae_aup.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "sia-e", "siae", "AUP", "policy", "acceptable use"]
+    },
+    {
+        "name": "akamai_uls_siae_dns",
+        "description": "Akamai Secure Internet Access Enterprise (SIA-E) DNS Activity (DNS)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_siae_dns.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "sia-e", "siae", "DNS", "activity"]
+    },
+    {
+        "name": "akamai_uls_siae_threat",
+        "description": "Akamai Secure Internet Access Enterprise (SIA-E) Threat Log (THREAT)",
+        "version": "1",
+        "url":"/Akamai/akamai_uls_siae_threat.json",
+        "vendor":"akamai",
+        "tags": ["cdn", "logs", "akamai", "sia-e", "siae", "THREAT", "Threat Log"]
+    },
+    {
         "name": "fastly",
         "description": "Fastly default transform for JSON based logging",
         "version": "1",
         "url":"/Fastly/fastly_transform.json",
+        "vendor":"fastly",
+        "tags": ["cdn", "logs", "fastly"]
+    },
+    {
+        "name": "fastly_v2",
+        "description": "Updated Fastly default transform for JSON based logging",
+        "version": "2",
+        "url":"/Fastly/fastly_transform_v2.json",
         "vendor":"fastly",
         "tags": ["cdn", "logs", "fastly"]
     },
@@ -78,6 +166,14 @@
         "url":"/Myra/myra_transform.json",
         "vendor":"myra",
         "tags": ["cdn", "logs", "myra"]
+    },
+    {
+        "name": "mPulse",
+        "description": "mPulse default transform for JSON based logging",
+        "version": "1",
+        "url":"/mPulse/mpulse_transform.json",
+        "vendor":"mPulse",
+        "tags": ["cdn", "logs", "mPulse"]
     },
     {
         "name": "edgecast",

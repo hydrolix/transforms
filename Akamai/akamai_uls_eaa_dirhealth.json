@@ -1,0 +1,490 @@
+{
+  "name": "akamai_uls_eaa_dirhealth_v1",
+  "description": "ULS EAA Directory Health (DIRHEALTH) - https://github.com/akamai/uls/blob/main/docs/LOG_OVERVIEW.md#directory-health-dirhealth",
+  "uuid": "ec40eb5f-d8eb-4809-8fb8-eff1c125c1ac",
+  "created": "2024-09-17T08:03:27.345444Z",
+  "modified": "2024-09-30T14:43:56.365035Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\narrayMap(x -> x['agent_infra_type'], connectors) as connectorAgentInfraType,\narrayMap(x -> x['created_at'], connectors) as connectorCreatedAt,\narrayMap(x -> x['name'], connectors) as connectorName,\narrayMap(x -> x['package'], connectors) as connectorPackage,\narrayMap(x -> x['reach'], connectors) as connectorReach,\narrayMap(x -> x['state'], connectors) as connectorState,\narrayMap(x -> x['status'], connectors) as connectorStatus,\narrayMap(x -> x['uuid_url'], connectors) as connectorUuidUrl,\n* FROM {STREAM}",
+    "null_values": [],
+    "sample_data": {
+      "name": "gc-eaa-forrestor-ActiveDirectory",
+      "dir_id": "dir://49L59MSsQcyeaRz6N8iKmA",
+      "status": 1,
+      "enabled": true,
+      "service": "ActiveDirectory",
+      "datetime": "2024-09-16T16:12:00.112396+00:00",
+      "last_sync": "2023-10-06T15:55:31.026068",
+      "conf_state": 1,
+      "sync_state": "Dirty",
+      "user_count": 8,
+      "group_count": 3,
+      "connector_count": 1,
+      "directory_status": "ok"
+    },
+    "output_columns": [
+      {
+        "name": "datetime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05.999999+00:00",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dirId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "dir_id"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "service",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "status",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorCount",
+        "datatype": {
+          "type": "uint64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "connector_count"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "groupCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "group_count"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userCount",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "user_count"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "lastSync",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "format": "2006-01-02T15:04:05.999999",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "last_sync"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "syncState",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sync_state"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "confState",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "conf_state"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "directoryStatus",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "directory_status"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "enabled",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "enabled"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectors",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "map",
+              "index": true,
+              "elements": [
+                {
+                  "type": "string",
+                  "index": true
+                },
+                {
+                  "type": "string",
+                  "index": true
+                }
+              ]
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/browsers"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "connectorAgentInfraType",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorCreatedAt",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "datetime",
+              "index": true,
+              "format": "2006-01-02T15:04:05.999999",
+              "resolution": "ms"
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorName",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorPackage",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorReach",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "uint8",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorState",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorStatus",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "uint8",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorUuidUrl",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/29f14d00-c453-49db-8fe8-a85726aa5088/transforms/ec40eb5f-d8eb-4809-8fb8-eff1c125c1ac",
+  "type": "json",
+  "table": "29f14d00-c453-49db-8fe8-a85726aa5088"
+}

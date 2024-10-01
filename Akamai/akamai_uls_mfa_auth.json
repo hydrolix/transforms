@@ -1,0 +1,679 @@
+{
+  "name": "akamai_uls_mfa_auth_v1",
+  "description": "ULS MFA Authentication Logs (AUTH) - https://github.com/akamai/uls/blob/main/docs/LOG_OVERVIEW.md#authentication-logs-auth",
+  "uuid": "5c6b2c90-b7c8-4a81-973c-12539eb88759",
+  "created": "2024-09-23T10:02:56.589934Z",
+  "modified": "2024-09-30T14:46:19.390381Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
+    "null_values": [],
+    "sample_data": {
+      "uuid": "aud_JfNqdl6zSByrU0ovrbJ6m",
+      "app_id": "app_3IyJXh2U9Jiws6bvxcf8X",
+      "device": "push",
+      "receipt": "",
+      "user_id": "user_6Hy1v24DZIr8b0UHYi5dv3",
+      "app_name": "Test Application",
+      "username": "username",
+      "device_id": "device_3kbTGOPbHxH3KfYkPzm31e",
+      "device_ip": "49.207.58.115",
+      "device_os": "android",
+      "browser_ip": "49.207.58.115",
+      "browser_os": "MacOS",
+      "created_at": "2024-09-23T09:36:20.047688",
+      "is_success": true,
+      "auth_method": "push",
+      "denial_type": "policy",
+      "policy_uuid": "policy_5iMncPFO8euHE8JRviQL4j",
+      "browser_type": "Chrome",
+      "principal_type": null,
+      "principal_uuid": "Tenant",
+      "browser_version": "88.0.4324",
+      "device_metadata": "Android",
+      "policy_attr_name": "policy_5iMncPFO8euHE8JRviQL4j",
+      "device_os_version": "10.0.0",
+      "browser_os_version": "10.15.7",
+      "device_geo_location": "BANGALORE KA, IN",
+      "browser_geo_location": "BANGALORE KA, IN"
+    },
+    "output_columns": [
+      {
+        "name": "datetime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05.999999",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/created_at"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "uuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "browserIp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/browser_ip"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "appId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/app_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "appName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/app_name"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "device",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "authMethod",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/auth_method"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/user_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "username",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "isSuccess",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/is_success"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceMetadata",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/device_metadata"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "receipt",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "browserType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/browser_type"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "browserVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/browser_version"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "browserOs",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/browser_os"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "browserOsVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/browser_os_version"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceOs",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/device_os"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceOsVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/device_os_version"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "browserGeoLocation",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/browser_geo_location"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceGeoLocation",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/device_geo_location"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceIp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/device_ip"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "denialType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/denial_type"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/device_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "policyAttrName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/policy_attr_name"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "policyUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/policy_uuid"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "principalType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/principal_type"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "principalUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/principal_uuid"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attemptUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/attempt_uuid"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "offlineAuth",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/offline_auth"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "offlineAuthRecordedAt",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "format": "2006-01-02T15:04:05.999999",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/offline_auth_recorded_at"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "sessionType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/session_type"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "sessionUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/session_uuid"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "tenantName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/tenant_name"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/736b3226-e0f5-4bae-ae79-8f44a3aa1e8e/transforms/5c6b2c90-b7c8-4a81-973c-12539eb88759",
+  "type": "json",
+  "table": "736b3226-e0f5-4bae-ae79-8f44a3aa1e8e"
+}

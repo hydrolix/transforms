@@ -1,54 +1,73 @@
 {
-  "name": "default_uls_netlogs",
-  "description": "",
-  "uuid": "2ee74655-d498-4122-9534-5f549607cac3",
-  "created": "2024-07-12T15:51:14.838239Z",
-  "modified": "2024-07-12T15:55:21.678290Z",
+  "name": "akamai_uls_eaa_access_v1",
+  "description": "ULS EAA Access Logs (ACCESS) - https://github.com/akamai/uls/blob/main/docs/LOG_OVERVIEW.md#access-logs-access",
+  "uuid": "8a36d3cb-2694-4e7e-af2b-2c24aa782f8d",
+  "created": "2024-09-17T07:59:23.378802Z",
+  "modified": "2024-09-27T15:26:15.277409Z",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\ndatediff('s', connStartTime, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM}",
+    "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
     "null_values": [],
     "sample_data": {
-      "id": "123",
-      "stats": {
-        "inBytes": 0,
-        "outBytes": 0,
-        "httpRequestCount": 1
-      },
-      "domain": "123.123.123.123",
-      "siteId": 1234536,
-      "clientIP": "222.111.222.111",
-      "dropInfo": {
-        "wasDropped": true,
-        "droppedReason": "Destination Filter - Internal Host IP"
-      },
-      "siteName": "ETP DEMO",
-      "machineId": "",
-      "clientPort": 35593,
-      "onrampType": "explicit_proxy_tls",
-      "connEndTime": "2023-08-23T07:59:11Z",
-      "httpVersion": "N/A",
-      "machineName": "",
-      "ovfActionId": -1,
-      "connectionId": "0xABCDEF1234567890",
-      "policyAction": "onramp",
-      "connStartTime": "2023-08-23T07:59:11Z",
-      "destinationIP": "111.222.111.222",
-      "deviceOwnerId": "",
-      "httpUserAgent": "",
-      "ovfActionName": "N/A",
-      "sublocationId": "-1",
-      "clientRequestId": "",
-      "destinationPort": 80,
-      "sublocationName": "N/A",
-      "internalClientIP": "",
-      "decryptedInternalClientIP": "192.168.11.168",
-      "encryptedInternalClientIP": "123123123123123123/ABCDEF",
-      "encryptedInternalClientName": ""
+      "groups": "-",
+      "apphost": "sjclientyahoo.stage.akamai-access.com",
+      "idpinfo": "SENTRY|V",
+      "referer": "-",
+      "bytes_in": 2780,
+      "clientip": "147.92.90.233",
+      "con_uuid": "e19afcd5-c12b-4198-8884-4b5b5b2ea2e2",
+      "datetime": "2024-09-16T09:28:31+00:00",
+      "geo_city": "Fremont",
+      "http_ver": "HTTP/1.1",
+      "req_size": 1602,
+      "url_path": "/",
+      "username": "employee3",
+      "bytes_out": 1602,
+      "client_id": "ac7da8d27cbd38d3d9b765ba74d0054528c99091e509b44a40f3d2987f5b642d",
+      "device_os": "Mac",
+      "geo_state": "California",
+      "cloud_zone": "DPOP-Alpha-East-U18",
+      "error_code": 0,
+      "http_verb2": "GET",
+      "session_id": "75cc22e0-fd34-4c85-cce2-8ef8ef6f2c66",
+      "user_agent": "Chrome-105-0",
+      "deny_reason": "bearer-valid",
+      "device_type": "Mac-OS-X-10-15",
+      "geo_country": "United-States",
+      "http_method": "GET",
+      "origin_host": "69.147.92.11",
+      "status_code": 101,
+      "content_type": "text/plain",
+      "session_info": "bearer-valid",
+      "geo_statecode": "CA",
+      "internal_host": "beap-bc.yahoo.com:443",
+      "client_process": "Google-Chrome-Helper",
+      "client_version": "2.8.0.22060101",
+      "local_datetime": "2024-09-16T15:28:31.450000",
+      "geo_countrycode": "US",
+      "total_resp_time": 67.872,
+      "origin_resp_time": 67.872,
+      "connector_resp_time": 67.872
     },
     "output_columns": [
       {
-        "name": "id",
+        "name": "localDatetime",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "format": "2006-01-02T15:04:05.999999",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "local_datetime"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "username",
         "datatype": {
           "type": "string",
           "index": true,
@@ -62,7 +81,7 @@
         }
       },
       {
-        "name": "connectionId",
+        "name": "apphost",
         "datatype": {
           "type": "string",
           "index": true,
@@ -76,7 +95,55 @@
         }
       },
       {
-        "name": "domain",
+        "name": "httpMethod",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "http_method"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "urlPath",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "url_path"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "httpVer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "http_ver"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "referer",
         "datatype": {
           "type": "string",
           "index": true,
@@ -90,12 +157,104 @@
         }
       },
       {
-        "name": "connStartTime",
+        "name": "statusCode",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "status_code"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "idpinfo",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "httpVerb2",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "http_verb2"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "totalRespTime",
+        "datatype": {
+          "type": "double",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "total_resp_time"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "connectorRespTime",
+        "datatype": {
+          "type": "double",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "connector_resp_time"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "datetime",
         "datatype": {
           "type": "datetime",
           "index": false,
           "primary": true,
-          "format": "2006-01-02T15:04:05Z",
+          "format": "2006-01-02T15:04:05+00:00",
           "resolution": "seconds",
           "default": null,
           "script": null,
@@ -104,247 +263,9 @@
         }
       },
       {
-        "name": "connEndTime",
+        "name": "originRespTime",
         "datatype": {
-          "type": "datetime",
-          "index": false,
-          "primary": false,
-          "format": "2006-01-02T15:04:05Z",
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "clientIP",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "clientPort",
-        "datatype": {
-          "type": "uint32",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "destinationIP",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "destinationPort",
-        "datatype": {
-          "type": "uint32",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "siteId",
-        "datatype": {
-          "type": "uint32",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "siteName",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "policyAction",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "onrampType",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "internalClientIP",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "httpVersion",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "httpUserAgent",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "machineId",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "machineName",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "clientRequestId",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "ovfActionId",
-        "datatype": {
-          "type": "int64",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "ovfActionName",
-        "datatype": {
-          "type": "string",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": null,
-          "suppress": false
-        }
-      },
-      {
-        "name": "httpRequestCount",
-        "datatype": {
-          "type": "uint32",
+          "type": "double",
           "index": true,
           "primary": false,
           "format": null,
@@ -352,69 +273,13 @@
           "default": null,
           "script": null,
           "source": {
-            "from_json_pointers": [
-              "/stats/httpRequestCount"
-            ]
+            "from_input_field": "origin_resp_time"
           },
           "suppress": false
         }
       },
       {
-        "name": "inBytes",
-        "datatype": {
-          "type": "uint32",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": {
-            "from_json_pointers": [
-              "/stats/inBytes"
-            ]
-          },
-          "suppress": false
-        }
-      },
-      {
-        "name": "outBytes",
-        "datatype": {
-          "type": "uint32",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": {
-            "from_json_pointers": [
-              "/stats/outBytes"
-            ]
-          },
-          "suppress": false
-        }
-      },
-      {
-        "name": "wasDropped",
-        "datatype": {
-          "type": "boolean",
-          "index": true,
-          "primary": false,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "source": {
-            "from_json_pointers": [
-              "/dropInfo/wasDropped"
-            ]
-          },
-          "suppress": false
-        }
-      },
-      {
-        "name": "droppedReason",
+        "name": "originHost",
         "datatype": {
           "type": "string",
           "index": true,
@@ -424,15 +289,205 @@
           "default": null,
           "script": null,
           "source": {
-            "from_json_pointers": [
-              "/dropInfo/droppedReason"
-            ]
+            "from_input_field": "origin_host"
           },
           "suppress": false
         }
       },
       {
-        "name": "encryptedInternalClientIP",
+        "name": "reqSize",
+        "datatype": {
+          "type": "uint64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "req_size"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "contentType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "content_type"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "userAgent",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "user_agent"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "device_type"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "deviceOs",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "device_os"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "geoCity",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "geo_city"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "geoState",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "geo_state"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "geoStatecode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "geo_statecode"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "geoCountrycode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "geo_countrycode"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "geoCountry",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "geo_country"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "internalHost",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "internal_host"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "sessionInfo",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "session_info"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "groups",
         "datatype": {
           "type": "string",
           "index": true,
@@ -446,7 +501,7 @@
         }
       },
       {
-        "name": "decryptedInternalClientIP",
+        "name": "sessionId",
         "datatype": {
           "type": "string",
           "index": true,
@@ -455,12 +510,14 @@
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "source": null,
+          "source": {
+            "from_input_field": "session_id"
+          },
           "suppress": false
         }
       },
       {
-        "name": "sublocationId",
+        "name": "clientId",
         "datatype": {
           "type": "string",
           "index": true,
@@ -469,12 +526,14 @@
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "source": null,
+          "source": {
+            "from_input_field": "client_id"
+          },
           "suppress": false
         }
       },
       {
-        "name": "sublocationName",
+        "name": "denyReason",
         "datatype": {
           "type": "string",
           "index": true,
@@ -483,26 +542,46 @@
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "source": null,
+          "source": {
+            "from_input_field": "deny_reason"
+          },
           "suppress": false
         }
       },
       {
-        "name": "deviceOwnerId",
+        "name": "bytesOut",
         "datatype": {
-          "type": "string",
+          "type": "uint64",
           "index": true,
           "primary": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "source": null,
+          "source": {
+            "from_input_field": "bytes_out"
+          },
           "suppress": false
         }
       },
       {
-        "name": "encryptedInternalClientName",
+        "name": "bytesIn",
+        "datatype": {
+          "type": "uint64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "bytes_in"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "conIp",
         "datatype": {
           "type": "string",
           "index": true,
@@ -511,7 +590,105 @@
           "resolution": "seconds",
           "default": null,
           "script": null,
-          "source": null,
+          "source": {
+            "from_input_field": "con_ip"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "conSrcPort",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "con_srcport"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "conUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "con_uuid"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cloudZone",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "cloud_zone"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "errorCode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "error_code"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientProcess",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_process"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "clientVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "client_version"
+          },
           "suppress": false
         }
       },
@@ -520,7 +697,6 @@
         "datatype": {
           "type": "map",
           "index": true,
-          "source": null,
           "catch_all": true,
           "format": null,
           "resolution": "seconds",
@@ -536,24 +712,25 @@
               "index": true
             }
           ],
-          "suppress": true
+          "source": null,
+          "suppress": false
         }
       },
-			{
-			  "name": "hdx_source_latency",
-			  "datatype": {
-				"type": "uint32",
-				"index": true,
-				"source": {
-				  "from_input_field": "sql_transform"
-				},
-				"format": null,
-				"resolution": "seconds",
-				"default": null,
-				"script": null,
-				"suppress": false
-			  }
-			}
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
     ],
     "compression": "",
     "wurfl": null,
@@ -572,7 +749,7 @@
       }
     }
   },
-  "url": "https://osa.trafficpeak.live/config/v1/orgs/b73ef931-f569-40b0-bfb6-84fd79196d9f/projects/70622314-0786-42b4-8833-cd7c48c1b560/tables/2a17d39a-3de8-4832-a9c9-04406514b7d8/transforms/2ee74655-d498-4122-9534-5f549607cac3",
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/6747c316-8170-4204-9f50-2000ad659d3c/transforms/8a36d3cb-2694-4e7e-af2b-2c24aa782f8d",
   "type": "json",
-  "table": "2a17d39a-3de8-4832-a9c9-04406514b7d8"
+  "table": "6747c316-8170-4204-9f50-2000ad659d3c"
 }
