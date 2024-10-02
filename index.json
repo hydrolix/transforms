@@ -102,6 +102,31 @@
         ]
     },
     {
+        "name": "akamai_enterprise_app_access",
+        "description": "Akamai transform for ULS enterprise app access",
+        "version": "1",
+        "url": "/Akamai/akamai_uls_eaa.json",
+        "vendor": "akamai",
+        "tags": [
+            "dns",
+            "uls",
+            "akamai"
+        ]
+    },
+    {
+        "name": "akamai_default_uls_netlogs",
+        "description": "Akamai transform for ULS netlogs",
+        "version": "1",
+        "url": "/Akamai/akamai_uls_netlogs.json",
+        "vendor": "akamai",
+        "tags": [
+            "dns",
+            "logs",
+            "uls",
+            "akamai"
+        ]
+    },
+    {
         "name": "fastly",
         "description": "Fastly default transform for JSON based logging",
         "version": "1",
