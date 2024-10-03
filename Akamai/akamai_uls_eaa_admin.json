@@ -1,0 +1,168 @@
+{
+  "name": "akamai_uls_eaa_admin_v1",
+  "description": "ULS EAA Admin Logs (ADMIN) - https://github.com/akamai/uls/blob/main/docs/LOG_OVERVIEW.md#admin-logs-admin",
+  "uuid": "470a0d6b-aac3-4145-940b-ed044aa2d0cc",
+  "created": "2024-09-17T08:01:04.359840Z",
+  "modified": "2024-09-30T14:42:12.499198Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
+    "null_values": [],
+    "sample_data": {
+      "event": "login",
+      "datetime": "2024-09-16T09:42:09+00:00",
+      "resource": "user1@akamai.com",
+      "username": "user1@akamai.com",
+      "event_type": "login",
+      "resource_type": "users"
+    },
+    "output_columns": [
+      {
+        "name": "datetime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05+00:00",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "username",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "resourceType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "resource_type"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "resource",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "event",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "event_type"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/33e6d73c-5348-4c2c-b450-c07368f8cbb9/transforms/470a0d6b-aac3-4145-940b-ed044aa2d0cc",
+  "type": "json",
+  "table": "33e6d73c-5348-4c2c-b450-c07368f8cbb9"
+}

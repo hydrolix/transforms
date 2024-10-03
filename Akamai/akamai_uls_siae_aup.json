@@ -1,0 +1,1803 @@
+{
+  "name": "akamai_uls_siae_aup_v1",
+  "description": "ULS SIA-E Accceptable Use Policy Logs (AUP) - https://github.com/akamai/uls/blob/main/docs/LOG_OVERVIEW.md#accceptable-use-policy-logs-aup",
+  "uuid": "4c8064d7-2f05-4d72-9383-0fc6254c716d",
+  "created": "2024-09-26T12:56:26.169495Z",
+  "modified": "2024-09-30T14:45:46.225910Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT datediff('s', queryTime, now64(3)) as hdx_source_latency,\n      arrayMap(x -> x['type'], queryResolved) as queryResolvedType,\n      arrayMap(x -> x['response'], queryResolved) as queryResolvedResponse,\n      arrayMap(x -> x['asn'], queryResolved) as queryResolvedAsn,\n      arrayMap(x -> x['asname'], queryResolved) as queryResolvedAsname,\n      arrayMap(x -> x['id'], eventAupCategories) as eventAupCategoriesId,\n      arrayMap(x -> x['name'], eventAupCategories) as eventAupCategoriesName,\n\tarrayMap(x -> x['configId'], eventCorrelatedSinkholeEvents) as eventCseConfigId,\n      arrayMap(x -> x['destinationPort'], eventCorrelatedSinkholeEvents) as eventCseDestinationPort,\n      arrayMap(x -> x['eventId'], eventCorrelatedSinkholeEvents) as eventCseEventId,\n      arrayMap(x -> x['eventTime'], eventCorrelatedSinkholeEvents) as eventCseEventTime,\n      arrayMap(x -> x['hitCount'], eventCorrelatedSinkholeEvents) as eventCseHitCount,\n      arrayMap(x -> x['hostname'], eventCorrelatedSinkholeEvents) as eventCseHostname,\n      arrayMap(x -> x['internalIP'], eventCorrelatedSinkholeEvents) as eventCseInternalIp,\n      arrayMap(x -> x['l4Protocol'], eventCorrelatedSinkholeEvents) as eventCseL4Protocol,\n      arrayMap(x -> x['l7Protocol'], eventCorrelatedSinkholeEvents) as eventCseL7Protocol,\n      arrayMap(x -> x['machineNames'], eventCorrelatedSinkholeEvents) as eventCseMachineNames,\n      arrayMap(x -> x['sinkholeIP'], eventCorrelatedSinkholeEvents) as eventCseSinkholeIp,\n      arrayMap(x -> x['sinkholeId'], eventCorrelatedSinkholeEvents) as eventCseSinkholeId,\n      arrayMap(x -> x['sinkholeName'], eventCorrelatedSinkholeEvents) as eventCseSinkholeName,\n      arrayMap(x -> x['sourcePort'], eventCorrelatedSinkholeEvents) as eventCseSourcePort,\n      arrayMap(x -> x['url'], eventCorrelatedSinkholeEvents) as eventCseUrl,\n      arrayMap(x -> x['userAgent'], eventCorrelatedSinkholeEvents) as eventCseUserAgent,\n      * FROM {STREAM}",
+    "null_values": [],
+    "sample_data": {
+      "id": "0",
+      "event": {
+        "cidr": "",
+        "scId": "32488",
+        "listId": "24",
+        "onRamp": "Yes",
+        "reason": "Akamai Intelligence (DNS)",
+        "riskId": "-1",
+        "scName": "32488",
+        "siteId": "51284",
+        "trigger": "domain",
+        "actionId": "6",
+        "listName": "24",
+        "policyId": "38307",
+        "riskName": "Not Available",
+        "siteName": "E2E WIN 174.232 site",
+        "threatId": 2000,
+        "catalogId": "-1",
+        "eventType": "aup",
+        "actionName": "Classify",
+        "categoryId": "24",
+        "onrampType": "etp-client",
+        "policyName": "E2E-CML-test",
+        "severityId": 0,
+        "threatName": "AUP",
+        "deepScanned": false,
+        "description": "None",
+        "categoryName": "24",
+        "clientAgents": [
+          "N/A"
+        ],
+        "confidenceId": "-1",
+        "applicationId": "-1",
+        "aupCategories": [
+          {
+            "id": "9",
+            "name": "Games"
+          }
+        ],
+        "detectionTime": "2020-05-26T06:34:53Z",
+        "detectionType": "inline",
+        "severityLevel": "Unclassified",
+        "sublocationId": "-1",
+        "transportType": "dot",
+        "confidenceName": "Unknown",
+        "dohAttribution": "",
+        "applicationName": "Not Available",
+        "clientRequestId": "00019749",
+        "sublocationName": "N/A",
+        "internalClientIP": "N/A",
+        "observedAupCategories": [
+          9
+        ],
+        "policyEvaluationSource": "dns",
+        "correlatedSinkholeEvents": [
+          {
+            "url": "/",
+            "eventId": "1590113794976#ac4bde1e-7d3d-4ff5-9cf8-772df0b1ce11#28301",
+            "configId": 1041,
+            "hitCount": 1,
+            "hostname": "akamaietpcnctest.com",
+            "eventTime": "2020-05-22T02:16:34Z",
+            "userAgent": "curl/7.47.0",
+            "internalIP": "198.18.179.187",
+            "l4Protocol": "TCP",
+            "l7Protocol": "HTTP",
+            "sinkholeIP": "172.25.162.242",
+            "sinkholeId": "ac4bde1e-7d3d-4ff5-9cf8-772df0b1ce11",
+            "sourcePort": 48022,
+            "machineNames": [
+              "N/A"
+            ],
+            "sinkholeName": "ETP_DNS_SINKHOLE",
+            "destinationPort": 80
+          }
+        ],
+        "decryptedInternalClientIP": "10.0.1.4",
+        "encryptedInternalClientIP": "JRzknahdpkHv3IFchFoirX02UTkD0QOA",
+        "decryptedInternalClientName": "ltc-001-instance.internal.cloudapp.net",
+        "encryptedInternalClientName": "kJDFqDBTzXAx9A3eJmLbWRpjPRnTjIXu4gpT1yqqtXTc2O8G6rwhce3Ujjnn1K+KQN5jytkh"
+      },
+      "query": {
+        "time": "2020-05-26T06:34:53Z",
+        "uuid": "198.18.193.241-198.18.193.228-1590474893-46281-35384",
+        "dnsIp": "198.18.193.241",
+        "domain": "d.la1-c2-ia4.salesforceliveagent.com.",
+        "clientIp": "172.25.174.232",
+        "deviceId": "c37a4c4e-a7cd-400f-820d-b82762c52975",
+        "resolved": [
+          {
+            "asn": "14340",
+            "type": "A",
+            "asname": "N/A",
+            "response": "13.110.63.55"
+          },
+          {
+            "asn": "14340",
+            "type": "A",
+            "asname": "N/A",
+            "response": "13.110.61.55"
+          },
+          {
+            "asn": "14340",
+            "type": "A",
+            "asname": "N/A",
+            "response": "13.110.62.55"
+          }
+        ],
+        "queryType": "A",
+        "deviceName": "BOS-WPX5E",
+        "deviceOwnerId": "a776d863-f321-4bdc-96cb-7f06d01a7445"
+      },
+      "configId": "1041",
+      "l7Protocol": "DNS"
+    },
+    "output_columns": [
+      {
+        "name": "id",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "configId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/configId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "l7Protocol",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/l7Protocol"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryTime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/time"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryClientIp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/clientIp"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryDnsIp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/dnsIp"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryDomain",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/domain"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/uuid"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/queryType"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryDeviceId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/deviceId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryDeviceName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/deviceName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryResolved",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "map",
+              "index": true,
+              "elements": [
+                {
+                  "type": "string",
+                  "index": true
+                },
+                {
+                  "type": "string",
+                  "index": true
+                }
+              ]
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/query/resolved"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "queryResolvedType",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryResolvedResponse",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryResolvedAsn",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryResolvedAsname",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "queryDeviceOwnerId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/query/deviceOwnerId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDetectionTime",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "format": "2006-01-02T15:04:05Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/detectionTime"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDetectionType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/detectionType"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventSiteId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/siteId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventSiteName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/siteName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventPolicyId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/policyId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventPolicyName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/policyName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventListId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/listId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventListName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/listName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventTrigger",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/trigger"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCategoryId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/categoryId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCategoryName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/categoryName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventConfidenceId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/confidenceId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventConfidenceName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/confidenceName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventActionId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/actionId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventActionName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/actionName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDescription",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/description"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventReason",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/reason"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventOnRamp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/onRamp"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventThreatId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/threatId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventSeverityId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/severityId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventThreatName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/threatName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventSeverityLevel",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/severityLevel"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventOnrampType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/onrampType"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventInternalClientIp",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/internalClientIP"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventClientRequestId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/clientRequestId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventPolicyEvaluationSource",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/policyEvaluationSource"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventEncryptedInternalClientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/encryptedInternalClientIP"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventEncryptedInternalClientName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/encryptedInternalClientName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDecryptedInternalClientIP",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/decryptedInternalClientIP"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDecryptedInternalClientName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/decryptedInternalClientName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventScId",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/scId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventScName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/scName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventApplicationId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/applicationId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventApplicationName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/applicationName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventRiskId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/riskId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventRiskName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/riskName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCatalogId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/catalogId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventSublocationId",
+        "datatype": {
+          "type": "int32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/sublocationId"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventSublocationName",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/sublocationName"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventEventType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/eventType"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventTransportType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/transportType"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDohAttribution",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/dohAttribution"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCidr",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/cidr"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventDeepScanned",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/event/deepScanned"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventObservedAupCategories",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/event/observedAupCategories"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventAupCategories",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "map",
+              "index": true,
+              "elements": [
+                {
+                  "type": "string",
+                  "index": true
+                },
+                {
+                  "type": "string",
+                  "index": true
+                }
+              ]
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/event/aupCategories"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "eventAupCategoriesId",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventAupCategoriesName",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventClientAgents",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/event/clientAgents"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCorrelatedSinkholeEvents",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "map",
+              "index": true,
+              "elements": [
+                {
+                  "type": "string",
+                  "index": true
+                },
+                {
+                  "type": "string",
+                  "index": true
+                }
+              ]
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/event/correlatedSinkholeEvents"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "eventCseConfigId",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseDestinationPort",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseEventId",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseEventTime",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseHitCount",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseHostname",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseInternalIp",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseL4Protocol",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseL7Protocol",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseMachineNames",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseSinkholeIp",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseSinkholeId",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseSinkholeName",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseSourcePort",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "int32",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseUrl",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "eventCseUserAgent",
+        "datatype": {
+          "type": "array",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "event",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/event"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "query",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": {
+            "from_json_pointers": [
+              "/query"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/91141322-910c-42c1-b4c9-aad3f047430c/transforms/4c8064d7-2f05-4d72-9383-0fc6254c716d",
+  "type": "json",
+  "table": "91141322-910c-42c1-b4c9-aad3f047430c"
+}

@@ -1,0 +1,358 @@
+{
+  "name": "akamai_uls_eaa_conhealth_v1",
+  "description": "ULS EAA Connector Health (CONHEALTH) - https://github.com/akamai/uls/blob/main/docs/LOG_OVERVIEW.md#connector-health-conhealth",
+  "uuid": "304118af-d838-495a-a594-a3ea03df8266",
+  "created": "2024-09-17T08:01:53.741280Z",
+  "modified": "2024-09-30T14:41:21.190846Z",
+  "settings": {
+    "is_default": true,
+    "sql_transform": "SELECT datediff('s', datetime, now64(3)) as hdx_source_latency, * FROM {STREAM}",
+    "null_values": [],
+    "sample_data": {
+      "ts": "2024-09-17T10:15:00.676Z",
+      "cpu": 1.3,
+      "mem": 32.4,
+      "disk": 34.4,
+      "name": "demo-v2-con-1-amer",
+      "status": 1,
+      "network": 0.06,
+      "version": "21.01.0-152",
+      "datetime": "2024-09-27T08:04:39.268868+00:00",
+      "publicip": "123.123.123.123",
+      "debugchan": "Y",
+      "privateip": "10.1.4.206",
+      "reachable": 1,
+      "os_version": "Linux-5.15.0-76-generic-x86_64-with-Ubuntu-22.04-jammy",
+      "dialout_idle": 1302,
+      "dialout_total": 1304,
+      "connector_uuid": "cht3_GEjQWyMW9LEk7KQfg",
+      "dialout_active": 1
+    },
+    "output_columns": [
+      {
+        "name": "connUuid",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "connector_uuid"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "reachable",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "status",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "privateip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "publicip",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "debugchan",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "lastUpdate",
+        "datatype": {
+          "type": "datetime",
+          "index": true,
+          "primary": false,
+          "format": "2006-01-02T15:04:05.999Z",
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "ts"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "datetime",
+        "datatype": {
+          "type": "datetime",
+          "index": false,
+          "primary": true,
+          "format": "2006-01-02T15:04:05.999999+00:00",
+          "resolution": "ms",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "datetime"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cpu",
+        "datatype": {
+          "type": "double",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "disk",
+        "datatype": {
+          "type": "double",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem",
+        "datatype": {
+          "type": "double",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "network",
+        "datatype": {
+          "type": "double",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "dialoutTotal",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "dialout_total"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "dialoutIdle",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "dialout_idle"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "dialoutActive",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "dialout_active"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "osVersion",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "os_version"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/fd656d8e-0177-42f5-8aa8-37895990cc0d/transforms/304118af-d838-495a-a594-a3ea03df8266",
+  "type": "json",
+  "table": "fd656d8e-0177-42f5-8aa8-37895990cc0d"
+}
