@@ -8,7 +8,7 @@
     {
         "is_default": true,
         "rate_limit": null,
-        "sql_transform": "SELECT \narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(metadataTagsString))) AS metadataTags, \nJSONExtractArrayRaw(assumeNotNull(projectMetaTagsString))) AS projectMetaTags,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(contextOwnersString))) AS contextOwners,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(contextReferencesString))) AS contextReferences,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(contextViewedString))) AS contextViewed,\n* FROM {STREAM}",
+        "sql_transform": "SELECT \narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(metadataTagsString))) AS metadataTags,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(projectMetaTagsString))) AS projectMetaTags,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(contextOwnersString))) AS contextOwners,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(contextReferencesString))) AS contextReferences,\narrayMap(x -> REPLACE(x, '\\\"', ''), \nJSONExtractArrayRaw(assumeNotNull(contextViewedString))) AS contextViewed,\n* FROM {STREAM}",
         "null_values":
         [],
         "sample_data":
