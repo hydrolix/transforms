@@ -1627,60 +1627,6 @@
         }
       },
       {
-        "name": "event",
-        "datatype": {
-          "type": "map",
-          "index": true,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "elements": [
-            {
-              "type": "string",
-              "index": true
-            },
-            {
-              "type": "string",
-              "index": true
-            }
-          ],
-          "source": {
-            "from_json_pointers": [
-              "/event"
-            ]
-          },
-          "suppress": true
-        }
-      },
-      {
-        "name": "query",
-        "datatype": {
-          "type": "map",
-          "index": true,
-          "format": null,
-          "resolution": "seconds",
-          "default": null,
-          "script": null,
-          "elements": [
-            {
-              "type": "string",
-              "index": true
-            },
-            {
-              "type": "string",
-              "index": true
-            }
-          ],
-          "source": {
-            "from_json_pointers": [
-              "/query"
-            ]
-          },
-          "suppress": true
-        }
-      },
-      {
         "name": "unknown",
         "datatype": {
           "type": "map",
