@@ -220,7 +220,7 @@
         "name": "totalRespTime",
         "datatype": {
           "type": "double",
-          "index": true,
+          "index": false,
           "primary": false,
           "format": null,
           "resolution": "seconds",
@@ -236,7 +236,7 @@
         "name": "connectorRespTime",
         "datatype": {
           "type": "double",
-          "index": true,
+          "index": false,
           "primary": false,
           "format": null,
           "resolution": "seconds",
@@ -266,7 +266,7 @@
         "name": "originRespTime",
         "datatype": {
           "type": "double",
-          "index": true,
+          "index": false,
           "primary": false,
           "format": null,
           "resolution": "seconds",
