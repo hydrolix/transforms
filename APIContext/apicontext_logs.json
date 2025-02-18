@@ -1687,32 +1687,6 @@
                     "source": null,
                     "suppress": true
                 }
-            },
-            {
-                "name": "catch_rejects",
-                "datatype":
-                {
-                    "type": "map",
-                    "index": true,
-                    "catch_rejects": true,
-                    "format": null,
-                    "resolution": "seconds",
-                    "default": null,
-                    "script": null,
-                    "elements":
-                    [
-                        {
-                            "type": "string",
-                            "index": true
-                        },
-                        {
-                            "type": "string",
-                            "index": true
-                        }
-                    ],
-                    "source": null,
-                    "suppress": false
-                }
             }
         ],
         "compression": "",
