@@ -7,7 +7,7 @@
   "settings": {
     "is_default": true,
     "sql_transform": "SELECT datediff('s', queryTime, now64(3)) as hdx_source_latency,\n      arrayMap(x -> x['type'], queryResolved) as queryResolvedType,\n      arrayMap(x -> x['response'], queryResolved) as queryResolvedResponse,\n      arrayMap(x -> x['asn'], queryResolved) as queryResolvedAsn,\n      arrayMap(x -> x['asname'], queryResolved) as queryResolvedAsname,\n      arrayMap(x -> x['id'], eventAupCategories) as eventAupCategoriesId,\n      arrayMap(x -> x['name'], eventAupCategories) as eventAupCategoriesName,\n\tarrayMap(x -> x['configId'], eventCorrelatedSinkholeEvents) as eventCseConfigId,\n      arrayMap(x -> x['destinationPort'], eventCorrelatedSinkholeEvents) as eventCseDestinationPort,\n      arrayMap(x -> x['eventId'], eventCorrelatedSinkholeEvents) as eventCseEventId,\n      arrayMap(x -> x['eventTime'], eventCorrelatedSinkholeEvents) as eventCseEventTime,\n      arrayMap(x -> x['hitCount'], eventCorrelatedSinkholeEvents) as eventCseHitCount,\n      arrayMap(x -> x['hostname'], eventCorrelatedSinkholeEvents) as eventCseHostname,\n      arrayMap(x -> x['internalIP'], eventCorrelatedSinkholeEvents) as eventCseInternalIp,\n      arrayMap(x -> x['l4Protocol'], eventCorrelatedSinkholeEvents) as eventCseL4Protocol,\n      arrayMap(x -> x['l7Protocol'], eventCorrelatedSinkholeEvents) as eventCseL7Protocol,\n      arrayMap(x -> x['machineNames'], eventCorrelatedSinkholeEvents) as eventCseMachineNames,\n      arrayMap(x -> x['sinkholeIP'], eventCorrelatedSinkholeEvents) as eventCseSinkholeIp,\n      arrayMap(x -> x['sinkholeId'], eventCorrelatedSinkholeEvents) as eventCseSinkholeId,\n      arrayMap(x -> x['sinkholeName'], eventCorrelatedSinkholeEvents) as eventCseSinkholeName,\n      arrayMap(x -> x['sourcePort'], eventCorrelatedSinkholeEvents) as eventCseSourcePort,\n      arrayMap(x -> x['url'], eventCorrelatedSinkholeEvents) as eventCseUrl,\n      arrayMap(x -> x['userAgent'], eventCorrelatedSinkholeEvents) as eventCseUserAgent,\n      * FROM {STREAM}",
-    "null_values": [],
+    "null_values": ["-"],
     "sample_data": {
       "id": "0",
       "event": {
@@ -317,7 +317,7 @@
         "name": "queryResolved",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -1223,7 +1223,7 @@
         "name": "eventAupCategories",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -1321,7 +1321,7 @@
         "name": "eventCorrelatedSinkholeEvents",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
