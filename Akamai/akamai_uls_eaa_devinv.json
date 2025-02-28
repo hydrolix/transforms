@@ -7,7 +7,7 @@
   "settings": {
     "is_default": true,
     "sql_transform": "SELECT\ndatediff('s', signalTimestamp, now64(3)) as hdx_source_latency,\narrayMap(x -> x['name'], browsers) as browsersName,\narrayMap(x -> x['version'], browsers) as browsersVersion,\narrayMap(x -> x['name'], riskPostureTiers) as riskPostureTiersName, \narrayMap(x -> x['tier'], riskPostureTiers) as riskPostureTiersTier, \narrayMap(x -> x['passed'], riskPostureTiers) as riskPostureTiersPassed, \narrayMap(x -> x['id'], riskPostureTiers) as riskPostureTiersId, \narrayMap(x -> x['remediations'], riskPostureTiers) as riskPostureTiersRemediations, \narrayMap(x -> x['version'], browsers) as browsersVersion,\narrayMap(x -> x['name'], riskPostureTags) as riskPostureTagsName, \narrayMap(x -> x['tier'], riskPostureTags) as riskPostureTagsTier, \narrayMap(x -> x['passed'], riskPostureTags) as riskPostureTagsPassed, \narrayMap(x -> x['id'], riskPostureTags) as riskPostureTagsId, \narrayMap(x -> x['remediations'], riskPostureTags) as riskPostureTagsRemediations, \narrayMap(x -> x['name'], antiMalwareStatus) as antiMalwareStatusName,\narrayMap(x -> x['passed'], antiMalwareStatus) as antiMalwareStatusPassed,\narrayMap(x -> x['name'], antiMalwareInfo) as antiMalwareInfoName,\narrayMap(x -> x['passed'], antiMalwareInfo) as antiMalwareInfoPassed,\narrayMap(x -> x['name'], certificateProfile) as certificateProfileName,\narrayMap(x -> x['passed'], certificateProfile) as certificateProfilePassed,\n*\nFROM {STREAM}",
-    "null_values": [],
+    "null_values": ["-"],
     "sample_data": {
       "os_name": "macOS",
       "user_id": "androcho",
@@ -148,7 +148,7 @@
         "name": "riskPostureTiers",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -181,7 +181,7 @@
         "name": "riskPostureTags",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -370,7 +370,7 @@
         "name": "browsers",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -661,7 +661,7 @@
         "name": "antiMalwareStatus",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -736,7 +736,7 @@
         "name": "antiMalwareInfo",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,
@@ -879,7 +879,7 @@
         "name": "certificateProfile",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,

@@ -7,7 +7,7 @@
   "settings": {
     "is_default": true,
     "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\narrayMap(x -> x['agent_infra_type'], connectors) as connectorAgentInfraType,\narrayMap(x -> x['created_at'], connectors) as connectorCreatedAt,\narrayMap(x -> x['name'], connectors) as connectorName,\narrayMap(x -> x['package'], connectors) as connectorPackage,\narrayMap(x -> x['reach'], connectors) as connectorReach,\narrayMap(x -> x['state'], connectors) as connectorState,\narrayMap(x -> x['status'], connectors) as connectorStatus,\narrayMap(x -> x['uuid_url'], connectors) as connectorUuidUrl,\n* FROM {STREAM}",
-    "null_values": [],
+    "null_values": ["-"],
     "sample_data": {
       "name": "gc-eaa-forrestor-ActiveDirectory",
       "dir_id": "dir://49L59MSsQcyeaRz6N8iKmA",
@@ -228,7 +228,7 @@
         "name": "connectors",
         "datatype": {
           "type": "array",
-          "index": true,
+          "index": false,
           "format": null,
           "resolution": "seconds",
           "default": null,

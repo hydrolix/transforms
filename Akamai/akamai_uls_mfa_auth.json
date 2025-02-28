@@ -7,7 +7,7 @@
   "settings": {
     "is_default": true,
     "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
-    "null_values": [],
+    "null_values": ["-"],
     "sample_data": {
       "uuid": "aud_JfNqdl6zSByrU0ovrbJ6m",
       "app_id": "app_3IyJXh2U9Jiws6bvxcf8X",
