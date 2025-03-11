@@ -380,5 +380,19 @@
             "video",
             "player"
         ]
+    },
+    {
+        "name": "Tencent EdgeOne",
+        "description": "Tencent EdgeOne integration",
+        "version": "1",
+        "url": "/Tencent/Tencent_EdgeOne.json",
+        "vendor": "Tencent",
+        "tags": [
+            "logs",
+            "cdn",
+            "Tencent",
+            "China CDN",
+            "EdgeOne"
+        ]
     }
 ]
