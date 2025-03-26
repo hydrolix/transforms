@@ -180,6 +180,20 @@
         ]
     },
     {
+        "name": "akamai_uls_eaa_observability_metrics",
+        "description": "Akamai Enterprise Application Access (EAA) Metrics",
+        "version": "1",
+        "url": "/Akamai/akamai_uls_eaa_observability_metrics.json",
+        "vendor": "akamai",
+        "tags": [
+            "cdn",
+            "logs",
+            "akamai",
+            "eaa",
+            "metrics"
+        ]
+    },
+    {
         "name": "akamai_uls_guardicore_netlog",
         "description": "Akamai Guardicore NETLOG",
         "version": "1",
