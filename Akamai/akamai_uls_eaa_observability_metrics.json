@@ -1,0 +1,497 @@
+{
+  "name": "metrics_v1_20250311",
+  "description": "",
+  "uuid": "17b47f49-f916-4c2f-b4db-0dbf44659cfc",
+  "created": "2025-03-11T08:42:06.717392Z",
+  "modified": "2025-03-24T12:29:20.190637Z",
+  "settings": {
+    "is_default": true,
+    "rate_limit": null,
+    "sql_transform": "SELECT datediff('s', timestamp, now64(3)) as hdx_source_latency,\n*\nFROM {STREAM}",
+    "null_values": [],
+    "sample_data": [
+      {
+        "name": "cpu",
+        "tags": {
+          "cpu": "cpu-total",
+          "agent_id": "2eac0600-b51d-11ee-8f04-0242c0a201"
+        },
+        "fields": {
+          "usage_idle": 90.26,
+          "usage_active": 9.74
+        },
+        "timestamp": 1741266943
+      },
+      {
+        "name": "mem",
+        "tags": {
+          "agent_id": "2eac0600-b51d-11ee-8f04-0242c0a8080c"
+        },
+        "fields": {
+          "used": 3745845248,
+          "dirty": 282624,
+          "total": 8346030080,
+          "mapped": 541753344,
+          "available": 4239331328,
+          "used_percent": 44.881760694540894,
+          "available_percent": 50.79458481894184
+        },
+        "timestamp": 1741266943
+      },
+      {
+        "name": "net",
+        "tags": {
+          "agent_id": "2eac0600-b51d-11ee-8f04-0242c0a8080d"
+        },
+        "fields": {
+          "speed": 10000,
+          "err_in": 0,
+          "drop_in": 0,
+          "err_out": 0,
+          "drop_out": 1,
+          "bytes_recv": 320600482112,
+          "bytes_sent": 166361425087,
+          "packets_recv": 663578428,
+          "packets_sent": 649913125
+        },
+        "timestamp": 1741266943
+      }
+    ],
+    "data_mirroring_target": null,
+    "output_columns": [
+      {
+        "name": "timestamp",
+        "datatype": {
+          "type": "epoch",
+          "index": false,
+          "primary": true,
+          "format": "s",
+          "resolution": "s",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/timestamp"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "name",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/name"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cpu_usage_active",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/usage_active"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cpu_usage_idle",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/usage_idle"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "agent_id",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/tags/agent_id"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "cpu",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/tags/cpu"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_available",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/available"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_dirty",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/dirty"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_mapped",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/mapped"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_total",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/total"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_used",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/total"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_used_percent",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/used_percent"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "mem_available_percent",
+        "datatype": {
+          "type": "double",
+          "index": false,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/available_percent"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_bytes_recv",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/bytes_recv"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_bytes_sent",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/bytes_sent"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_drop_in",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/drop_in"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_drop_out",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/drop_out"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_err_in",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/err_in"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_err_out",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/err_out"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_packets_recv",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/packets_recv"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_packets_sent",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/packets_sent"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "net_speed",
+        "datatype": {
+          "type": "int64",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/fields/speed"
+            ]
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
+        }
+      }
+    ],
+    "compression": "",
+    "wurfl": null,
+    "format_details": {
+      "flattening": {
+        "depth": null,
+        "active": false,
+        "map_flattening_strategy": {
+          "left": "",
+          "right": ""
+        },
+        "slice_flattening_strategy": {
+          "left": "",
+          "right": ""
+        }
+      }
+    }
+  },
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/dc5a729a-0e31-4ca0-8729-9e5bdf1b3d1d/transforms/17b47f49-f916-4c2f-b4db-0dbf44659cfc",
+  "type": "json",
+  "table": "dc5a729a-0e31-4ca0-8729-9e5bdf1b3d1d"
+}
