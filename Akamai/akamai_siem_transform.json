@@ -86,6 +86,21 @@
         }
       },
       {
+        "name": "referer",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": "seconds",
+          "default": null,
+          "script": null,
+          "source": {
+            "from_automatic_value": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
         "name": "format",
         "datatype": {
           "type": "string",
