@@ -18,7 +18,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -31,7 +30,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -44,7 +42,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -57,7 +54,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -70,7 +66,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -110,7 +105,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -136,7 +130,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -162,7 +155,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -188,7 +180,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -201,7 +192,6 @@
           "index": false,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": true
@@ -214,7 +204,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -227,7 +216,6 @@
           "index": false,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -253,7 +241,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -266,7 +253,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -279,7 +265,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -292,7 +277,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -305,7 +289,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -318,7 +301,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -331,7 +313,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -344,7 +325,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -357,7 +337,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -370,7 +349,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -383,7 +361,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -396,7 +373,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -422,7 +398,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -435,7 +410,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -448,7 +422,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -461,7 +434,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -474,7 +446,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -487,7 +458,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -500,7 +470,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -513,7 +482,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -526,7 +494,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -539,7 +506,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -552,7 +518,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -565,7 +530,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -578,7 +542,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -591,7 +554,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -604,7 +566,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -617,7 +578,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -630,7 +590,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -643,7 +602,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -656,7 +614,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -669,7 +626,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -682,7 +638,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -695,7 +650,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -710,7 +664,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -725,7 +678,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -740,7 +692,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -755,7 +706,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -770,7 +720,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -785,7 +734,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -800,7 +748,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -815,7 +762,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -830,7 +776,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -845,7 +790,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -860,7 +804,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -875,7 +818,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -890,7 +832,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -905,7 +846,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -920,7 +860,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -935,7 +874,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -950,7 +888,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -965,7 +902,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -980,7 +916,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -995,7 +930,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1010,7 +944,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1025,7 +958,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1040,7 +972,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1055,7 +986,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1070,7 +1000,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1085,7 +1014,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1100,7 +1028,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1115,7 +1042,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1130,7 +1056,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1145,7 +1070,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1160,7 +1084,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1175,7 +1098,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1190,7 +1112,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1205,7 +1126,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1220,7 +1140,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1235,7 +1154,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1250,7 +1168,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1265,7 +1182,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1280,7 +1196,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1295,7 +1210,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1310,7 +1224,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1325,7 +1238,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1340,7 +1252,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1355,7 +1266,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1370,7 +1280,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1385,7 +1294,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1400,7 +1308,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1415,7 +1322,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1430,7 +1336,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1445,7 +1350,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1460,7 +1364,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1475,7 +1378,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1490,7 +1392,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1505,7 +1406,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1520,7 +1420,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1533,7 +1432,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1546,7 +1444,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1559,7 +1456,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1573,7 +1469,6 @@
           "source": null,
           "catch_all": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1601,7 +1496,6 @@
           "source": null,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1619,7 +1513,6 @@
           "source": null,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1637,7 +1530,6 @@
           "source": null,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1655,7 +1547,6 @@
           "source": null,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1673,7 +1564,6 @@
           "source": null,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1691,7 +1581,6 @@
           "source": null,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -1704,7 +1593,6 @@
               "index": true,
               "source": null,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "suppress": true
@@ -1717,7 +1605,6 @@
               "index": true,
               "source": null,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "suppress": false
@@ -1730,7 +1617,6 @@
               "index": true,
               "source": null,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "suppress": false
@@ -1748,7 +1634,6 @@
               "source": null,
               "ignore": false,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "suppress": false
@@ -1762,7 +1647,6 @@
           "primary": false,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1782,7 +1666,6 @@
           "primary": false,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1799,7 +1682,6 @@
           "primary": false,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1816,7 +1698,6 @@
           "primary": false,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1833,7 +1714,6 @@
           "primary": false,
           "ignore": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1855,7 +1735,6 @@
               "primary": false,
               "ignore": false,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "source": null,
@@ -1875,7 +1754,6 @@
               "primary": false,
               "ignore": false,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "source": null,
@@ -1895,7 +1773,6 @@
               "primary": false,
               "ignore": false,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "source": null,
@@ -1915,7 +1792,6 @@
               "primary": false,
               "ignore": false,
               "format": null,
-              "resolution": "seconds",
               "default": null,
               "script": null,
               "source": null,
@@ -1928,7 +1804,6 @@
           "type": "array",
           "index": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1949,7 +1824,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": null,
@@ -1962,7 +1836,6 @@
       "type": "uint32",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": null,
@@ -1975,7 +1848,6 @@
       "type": "uint32",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": null,
@@ -1988,7 +1860,6 @@
       "type": "uint32",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": null,
@@ -2001,7 +1872,6 @@
       "type": "uint32",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": null,
@@ -2014,7 +1884,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2029,7 +1898,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2044,7 +1912,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2059,7 +1926,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2074,7 +1940,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2089,7 +1954,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2104,7 +1968,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2119,7 +1982,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2134,7 +1996,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2149,7 +2010,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2164,7 +2024,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2179,7 +2038,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2194,7 +2052,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2209,7 +2066,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2224,7 +2080,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2239,7 +2094,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2254,7 +2108,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2269,7 +2122,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2284,7 +2136,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {
@@ -2299,7 +2150,6 @@
       "type": "string",
       "index": true,
       "format": null,
-      "resolution": "seconds",
       "default": null,
       "script": null,
       "source": {

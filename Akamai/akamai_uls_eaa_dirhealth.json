@@ -45,7 +45,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -61,7 +60,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": null,
@@ -75,7 +73,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": null,
@@ -89,7 +86,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": null,
@@ -103,7 +99,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -119,7 +114,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -135,7 +129,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -167,7 +160,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -183,7 +175,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -199,7 +190,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -215,7 +205,6 @@
           "index": true,
           "primary": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -230,7 +219,6 @@
           "type": "array",
           "index": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -263,7 +251,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -284,7 +271,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -307,7 +293,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -328,7 +313,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -349,7 +333,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -370,7 +353,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -391,7 +373,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -412,7 +393,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -434,7 +414,6 @@
           "index": true,
           "catch_all": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -457,7 +436,6 @@
           "type": "uint32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
