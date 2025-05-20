@@ -54,7 +54,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -71,7 +70,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -88,7 +86,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -105,7 +102,6 @@
           "type": "uint64",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -140,7 +136,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -157,7 +152,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -174,7 +168,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -191,7 +184,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -208,7 +200,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -225,7 +216,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -242,7 +232,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -259,7 +248,6 @@
           "type": "array",
           "index": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -292,7 +280,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -313,7 +300,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -334,7 +320,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -355,7 +340,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -376,7 +360,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -411,7 +394,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -428,7 +410,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -445,7 +426,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -462,7 +442,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -479,7 +458,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -496,7 +474,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -513,7 +490,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -530,7 +506,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -547,7 +522,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -564,7 +538,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -581,7 +554,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -598,7 +570,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -615,7 +586,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -632,7 +602,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -649,7 +618,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -666,7 +634,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -683,7 +650,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -700,7 +666,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -717,7 +682,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -734,7 +698,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -751,7 +714,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -768,7 +730,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -785,7 +746,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -802,7 +762,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -819,7 +778,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -836,7 +794,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -853,7 +810,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -870,7 +826,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -887,7 +842,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -904,7 +858,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -921,7 +874,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -938,7 +890,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -955,7 +906,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -972,7 +922,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -989,7 +938,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1006,7 +954,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1023,7 +970,6 @@
           "type": "int32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1040,7 +986,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1057,7 +1002,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1074,7 +1018,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1091,7 +1034,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1108,7 +1050,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1125,7 +1066,6 @@
           "type": "boolean",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
@@ -1142,7 +1082,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1165,7 +1104,6 @@
           "type": "array",
           "index": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1198,7 +1136,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1219,7 +1156,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1240,7 +1176,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1263,7 +1198,6 @@
           "type": "array",
           "index": false,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1296,7 +1230,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1317,7 +1250,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1338,7 +1270,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1359,7 +1290,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1380,7 +1310,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1401,7 +1330,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1422,7 +1350,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1443,7 +1370,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1464,7 +1390,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1485,7 +1410,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1506,7 +1430,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1527,7 +1450,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1548,7 +1470,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1569,7 +1490,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1590,7 +1510,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1611,7 +1530,6 @@
           "type": "array",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1633,7 +1551,6 @@
           "index": true,
           "catch_all": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -1656,7 +1573,6 @@
           "type": "uint32",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {

@@ -36,7 +36,6 @@
                     "index": false,
                     "source": null,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -59,7 +58,6 @@
                         "from_input_field": "client-port"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -75,7 +73,6 @@
                         "from_input_field": "address-family"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -91,7 +88,6 @@
                         "from_input_field": "elapsed-time"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -107,7 +103,6 @@
                         "from_input_field": "dns-message.id"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -123,7 +118,6 @@
                         "from_input_field": "dns-message.rcode"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -139,7 +133,6 @@
                         "from_input_field": "dns-message.opcode"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -155,7 +148,6 @@
                         "from_input_field": "dns-message.flags"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -172,7 +164,7 @@
                 "datatype":
                 {
                     "type": "array",
-                    "index": true,
+                    "index": false,
                     "elements":
                     [
                         {
@@ -207,7 +199,6 @@
                         "from_input_field": "dns-message.answer"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -230,7 +221,6 @@
                         "from_input_field": "dns-message.authority"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -253,7 +243,6 @@
                         "from_input_field": "dns-message.additional"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -276,7 +265,6 @@
                         "from_input_field": "client-address"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -292,7 +280,6 @@
                         "from_input_field": "server-address"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -305,7 +292,6 @@
                     "index": true,
                     "source": null,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -321,7 +307,6 @@
                         "from_input_field": "lvp-policy"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -344,7 +329,6 @@
                         "from_input_field": "lvp-parent-policy"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "elements":
@@ -364,7 +348,6 @@
                     "index": true,
                     "source": null,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -380,7 +363,6 @@
                         "from_input_field": "request-length"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -396,7 +378,6 @@
                         "from_input_field": "response-length"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -428,7 +409,6 @@
                         "from_input_field": "chunk-header.engine-type"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -444,7 +424,6 @@
                         "from_input_field": "chunk-header.engine-version"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -460,7 +439,6 @@
                         "from_input_field": "chunk-header.node-id"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -476,7 +454,6 @@
                         "from_input_field": "chunk-offset"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -492,7 +469,6 @@
                         "from_input_field": "kafka-partition"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -508,7 +484,6 @@
                         "from_input_field": "kafka-offset"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -540,7 +515,6 @@
                         "from_input_field": "core-domain"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null
                 }
@@ -556,7 +530,6 @@
                         "from_input_field": "sql_transform"
                     },
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "suppress": false
