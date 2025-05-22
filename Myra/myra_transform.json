@@ -40,8 +40,7 @@
             "primary": false,
             "source": null,
             "format": null,
-            "resolution": "seconds",
-            "default": "myra",
+              "default": "myra",
             "script": null,
             "suppress": false
         }
@@ -55,7 +54,6 @@
             "from_input_field": "sql_transform"
           },
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -75,8 +73,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -95,8 +92,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -115,8 +111,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -135,8 +130,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -155,8 +149,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -175,8 +168,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -195,8 +187,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -215,8 +206,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -235,8 +225,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -255,8 +244,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -275,8 +263,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -295,8 +282,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -315,8 +301,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -335,8 +320,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -355,8 +339,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -375,8 +358,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -395,8 +377,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -415,8 +396,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -435,8 +415,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -455,8 +434,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -475,8 +453,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -495,8 +472,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -515,8 +491,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -535,8 +510,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -555,8 +529,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -575,8 +548,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -595,8 +567,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -615,8 +586,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -635,8 +605,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -655,8 +624,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -675,8 +643,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -695,8 +662,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -715,8 +681,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -735,8 +700,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -755,8 +719,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -775,8 +738,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -795,8 +757,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -815,8 +776,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -835,8 +795,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -855,8 +814,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -875,8 +833,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -895,8 +852,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -915,8 +871,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -935,8 +890,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -955,8 +909,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -975,8 +928,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -995,8 +947,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -1015,8 +966,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -1035,8 +985,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -1055,8 +1004,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -1075,8 +1023,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": false
         }
@@ -1095,8 +1042,7 @@
                 ]
             },
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "suppress": true
         }
@@ -1110,8 +1056,7 @@
             "source": null,
             "catch_all": true,
             "format": null,
-            "resolution": "seconds",
-            "default": null,
+              "default": null,
             "script": null,
             "elements":
             [

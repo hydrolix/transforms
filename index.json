@@ -1,5 +1,17 @@
 [
     {
+        "name": "APIContext",
+        "description": "Transform for APIContext Logs",
+        "version": "1",
+        "url": "/APIContext/apicontext_logs.json",
+        "vendor": "APIContext",
+        "tags": [
+            "APIContext",
+            "logs",
+            "monitoring"
+        ]
+    },
+    {
         "name": "akamai_datastream",
         "description": "Akamai transform for all fields included in Datatream v2 product",
         "version": "3",
