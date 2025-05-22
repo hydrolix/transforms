@@ -25,7 +25,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -48,7 +47,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -71,7 +69,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -94,7 +91,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -163,7 +159,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -186,7 +181,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -209,7 +203,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -232,7 +225,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -255,7 +247,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -278,7 +269,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -301,7 +291,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -324,7 +313,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -347,7 +335,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -370,7 +357,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -393,7 +379,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -416,7 +401,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -439,7 +423,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -462,7 +445,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -485,7 +467,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -508,7 +489,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -531,7 +511,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -554,7 +533,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -577,7 +555,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -600,7 +577,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -623,7 +599,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -646,7 +621,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -669,7 +643,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -692,7 +665,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -715,7 +687,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -738,7 +709,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -761,7 +731,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -784,7 +753,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -807,7 +775,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -830,7 +797,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -853,7 +819,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -876,7 +841,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -899,7 +863,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -922,7 +885,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -945,7 +907,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -968,7 +929,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -991,7 +951,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1014,7 +973,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1037,7 +995,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1060,7 +1017,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1083,7 +1039,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1106,7 +1061,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1129,7 +1083,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1152,7 +1105,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1175,7 +1127,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1198,7 +1149,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1221,7 +1171,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1244,7 +1193,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1267,7 +1215,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1290,7 +1237,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1313,7 +1259,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1336,7 +1281,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1359,7 +1303,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1382,7 +1325,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1405,7 +1347,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1428,7 +1369,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1451,7 +1391,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1474,7 +1413,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1497,7 +1435,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1520,7 +1457,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1543,7 +1479,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1566,7 +1501,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1589,7 +1523,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1612,7 +1545,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1635,7 +1567,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1658,7 +1589,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1681,7 +1611,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1704,7 +1633,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1727,7 +1655,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1750,7 +1677,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1773,7 +1699,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1796,7 +1721,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1819,7 +1743,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1842,7 +1765,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1865,7 +1787,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1888,7 +1809,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1911,7 +1831,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1934,7 +1853,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1957,7 +1875,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -1980,7 +1897,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2003,7 +1919,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2026,7 +1941,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2049,7 +1963,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2072,7 +1985,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2095,7 +2007,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2118,7 +2029,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2141,7 +2051,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2164,7 +2073,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2187,7 +2095,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2210,7 +2117,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2233,7 +2139,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2256,7 +2161,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2279,7 +2183,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2302,7 +2205,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2325,7 +2227,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2348,7 +2249,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2371,7 +2271,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2394,7 +2293,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2417,7 +2315,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2440,7 +2337,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2463,7 +2359,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2486,7 +2381,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2509,7 +2403,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2532,7 +2425,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2555,7 +2447,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2578,7 +2469,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2601,7 +2491,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2624,7 +2513,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2647,7 +2535,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2670,7 +2557,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2693,7 +2579,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2716,7 +2601,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2739,7 +2623,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2762,7 +2645,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2785,7 +2667,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2808,7 +2689,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2831,7 +2711,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2854,7 +2733,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2877,7 +2755,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2900,7 +2777,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2923,7 +2799,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2946,7 +2821,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2969,7 +2843,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -2992,7 +2865,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3015,7 +2887,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3038,7 +2909,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3061,7 +2931,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3084,7 +2953,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3107,7 +2975,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3130,7 +2997,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3153,7 +3019,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3176,7 +3041,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3199,7 +3063,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3222,7 +3085,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3245,7 +3107,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3268,7 +3129,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3291,7 +3151,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3314,7 +3173,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3337,7 +3195,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3360,7 +3217,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3383,7 +3239,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3406,7 +3261,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3429,7 +3283,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3452,7 +3305,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3475,7 +3327,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3498,7 +3349,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3521,7 +3371,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3544,7 +3393,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3567,7 +3415,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3590,7 +3437,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3613,7 +3459,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3636,7 +3481,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3659,7 +3503,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3682,7 +3525,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3705,7 +3547,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3728,7 +3569,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3751,7 +3591,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3774,7 +3613,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3797,7 +3635,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3820,7 +3657,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3843,7 +3679,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3866,7 +3701,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3889,7 +3723,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3912,7 +3745,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3935,7 +3767,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3958,7 +3789,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -3981,7 +3811,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4004,7 +3833,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4027,7 +3855,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4050,7 +3877,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4073,7 +3899,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4096,7 +3921,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4119,7 +3943,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4142,7 +3965,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4165,7 +3987,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4188,7 +4009,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4211,7 +4031,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4234,7 +4053,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4257,7 +4075,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4280,7 +4097,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4303,7 +4119,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4326,7 +4141,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4349,7 +4163,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4372,7 +4185,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4395,7 +4207,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4418,7 +4229,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4441,7 +4251,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4464,7 +4273,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4487,7 +4295,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4510,7 +4317,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4533,7 +4339,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4556,7 +4361,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4579,7 +4383,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4602,7 +4405,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4625,7 +4427,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4648,7 +4449,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4671,7 +4471,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4694,7 +4493,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4717,7 +4515,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4740,7 +4537,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4763,7 +4559,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4786,7 +4581,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4809,7 +4603,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4832,7 +4625,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4855,7 +4647,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4878,7 +4669,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4901,7 +4691,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4924,7 +4713,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4947,7 +4735,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4970,7 +4757,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -4993,7 +4779,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5016,7 +4801,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5039,7 +4823,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5062,7 +4845,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5085,7 +4867,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5108,7 +4889,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5131,7 +4911,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5154,7 +4933,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5177,7 +4955,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5200,7 +4977,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5223,7 +4999,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5246,7 +5021,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5269,7 +5043,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5292,7 +5065,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5315,7 +5087,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5338,7 +5109,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5361,7 +5131,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5384,7 +5153,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5407,7 +5175,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5430,7 +5197,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5453,7 +5219,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5476,7 +5241,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5499,7 +5263,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5522,7 +5285,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5545,7 +5307,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5568,7 +5329,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5591,7 +5351,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5614,7 +5373,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5637,7 +5395,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5660,7 +5417,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5683,7 +5439,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5706,7 +5461,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5729,7 +5483,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5752,7 +5505,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5775,7 +5527,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5798,7 +5549,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5821,7 +5571,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5844,7 +5593,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5867,7 +5615,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5890,7 +5637,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5913,7 +5659,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5936,7 +5681,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5959,7 +5703,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -5982,7 +5725,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6005,7 +5747,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6028,7 +5769,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6051,7 +5791,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6074,7 +5813,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6097,7 +5835,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6120,7 +5857,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6143,7 +5879,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6166,7 +5901,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6189,7 +5923,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6212,7 +5945,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6235,7 +5967,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6258,7 +5989,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6281,7 +6011,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6304,7 +6033,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6327,7 +6055,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6350,7 +6077,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6373,7 +6099,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6396,7 +6121,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6419,7 +6143,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6442,7 +6165,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6465,7 +6187,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6488,7 +6209,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6511,7 +6231,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6534,7 +6253,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6557,7 +6275,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6580,7 +6297,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6603,7 +6319,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6626,7 +6341,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6649,7 +6363,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6672,7 +6385,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6695,7 +6407,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6718,7 +6429,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6741,7 +6451,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6764,7 +6473,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6787,7 +6495,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6810,7 +6517,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6833,7 +6539,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6856,7 +6561,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6879,7 +6583,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6902,7 +6605,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6925,7 +6627,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6948,7 +6649,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6971,7 +6671,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -6994,7 +6693,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7017,7 +6715,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7040,7 +6737,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7063,7 +6759,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7086,7 +6781,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7109,7 +6803,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7132,7 +6825,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7155,7 +6847,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7178,7 +6869,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7201,7 +6891,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7224,7 +6913,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7247,7 +6935,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7270,7 +6957,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7293,7 +6979,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7316,7 +7001,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7339,7 +7023,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7362,7 +7045,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7385,7 +7067,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7408,7 +7089,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7431,7 +7111,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7454,7 +7133,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7477,7 +7155,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7500,7 +7177,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7523,7 +7199,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7546,7 +7221,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7569,7 +7243,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7592,7 +7265,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7615,7 +7287,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7638,7 +7309,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7661,7 +7331,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7684,7 +7353,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7707,7 +7375,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7730,7 +7397,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7753,7 +7419,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7776,7 +7441,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7799,7 +7463,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7822,7 +7485,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7845,7 +7507,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7868,7 +7529,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7891,7 +7551,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7914,7 +7573,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7937,7 +7595,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7960,7 +7617,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -7983,7 +7639,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8006,7 +7661,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8029,7 +7683,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8052,7 +7705,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8075,7 +7727,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8098,7 +7749,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8121,7 +7771,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8144,7 +7793,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8167,7 +7815,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8190,7 +7837,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8213,7 +7859,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8236,7 +7881,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8259,7 +7903,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8282,7 +7925,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8305,7 +7947,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8328,7 +7969,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8351,7 +7991,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8374,7 +8013,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8397,7 +8035,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8420,7 +8057,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8443,7 +8079,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8466,7 +8101,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8489,7 +8123,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8512,7 +8145,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8535,7 +8167,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8558,7 +8189,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8581,7 +8211,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8604,7 +8233,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8627,7 +8255,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8650,7 +8277,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8673,7 +8299,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8696,7 +8321,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8719,7 +8343,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8742,7 +8365,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8765,7 +8387,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8788,7 +8409,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8811,7 +8431,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8834,7 +8453,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8857,7 +8475,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8880,7 +8497,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8903,7 +8519,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8926,7 +8541,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8949,7 +8563,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8972,7 +8585,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -8995,7 +8607,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9018,7 +8629,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9041,7 +8651,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9064,7 +8673,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9087,7 +8695,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9110,7 +8717,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9133,7 +8739,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9156,7 +8761,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9179,7 +8783,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9202,7 +8805,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9225,7 +8827,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9248,7 +8849,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9271,7 +8871,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9294,7 +8893,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9317,7 +8915,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9340,7 +8937,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9363,7 +8959,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9386,7 +8981,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9409,7 +9003,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9432,7 +9025,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9455,7 +9047,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9478,7 +9069,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9501,7 +9091,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9524,7 +9113,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9547,7 +9135,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9570,7 +9157,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9593,7 +9179,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9616,7 +9201,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9639,7 +9223,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9662,7 +9245,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9685,7 +9267,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9708,7 +9289,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9731,7 +9311,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9754,7 +9333,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9777,7 +9355,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9800,7 +9377,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9823,7 +9399,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9846,7 +9421,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9869,7 +9443,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9892,7 +9465,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9915,7 +9487,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9938,7 +9509,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9961,7 +9531,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -9984,7 +9553,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10007,7 +9575,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10030,7 +9597,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10053,7 +9619,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10076,7 +9641,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10099,7 +9663,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10122,7 +9685,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10145,7 +9707,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10168,7 +9729,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10191,7 +9751,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10214,7 +9773,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10237,7 +9795,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10260,7 +9817,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10283,7 +9839,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10306,7 +9861,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10329,7 +9883,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10352,7 +9905,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10375,7 +9927,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10398,7 +9949,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10421,7 +9971,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10444,7 +9993,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10467,7 +10015,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10490,7 +10037,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10513,7 +10059,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10536,7 +10081,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10559,7 +10103,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10582,7 +10125,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10605,7 +10147,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10628,7 +10169,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10651,7 +10191,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10674,7 +10213,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10697,7 +10235,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10720,7 +10257,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10743,7 +10279,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10766,7 +10301,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10789,7 +10323,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10812,7 +10345,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10835,7 +10367,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10858,7 +10389,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10881,7 +10411,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10904,7 +10433,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10927,7 +10455,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10950,7 +10477,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10973,7 +10499,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -10996,7 +10521,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11019,7 +10543,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11042,7 +10565,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11065,7 +10587,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11088,7 +10609,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11111,7 +10631,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11134,7 +10653,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11157,7 +10675,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11180,7 +10697,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11203,7 +10719,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11226,7 +10741,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11249,7 +10763,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11272,7 +10785,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11295,7 +10807,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11318,7 +10829,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11341,7 +10851,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11364,7 +10873,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11387,7 +10895,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11410,7 +10917,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11433,7 +10939,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11456,7 +10961,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11479,7 +10983,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11502,7 +11005,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11525,7 +11027,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11548,7 +11049,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11571,7 +11071,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11594,7 +11093,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11617,7 +11115,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11640,7 +11137,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11663,7 +11159,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11686,7 +11181,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11709,7 +11203,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11732,7 +11225,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11755,7 +11247,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11778,7 +11269,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11801,7 +11291,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11824,7 +11313,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11847,7 +11335,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11870,7 +11357,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11893,7 +11379,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11916,7 +11401,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11939,7 +11423,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11962,7 +11445,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -11985,7 +11467,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12008,7 +11489,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12031,7 +11511,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12054,7 +11533,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12077,7 +11555,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12100,7 +11577,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12123,7 +11599,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12146,7 +11621,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12169,7 +11643,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12192,7 +11665,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12215,7 +11687,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12238,7 +11709,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12261,7 +11731,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12284,7 +11753,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12307,7 +11775,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12330,7 +11797,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12353,7 +11819,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12376,7 +11841,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12399,7 +11863,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12422,7 +11885,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12445,7 +11907,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12468,7 +11929,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12491,7 +11951,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12514,7 +11973,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12537,7 +11995,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12560,7 +12017,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12583,7 +12039,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12606,7 +12061,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12629,7 +12083,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12652,7 +12105,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12675,7 +12127,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12698,7 +12149,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12721,7 +12171,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12744,7 +12193,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12767,7 +12215,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12790,7 +12237,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12813,7 +12259,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12836,7 +12281,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12859,7 +12303,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12882,7 +12325,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12905,7 +12347,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12928,7 +12369,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12951,7 +12391,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12974,7 +12413,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -12997,7 +12435,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13020,7 +12457,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13043,7 +12479,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13066,7 +12501,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13089,7 +12523,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13112,7 +12545,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13135,7 +12567,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13158,7 +12589,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13181,7 +12611,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13204,7 +12633,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13227,7 +12655,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13250,7 +12677,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13273,7 +12699,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13296,7 +12721,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13319,7 +12743,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13342,7 +12765,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13365,7 +12787,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13388,7 +12809,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13411,7 +12831,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13434,7 +12853,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13457,7 +12875,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13480,7 +12897,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13503,7 +12919,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13526,7 +12941,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13549,7 +12963,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13572,7 +12985,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13595,7 +13007,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13618,7 +13029,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13641,7 +13051,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13664,7 +13073,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13687,7 +13095,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13710,7 +13117,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13733,7 +13139,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13756,7 +13161,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13779,7 +13183,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13802,7 +13205,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13825,7 +13227,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13848,7 +13249,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13871,7 +13271,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13894,7 +13293,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13917,7 +13315,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13940,7 +13337,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13963,7 +13359,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -13986,7 +13381,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14009,7 +13403,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14032,7 +13425,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14055,7 +13447,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14078,7 +13469,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14101,7 +13491,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14124,7 +13513,6 @@
                     "primary": false,
                     "ignore": false,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":
@@ -14141,7 +13529,6 @@
                     "type": "uint32",
                     "index": true,
                     "format": null,
-                    "resolution": "seconds",
                     "default": null,
                     "script": null,
                     "source":

@@ -18,7 +18,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "elements": [
@@ -41,7 +40,6 @@
           "index": true,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
@@ -54,7 +52,6 @@
           "index": false,
           "source": null,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "suppress": false
