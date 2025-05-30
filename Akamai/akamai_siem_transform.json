@@ -91,7 +91,6 @@
           "type": "string",
           "index": true,
           "format": null,
-          "resolution": "seconds",
           "default": null,
           "script": null,
           "source": {
