@@ -59,7 +59,7 @@
           "script": null,
           "source": {
             "from_json_pointers": [
-              "/attributes/requestId"
+              "/attributes/request_id"
             ]
           },
           "suppress": false
@@ -278,6 +278,30 @@
           "default": null,
           "script": null,
           "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": true
         }
       }
     ],
