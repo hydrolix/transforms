@@ -7,7 +7,7 @@
   "settings": {
     "is_default": true,
     "sql_transform": "SELECT datediff('s', datetime, now64(3)) as hdx_source_latency, * FROM {STREAM}",
-    "null_values": ["-"],
+    "null_values": [],
     "sample_data": {
       "ts": "2024-09-17T10:15:00.676Z",
       "cpu": 1.3,
