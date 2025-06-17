@@ -6,8 +6,8 @@
   "modified": "2024-09-27T15:26:15.277409Z",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\n* FROM {STREAM}",
-    "null_values": ["-"],
+    "sql_transform": "SELECT\ndatediff('s', datetime, now64(3)) as hdx_source_latency,\nIF(internalHost != '-', internalHost, originHost) as origin,\n* FROM {STREAM}",
+    "null_values": [],
     "sample_data": {
       "groups": "-",
       "apphost": "sjclientyahoo.stage.akamai-access.com",
@@ -682,6 +682,21 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "origin",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
