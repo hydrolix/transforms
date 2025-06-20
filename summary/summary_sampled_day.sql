@@ -1,10 +1,30 @@
 SELECT
-  toStartOfHour (reqTimeSec) AS reqTimeSec,
-  cliIP,
-  asn,
-  referer,
-  reqPath,
-  UA,
+  toStartOfDay (reqTimeSec) AS reqTimeSec,
+  IF(
+    cityHash64 (cliIP, reqTimeSec, reqId) % 100 < 10,
+    cliIP,
+    '~~~SAMPLED_OUT~~~'
+  ) AS cliIP,
+  IF(
+    cityHash64 (cliIP, reqTimeSec, reqId) % 100 < 10,
+    asn,
+    '~~~SAMPLED_OUT~~~'
+  ) AS asn,
+  IF(
+    cityHash64 (referer, reqTimeSec, reqId) % 100 < 1,
+    referer,
+    '~~~SAMPLED_OUT~~~'
+  ) AS referer,
+  IF(
+    cityHash64 (reqPath, reqTimeSec, reqId) % 100 < 1,
+    reqPath,
+    '~~~SAMPLED_OUT~~~'
+  ) AS reqPath,
+  IF(
+    cityHash64 (UA, reqTimeSec, reqId) % 100 < 1,
+    UA,
+    '~~~SAMPLED_OUT~~~'
+  ) AS UA,
   Edge_IP,
   reqHost,
   country,
