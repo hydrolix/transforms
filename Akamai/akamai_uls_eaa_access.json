@@ -108,6 +108,21 @@
         }
       },
       {
+        "name": "srvty",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "primary": false,
+          "format": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "srvty"
+          },
+          "suppress": false
+        }
+      },
+      {
         "name": "urlPath",
         "datatype": {
           "type": "string",
