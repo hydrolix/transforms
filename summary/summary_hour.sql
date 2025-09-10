@@ -50,7 +50,9 @@ SELECT
   avgIf (turnAroundTimeMSec, cacheStatus = 1) AS avg_cached_turnAroundTimeMSec,
   avgIf (transferTimeMSec, cacheStatus = 1) AS avg_cached_transferTimeMSec,
   avgIf (turnAroundTimeMSec, cacheStatus = 0) AS avg_uncached_turnAroundTimeMSec,
-  avgIf (transferTimeMSec, cacheStatus = 0) AS avg_uncached_transferTimeMSec
+  avgIf (transferTimeMSec, cacheStatus = 0) AS avg_uncached_transferTimeMSec,
+  quantiles (0.25, 0.5, 0.75, 0.9, 0.95, 0.99) (downloadTime) AS quantiles_downloadTimeMSec,
+  quantiles (0.25, 0.5, 0.75, 0.9, 0.95, 0.99) (timeToFirstByte) AS quantiles_timeToFirstByteMSec
 FROM
   akamai.logs
 GROUP BY
