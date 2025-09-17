@@ -3,7 +3,8 @@
   "description": "Default SIEM integration for Akamai",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT\ndecodeURLComponent(requestHeadersStr) as requestHeadersStr, \ndecodeURLComponent(responseHeadersStr) as responseHeadersStr, \nakamai_siem_extract(rulesStr) as rules,\nakamai_siem_extract(ruleTagsStr) as ruleTags,\narrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') as ruleData, \nakamai_siem_extract(ruleActionsStr) as ruleActions,\nakamai_siem_extract(ruleMessagesStr) as ruleMessages,\nakamai_siem_extract(ruleVersionsStr) as ruleVersions,\narrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') as ruleSelectors, \nakamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') as requestHeaders,\nakamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') as responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL']), ruleTags) as attack_bot, \narrayExists(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, 'AKAMAI/CUSTOM'), ruleTags) as attack_custom,\narrayExists(x -> position(x, 'IPBLOCK') !=0, ruleTags) as attack_dos,\nmultiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \n Null) as ruleMessage,\n arrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos]) AS attackTypes,\n arrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL',':']), ruleTags)) as ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/',':']), ruleTags)) as ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) as ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) as has_CH_UA,\ndatediff('s', timestamp, now64(3)) as hdx_source_latency, \nregexpExtract(requestHeadersStr, 'Referer:\\s*(\\S+)', 1) as referer,\n*\nFROM\n{STREAM}",
+    "rate_limit": null,
+    "sql_transform": "SELECT\n    decodeURLComponent(requestHeadersStr) AS requestHeadersStr,\n    decodeURLComponent(responseHeadersStr) AS responseHeadersStr,\n    akamai_siem_extract(rulesStr) AS rules,\n    akamai_siem_extract(ruleTagsStr) AS ruleTags,\n    arrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') AS ruleData,\n    akamai_siem_extract(ruleActionsStr) AS ruleActions,\n    akamai_siem_extract(ruleMessagesStr) AS ruleMessages,\n    akamai_siem_extract(ruleVersionsStr) AS ruleVersions,\n    arrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') AS ruleSelectors,\n    akamai_extract_key_pair(requestHeadersStr,'\\r\\n', ':') AS requestHeaders,\n    akamai_extract_key_pair(responseHeadersStr,'\\r\\n', ':') AS responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL', 'AKAMAI/BOT/CUST_DEFINED_BOTS']), ruleTags) AS attack_bot,\narrayExists(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, '6'), rules) as attack_custom,\narrayExists(x -> multiSearchAny(x, ['USER-RISK']), rules) as attack_risk,\narrayExists(x -> x = 'IPBLOCK', ruleTags) AS attack_firewall,\narrayExists(x -> positionCaseInsensitive(x, 'BLOCK/') > 0, ruleTags) AS attack_dos,\narrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS', 'User Risk', 'Network Firewall'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos, attack_risk, attack_firewall]) AS attackTypes,\n    multiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \nNull) AS ruleMessage,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL',':']), ruleTags)) AS ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/',':']), ruleTags)) AS ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) AS ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) AS has_CH_UA,\ndatediff('s', timestamp, now64(3)) AS hdx_source_latency,\nregexpExtract(requestHeadersStr, 'Referer:\\s*(\\S+)', 1) AS referer,\nmultiIf(\n arrayExists(x -> multiSearchAny(x, ['AKAMAI_CATEGORIZED']), ruleTags), 'Akamai',\n arrayExists(x -> multiSearchAny(x, ['CUST_DEFINED_BOTS']), ruleTags), 'Customer',\n 'Unknown') AS bot_type,\nmultiIf(\n botData_responseSegment = 0, 'Human', \n botData_responseSegment > 0, 'Bot', \n 'empty') AS responseSegment,\nmultiIf(\n botData_responseSegment = 0, 'Human',\n botData_responseSegment = 1, 'Cautious response', botData_responseSegment = 2, 'Strict response', \n botData_responseSegment = 3, 'Aggressive response', botData_responseSegment = 4, 'Safeguard',\n 'empty') AS responseSegmentDetails,\nmultiIf(\n clientData_telemetryType = 0, 'Web client (standard telemetry)',\n clientData_telemetryType = 1, 'Web client (inline telemetry)',\n clientData_telemetryType = 2, 'Native app (SDK)',\n 'empty') AS telemetryType,\n* \nFROM {STREAM}",
     "null_values": [
       "-1"
     ],
@@ -66,6 +67,7 @@
         "originUserId": "jsmith007"
       }
     },
+    "shadow_table": null,
     "output_columns": [
       {
         "name": "timestamp",
@@ -91,6 +93,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -105,6 +108,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": null,
@@ -117,6 +121,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": null,
@@ -129,6 +134,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": null,
@@ -141,6 +147,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -157,6 +164,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -173,6 +181,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -189,6 +198,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -205,6 +215,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -221,6 +232,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -237,6 +249,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -253,6 +266,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -269,6 +283,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -285,6 +300,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -301,6 +317,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -317,6 +334,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -333,6 +351,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -349,6 +368,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -365,6 +385,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -381,6 +402,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -397,6 +419,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -413,6 +436,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -429,6 +453,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -445,6 +470,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -461,6 +487,7 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -477,6 +504,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -493,6 +521,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -509,6 +538,7 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -525,6 +555,7 @@
           "type": "uint64",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -541,6 +572,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -557,6 +589,7 @@
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -573,6 +606,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -589,6 +623,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -605,6 +640,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -621,6 +657,7 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -637,6 +674,7 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -653,6 +691,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -669,6 +708,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -685,6 +725,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -701,6 +742,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -717,6 +759,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -733,6 +776,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -749,6 +793,7 @@
           "type": "uint8",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -765,6 +810,7 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -781,6 +827,7 @@
           "type": "uint32",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -812,6 +859,7 @@
           "type": "map",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -836,6 +884,7 @@
           "type": "map",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -860,6 +909,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -880,6 +930,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -900,6 +951,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -920,6 +972,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -940,6 +993,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -960,6 +1014,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -980,6 +1035,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1000,6 +1056,7 @@
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1014,6 +1071,7 @@
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1028,6 +1086,7 @@
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1037,11 +1096,27 @@
         }
       },
       {
-        "name": "attack_custom",
+        "name": "attack_risk",
         "datatype": {
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_firewall",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1056,6 +1131,7 @@
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1070,6 +1146,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1090,6 +1167,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1104,6 +1182,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1124,6 +1203,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1144,6 +1224,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1164,6 +1245,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1178,6 +1260,7 @@
           "type": "string",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1192,6 +1275,7 @@
           "type": "boolean",
           "index": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1200,26 +1284,125 @@
           "suppress": false
         }
       },
-			{
-			  "name": "hdx_source_latency",
-			  "datatype": {
-				"type": "uint32",
-				"index": true,
-				"source": {
-				  "from_input_field": "sql_transform"
-				},
-				"format": null,
-				"default": null,
-				"script": null,
-				"suppress": false
-			  }
-			}
+      {
+        "name": "hdx_source_latency",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "bot_type",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "responseSegment",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "responseSegmentDetails",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "telemetryType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "unknown",
+        "datatype": {
+          "type": "map",
+          "index": true,
+          "catch_all": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "elements": [
+            {
+              "type": "string",
+              "index": true
+            },
+            {
+              "type": "string",
+              "index": true
+            }
+          ],
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "attack_custom",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
     ],
     "compression": "",
     "wurfl": null,
     "format_details": {
       "flattening": {
-        "depth": null,
         "active": false,
         "map_flattening_strategy": {
           "left": "",
@@ -1228,9 +1411,12 @@
         "slice_flattening_strategy": {
           "left": "",
           "right": ""
-        }
+        },
+        "depth": null
       }
     }
   },
-  "type": "json"
+  "url": "https://cse-playpen-1.trafficpeak.live/config/v1/orgs/7bb88b20-1c38-44c5-9f41-e68eadc2a2d3/projects/346ebeba-84a0-4ff0-8687-eab84c35e853/tables/b2f21675-6004-4ec3-bd67-392ccfa2ee6d/transforms/1af0168c-ad42-4453-8591-2ec2bbfa691c",
+  "type": "json",
+  "table": "b2f21675-6004-4ec3-bd67-392ccfa2ee6d"
 }
