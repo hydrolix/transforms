@@ -669,22 +669,22 @@
                 }
             },
              {
-    "name": "query",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "resolution": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_json_pointers": [
-          "/httpMessage/query"
-        ]
-      },
-      "suppress": false
-    }
-  },
+                "name": "query",
+                "datatype": {
+                    "type": "string",
+                    "index": true,
+                    "format": null,
+                    "resolution": null,
+                    "default": null,
+                    "script": null,
+                    "source": {
+                      "from_json_pointers": [
+                        "/httpMessage/query"
+                      ]
+                    },
+                    "suppress": false
+                }
+           },
             {
                 "name": "responseHeadersStr",
                 "datatype": {
