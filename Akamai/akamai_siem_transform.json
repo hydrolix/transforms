@@ -193,6 +193,108 @@
         }
       },
       {
+        "name": "attackData",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/attackData"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "botData",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/botData"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "clientData",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/clientData"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "geo",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/geo"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "httpMessage",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/httpMessage"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
+        "name": "userRiskData",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_json_pointers": [
+              "/userRiskData"
+            ]
+          },
+          "suppress": true
+        }
+      },
+      {
         "name": "ruleActionsStr",
         "datatype": {
           "type": "string",
@@ -1416,7 +1518,5 @@
       }
     }
   },
-  "url": "https://cse-playpen-1.trafficpeak.live/config/v1/orgs/7bb88b20-1c38-44c5-9f41-e68eadc2a2d3/projects/346ebeba-84a0-4ff0-8687-eab84c35e853/tables/b2f21675-6004-4ec3-bd67-392ccfa2ee6d/transforms/1af0168c-ad42-4453-8591-2ec2bbfa691c",
-  "type": "json",
-  "table": "b2f21675-6004-4ec3-bd67-392ccfa2ee6d"
+  "type": "json"
 }
