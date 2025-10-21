@@ -4,7 +4,7 @@
     "settings": {
         "is_default": true,
         "rate_limit": null,
-        "sql_transform": "SELECT\n    decodeURLComponent(requestHeadersStr) AS requestHeadersStr,\n    decodeURLComponent(responseHeadersStr) AS responseHeadersStr,\n    akamai_siem_extract(rulesStr) AS rules,\n    akamai_siem_extract(ruleTagsStr) AS ruleTags,\n    arrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') AS ruleData,\n    akamai_siem_extract(ruleActionsStr) AS ruleActions,\n    akamai_siem_extract(ruleMessagesStr) AS ruleMessages,\n    akamai_siem_extract(ruleVersionsStr) AS ruleVersions,\n    arrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') AS ruleSelectors,\n    akamai_extract_key_pair(requestHeadersStr,'\r\n', ':') AS requestHeaders,\n    akamai_extract_key_pair(responseHeadersStr,'\r\n', ':') AS responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL', 'AKAMAI/BOT/CUST_DEFINED_BOTS']), ruleTags) AS attack_bot,\narrayExists(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, '6'), rules) as attack_custom,\narrayExists(x -> multiSearchAny(x, ['USER-RISK']), rules) as attack_risk,\narrayExists(x -> x = 'IPBLOCK', ruleTags) AS attack_firewall,\narrayExists(x -> positionCaseInsensitive(x, 'BLOCK/') > 0, ruleTags) AS attack_dos,\narrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS', 'User Risk', 'Network Firewall'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos, attack_risk, attack_firewall]) AS attackTypes,\n    multiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \nNull) AS ruleMessage,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI/BOT/','BOT/','CUSTOM/BOT/','MBS_CL',':']), ruleTags)) AS ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE/','AKAMAI/POLICY/','OWASP_CRS/','AKAMAI/WAF','AKAMAI/WEB_ATTACK/',':']), ruleTags)) AS ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) AS ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) AS has_CH_UA,\ndatediff('s', timestamp, now64(3)) AS hdx_source_latency,\nregexpExtract(requestHeadersStr, 'Referer:\\s*(\\S+)', 1) AS referer,\nmultiIf(\n arrayExists(x -> multiSearchAny(x, ['AKAMAI_CATEGORIZED']), ruleTags), 'Akamai',\n arrayExists(x -> multiSearchAny(x, ['CUST_DEFINED_BOTS']), ruleTags), 'Customer',\n 'Unknown') AS bot_type,\nmultiIf(\n botData_responseSegment = 0, 'Human', \n botData_responseSegment > 0, 'Bot', \n 'empty') AS responseSegment,\nmultiIf(\n botData_responseSegment = 0, 'Human',\n botData_responseSegment = 1, 'Cautious response', botData_responseSegment = 2, 'Strict response', \n botData_responseSegment = 3, 'Aggressive response', botData_responseSegment = 4, 'Safeguard',\n 'empty') AS responseSegmentDetails,\nmultiIf(\n clientData_telemetryType = 0, 'Web client (standard telemetry)',\n clientData_telemetryType = 1, 'Web client (inline telemetry)',\n clientData_telemetryType = 2, 'Native app (SDK)',\n 'empty') AS telemetryType,\n* \nFROM {STREAM}",
+        "sql_transform":"SELECT\n    decodeURLComponent(requestHeadersStr) AS requestHeadersStr,\n    decodeURLComponent(responseHeadersStr) AS responseHeadersStr,\n    akamai_siem_extract(rulesStr) AS rules,\n    akamai_siem_extract(ruleTagsStr) AS ruleTags,\n    arrayResize(akamai_siem_extract(ruleDataStr), length(ruleTags), '') AS ruleData,\n    akamai_siem_extract(ruleActionsStr) AS ruleActions,\n    akamai_siem_extract(ruleMessagesStr) AS ruleMessages,\n    akamai_siem_extract(ruleVersionsStr) AS ruleVersions,\n    arrayResize(akamai_siem_extract(ruleSelectorsStr), length(ruleTags), '') AS ruleSelectors,\n    akamai_extract_key_pair(requestHeadersStr,'\n', ':') AS requestHeaders,\n    akamai_extract_key_pair(responseHeadersStr,'\n', ':') AS responseHeaders,\narrayExists(x -> multiSearchAny(x, ['AKAMAI\/BOT\/','BOT\/','CUSTOM\/BOT\/','MBS_CL', 'AKAMAI\/BOT\/CUST_DEFINED_BOTS']), ruleTags) AS attack_bot,\narrayExists(x -> multiSearchAny(x, ['ASE\/','AKAMAI\/POLICY\/','OWASP_CRS\/','AKAMAI\/WAF','AKAMAI\/WEB_ATTACK\/']), ruleTags) as attack_waf,\narrayExists(x -> x = 'REPUTATION', ruleTags) as attack_reputation,\narrayExists(x -> startsWith(x, '6'), rules) as attack_custom,\narrayExists(x -> multiSearchAny(x, ['USER-RISK']), rules) as attack_risk,\narrayExists(x -> x = 'IPBLOCK', ruleTags) AS attack_firewall,\narrayExists(x -> positionCaseInsensitive(x, 'BLOCK\/') > 0, ruleTags) AS attack_dos,\narrayFilter((x, y) -> y = 1, ['Bot','WAF', 'Reputation','Custom','DoS', 'User Risk', 'Network Firewall'], [attack_bot, attack_waf,attack_reputation,attack_custom,attack_dos, attack_risk, attack_firewall]) AS attackTypes,\n    multiIf(\n arrayExists(x -> startsWith(x, 'Web Scrapers'), ruleMessages), 'Web Scrapers', \n arrayExists(x -> startsWith(x, 'Scanning Tools'), ruleMessages), 'Scanning Tools', \n arrayExists(x -> startsWith(x, 'Web Attackers'), ruleMessages), 'Web Attackers', \n arrayExists(x -> startsWith(x, 'DOS Attacker'), ruleMessages), 'DOS Attacker', \nNull) AS ruleMessage,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['AKAMAI\/BOT\/','BOT\/','CUSTOM\/BOT\/','MBS_CL',':']), ruleTags)) AS ruleTagsBot,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['ASE\/','AKAMAI\/POLICY\/','OWASP_CRS\/','AKAMAI\/WAF','AKAMAI\/WEB_ATTACK\/',':']), ruleTags)) AS ruleTagsWAF,\narrayDistinct(arrayFilter(x -> multiSearchAny(x, ['IPBLOCK',':']), ruleTags)) AS ruleTagsDOS,\nrequestHeaders['Sec-CH-UA'] AS CH_UA,\nrequestHeaders['User-Agent'] AS UA,\nnotEmpty(CH_UA) AS has_CH_UA,\ndatediff('s', timestamp, now64(3)) AS hdx_source_latency,\nregexpExtract(requestHeadersStr, 'Referer:\\s*(\\S+)', 1) AS referer,\nmultiIf(\n arrayExists(x -> multiSearchAny(x, ['AKAMAI_CATEGORIZED']), ruleTags), 'Akamai',\n arrayExists(x -> multiSearchAny(x, ['CUST_DEFINED_BOTS']), ruleTags), 'Customer',\n 'Unknown') AS bot_type,\nmultiIf(\n botData_responseSegment = 0, 'Human', \n botData_responseSegment > 0, 'Bot', \n 'empty') AS responseSegment,\nmultiIf(\n botData_responseSegment = 0, 'Human',\n botData_responseSegment = 1, 'Cautious response', botData_responseSegment = 2, 'Strict response', \n botData_responseSegment = 3, 'Aggressive response', botData_responseSegment = 4, 'Safeguard',\n 'empty') AS responseSegmentDetails,\nmultiIf(\n clientData_telemetryType = 0, 'Web client (standard telemetry)',\n clientData_telemetryType = 1, 'Web client (inline telemetry)',\n clientData_telemetryType = 2, 'Native app (SDK)',\n 'empty') AS telemetryType,\nmultiIf(\n arrayExists(x -> multiSearchAny(x, ['AKAMAI\/BOT\/AKAMAI_CATEGORIZED']), ruleTags), 'Akamai', \n arrayExists(x -> multiSearchAny(x, ['AKAMAI\/BOT\/CUST_DEFINED_BOTS']), ruleTags), 'Customer', \n arrayExists(x -> multiSearchAny(x, ['AKAMAI\/BOT\/UNKNOWN_BOT']), ruleTags), 'Unknown', \n '') as bot_type,\nmultiIf( bot_type = 'Akamai', arrayFilter(x -> multiSearchAny(x, ['3991']), rules),\n         bot_type = 'Customer', arrayFilter(x -> multiSearchAny(x, ['BOT-6']), rules),\n         bot_type = 'Unknown', arrayFilter(x -> multiSearchAny(x, ['3900','3903','3910','3912','3990']), rules), ['']) as BotCategoryAkamai,\narrayMap(x -> (indexOf(rules, x)), BotCategoryAkamai) as arrayMapIndex,\narrayStringConcat(arrayMap(x -> (ruleData[x] ), arrayMapIndex)) as botnet_id,\narrayStringConcat(arrayMap(x -> (ruleMessages[x] ), arrayMapIndex)) as bot_category, \n* \nFROM {STREAM}",
         "null_values": [
             "-1"
         ],
@@ -238,8 +238,7 @@
                     "source": {
                         "from_json_pointers": [
                             "/clientData"
-                        ]
-                    },
+                        ]                    },
                     "suppress": true
                 }
             },
@@ -1515,6 +1514,51 @@
                         "from_input_field": "sql_transform"
                     },
                     "suppress": false
+                }
+            },
+            {
+                "name": "bot_type",
+                "datatype": {
+                "type": "string",
+                "index": true,
+                "format": null,
+                "resolution": null,
+                "default": null,
+                "script": null,
+                "source": {
+                    "from_input_field": "sql_transform"
+                },
+                "suppress": false
+                }
+            },
+            {
+                "name": "botnet_id",
+                "datatype": {
+                "type": "string",
+                "index": true,
+                "format": null,
+                "resolution": null,
+                "default": null,
+                "script": null,
+                "source": {
+                    "from_input_field": "sql_transform"
+                },
+                "suppress": false
+                }
+            },
+            {
+                "name": "bot_category",
+                "datatype": {
+                "type": "string",
+                "index": true,
+                "format": null,
+                "resolution": null,
+                "default": null,
+                "script": null,
+                "source": {
+                    "from_input_field": "sql_transform"
+                },
+                "suppress": false
                 }
             }
         ],
