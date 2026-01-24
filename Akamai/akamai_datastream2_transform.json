@@ -1,25 +1,33 @@
 {
-  "name": "akamai_default_datastream",
-  "description": "Akamai datastream v2 default template",
+  "name": "new_default_ds2_20250609",
+  "description": "",
+  "uuid": "959a0421-38f8-4aa2-8770-3cca5930d863",
+  "created": "2025-06-09T09:28:12.338931Z",
+  "modified": "2025-09-05T14:20:04.890161Z",
   "settings": {
     "is_default": true,
-    "sql_transform": "SELECT datediff('s', reqTimeSec, now64(3)) as hdx_source_latency,\ndecodeURLComponent(assumeNotNull(UA)) as UA,\ndecodeURLComponent(assumeNotNull(referer)) as referer,\ndecodeURLComponent(assumeNotNull(queryStr)) as queryStr,\nextract(decodeURLComponent(assumeNotNull(breadcrumbs)), '\\/\\/BC\\/(\\S*)') as breadcrumbs,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'a=([^,\\]]+)') as Edge_IP,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'b=([^,\\]]+)') as Edge_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'k=([^,\\]]+)') as Edge_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'l=([^,\\]]+)') as Edge_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'm=([^,\\]]+)') as Edge_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'n=([^,\\]]+)') as Edge_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'o=([^,\\]]+)') as Edge_ASN,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'a=([^,\\]]+)') as Origin_IP,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'b=([^,\\]]+)') as Origin_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'k=([^,\\]]+)') as Origin_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'l=([^,\\]]+)') as Origin_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'm=([^,\\]]+)') as Origin_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'n=([^,\\]]+)') as Origin_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'o=([^,\\]]+)') as Origin_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'a=([^,\\]]+)') as Peer_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'b=([^,\\]]+)') as Peer_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'k=([^,\\]]+)') as Peer_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'l=([^,\\]]+)') as Peer_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'm=([^,\\]]+)') as Peer_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'n=([^,\\]]+)') as Peer_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'o=([^,\\]]+)') as Peer_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'a=([^,\\]]+)') as Parent_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'b=([^,\\]]+)') as Parent_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'k=([^,\\]]+)') as Parent_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'l=([^,\\]]+)') as Parent_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'm=([^,\\]]+)') as Parent_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'n=([^,\\]]+)') as Parent_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'o=([^,\\]]+)') as Parent_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'a=([^,\\]]+)') as CloudWrapper_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'b=([^,\\]]+)') as CloudWrapper_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'k=([^,\\]]+)') as CloudWrapper_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'l=([^,\\]]+)') as CloudWrapper_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'm=([^,\\]]+)') as CloudWrapper_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'n=([^,\\]]+)') as CloudWrapper_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'o=([^,\\]]+)') as CloudWrapper_ASN,\nassumeNotNull(decodeURLComponent(cmcd)) as url_cmcd,\nconcat('/', assumeNotNull(reqPath)) as reqPath,\nif(startsWith(url_cmcd, '//x.x@U/'), substring(url_cmcd, 9), url_cmcd) as url,\nflatten(extractAllGroupsVertical(assumeNotNull(url), '([^=,\"]+)=\"?([^,=\"]+)\"? ?')) as groups,\nakamai_cmcd_query_param('bl', groups) as cmcd_buffer_length,\nakamai_cmcd_query_param('br', groups) as cmcd_encoded_bitrate,\nurl LIKE '%,bs,%' ? 1 : 0 as cmcd_buffer_starvation,\nakamai_cmcd_query_param('cid', groups) as cmcd_content_id,\nakamai_cmcd_query_param('d', groups) as cmcd_object_duration,\nakamai_cmcd_query_param('dl', groups) as cmcd_deadline,\nakamai_cmcd_query_param('mtp', groups) as cmcd_measured_throughput,\nakamai_cmcd_query_param('nor', groups) as cmcd_next_object_requests,\nakamai_cmcd_query_param('nrr', groups) as cmcd_next_range_request,\nakamai_cmcd_object_type(akamai_cmcd_query_param('ot', groups)) as cmcd_object_type,\nakamai_cmcd_query_param('pr', groups) as cmcd_playback_rate,\nakamai_cmcd_query_param('rtp', groups) as cmcd_requested_max_throughput,\nakamai_cmcd_streaming_format(akamai_cmcd_query_param('sf', groups)) as cmcd_streaming_format,\nakamai_cmcd_query_param('sid', groups) as cmcd_session_id,\nakamai_cmcd_stream_type(akamai_cmcd_query_param('st', groups)) as cmcd_stream_type,\nurl LIKE '%,su,%' ? 1 : 0 as cmcd_startup,\nakamai_cmcd_query_param('tb', groups) as cmcd_top_bitrate,\nakamai_cmcd_query_param('v', groups) as cmcd_version,\nakamai_cmcd_query_param('d', groups) as cmcd_playback_duration,\nsplitByChar(':', lower(assumeNotNull(reqHost)))[1] as reqHost,\nposition(assumeNotNull(contentProtectionInfo), 'epd') >= 1 as epd_Match,\nsplitByString('/', assumeNotNull(contentProtectionInfo))[5] as epd_Code,\nsplitByString('/', assumeNotNull(contentProtectionInfo))[6] as epd_ActionCode,\nmultiIf(epd_Code='av', 'Anonymous VPN',\n    epd_Code='pp','Public Proxy',\n    epd_Code='hp','Hosting Provder',\n    epd_Code='tr','TOR Exit Node',\n    epd_Code='dp','Smart DNS Proxy',\n    epd_Code='rp','Residential Proxy',\n    epd_Code='vc','VPN Data Centre','')\nas epd_Category,\nmultiIf(epd_ActionCode='0', 'Request Denied',\n    epd_ActionCode='1', 'Request Allowed(override)',\n    epd_ActionCode='2', 'Request Redirected', '')\nas epd_ActionName,\nsplitByChar('|',assumeNotNull(securityRules))[1] as policy,\nsplitByChar('|',assumeNotNull(securityRules))[3] as denyRule,\nif(empty(splitByChar('|',assumeNotNull(securityRules))[3]),0,1) as denied,\nmultiIf(denyRule like '%REP%','Reputation', \n\tdenyRule like '3%' or denyRule like 'BOT-%', 'BOT',\n\tdenyRule like 'IP%' or denyRule like 'URL-%', 'DOS',\n\tdenyRule like 'XSS%' or denyRule like 'WAT-%' or denyRule like 'RFI-ANOMALY%' or denyRule like 'PLATFORM-ANOMALY' or  denyRule like 'SQL%' or denyRule like 'LFI%' or denyRule like 'CMD-INJECTION%' or denyRule like 'PROTOCOL-ANOMALY%'  or denyRule like 'ADAPTIVE_UA_IP_BLOCK%' or denyRule like '6%', 'WAF Rule',\n\t''\n\t) as denyGroup,\nsplitByChar('|',assumeNotNull(earlyHints))[1] as userHints,\nsplitByChar('|',assumeNotNull(earlyHints))[2] as userHintsBytes,\nsplitByChar('|',assumeNotNull(earlyHints))[3] as akamaiHints,\nsplitByChar('|',assumeNotNull(earlyHints))[4] as akamaiHintsBytes,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[1] as ew_stageInformation,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[2] as ew_ID,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[3] as ew_processTime,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[4] as ew_totalTime,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[5] as ew_totalStageTime,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[6] as ew_usedMemory,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[7] as ew_edgeServerFlow,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[8] as ew_errorCode,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[9] as ew_httpStatus,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[10] as ew_cpuFlits,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[11] as ew_tierID,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[1] as ew_uID,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[2] as ew_version,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[3] as ew_eventHandler,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[4] as ew_offReason,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[5] as ew_logicExecuted,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[6] as ew_status,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[7] as ew_revisionID,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[8] as ew_metrics,\nsplitByChar(':',splitByChar('|',coalesce(assumeNotNull(securityRules),'||'))[2]) as rulesTriggered,\nconcat(reqHost, reqPath) as URL,\nmultiIf(\ncacheStatus=1,1,\nbreadcrumbs IS NULL OR empty(breadcrumbs),0,\nOrigin_IP IS NULL OR empty(Origin_IP) OR Origin_IP = '127.0.0.1',1,0\n) as cacheStatus,\n*\nFROM {STREAM}",
+    "rate_limit": null,
+    "sql_transform": "SELECT \ntoUnixTimestamp(toDateTime (toStartOfSecond (reqTimeSec)))::UInt32 as ts_sec_idx,\ndatediff('s', reqTimeSec, now64(3)) as hdx_source_latency,\ndecodeURLComponent(assumeNotNull(UA)) as UA,\ndecodeURLComponent(assumeNotNull(referer)) as referer,\ndecodeURLComponent(assumeNotNull(queryStr)) as queryStr,\nextract(decodeURLComponent(assumeNotNull(breadcrumbs)), '\\/\\/BC\\/(\\S*)') as breadcrumbs,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'a=([^,\\]]+)') as Edge_IP,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'b=([^,\\]]+)') as Edge_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'k=([^,\\]]+)') as Edge_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'l=([^,\\]]+)') as Edge_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'm=([^,\\]]+)') as Edge_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'n=([^,\\]]+)') as Edge_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=g[^]]*\\])', 'o=([^,\\]]+)') as Edge_ASN,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'a=([^,\\]]+)') as Origin_IP,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'b=([^,\\]]+)') as Origin_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'k=([^,\\]]+)') as Origin_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'l=([^,\\]]+)') as Origin_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'm=([^,\\]]+)') as Origin_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'n=([^,\\]]+)') as Origin_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(\\[[^[]*c=o[^]]*\\])', 'o=([^,\\]]+)') as Origin_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'a=([^,\\]]+)') as Peer_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'b=([^,\\]]+)') as Peer_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'k=([^,\\]]+)') as Peer_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'l=([^,\\]]+)') as Peer_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'm=([^,\\]]+)') as Peer_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'n=([^,\\]]+)') as Peer_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=p[^]]*\\])', 'o=([^,\\]]+)') as Peer_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'a=([^,\\]]+)') as Parent_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'b=([^,\\]]+)') as Parent_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'k=([^,\\]]+)') as Parent_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'l=([^,\\]]+)') as Parent_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'm=([^,\\]]+)') as Parent_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'n=([^,\\]]+)') as Parent_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=c[^]]*\\])', 'o=([^,\\]]+)') as Parent_ASN,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'a=([^,\\]]+)') as CloudWrapper_IP,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'b=([^,\\]]+)') as CloudWrapper_RequestID,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'k=([^,\\]]+)') as CloudWrapper_RequestEndTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'l=([^,\\]]+)') as CloudWrapper_TurnAroundTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'm=([^,\\]]+)') as CloudWrapper_DNSLookupTime,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'n=([^,\\]]+)') as CloudWrapper_GeoInfo,\nakamai_breadcrumbs(breadcrumbs, '(,\\[[^[]*c=w[^]]*\\])', 'o=([^,\\]]+)') as CloudWrapper_ASN,\nassumeNotNull(decodeURLComponent(cmcd)) as url_cmcd,\nconcat('/', assumeNotNull(reqPath)) as reqPath,\nif(startsWith(url_cmcd, '//x.x@U/'), substring(url_cmcd, 9), url_cmcd) as url,\nflatten(extractAllGroupsVertical(assumeNotNull(url), '([^=,\"]+)=\"?([^,=\"]+)\"? ?')) as groups,\nakamai_cmcd_query_param('bl', groups) as cmcd_buffer_length,\nakamai_cmcd_query_param('br', groups) as cmcd_encoded_bitrate,\nurl LIKE '%,bs,%' ? 1 : 0 as cmcd_buffer_starvation,\nakamai_cmcd_query_param('cid', groups) as cmcd_content_id,\nakamai_cmcd_query_param('d', groups) as cmcd_object_duration,\nakamai_cmcd_query_param('dl', groups) as cmcd_deadline,\nakamai_cmcd_query_param('mtp', groups) as cmcd_measured_throughput,\nakamai_cmcd_query_param('nor', groups) as cmcd_next_object_requests,\nakamai_cmcd_query_param('nrr', groups) as cmcd_next_range_request,\nakamai_cmcd_object_type(akamai_cmcd_query_param('ot', groups)) as cmcd_object_type,\nakamai_cmcd_query_param('pr', groups) as cmcd_playback_rate,\nakamai_cmcd_query_param('rtp', groups) as cmcd_requested_max_throughput,\nakamai_cmcd_streaming_format(akamai_cmcd_query_param('sf', groups)) as cmcd_streaming_format,\nakamai_cmcd_query_param('sid', groups) as cmcd_session_id,\nakamai_cmcd_stream_type(akamai_cmcd_query_param('st', groups)) as cmcd_stream_type,\nurl LIKE '%,su,%' ? 1 : 0 as cmcd_startup,\nakamai_cmcd_query_param('tb', groups) as cmcd_top_bitrate,\nakamai_cmcd_query_param('v', groups) as cmcd_version,\nakamai_cmcd_query_param('d', groups) as cmcd_playback_duration,\nsplitByChar(':', lower(assumeNotNull(reqHost)))[1] as reqHost,\nposition(assumeNotNull(contentProtectionInfo), 'epd') >= 1 as epd_Match,\nsplitByString('/', assumeNotNull(contentProtectionInfo))[5] as epd_Code,\nsplitByString('/', assumeNotNull(contentProtectionInfo))[6] as epd_ActionCode,\nmultiIf(epd_Code='av', 'Anonymous VPN',\n    epd_Code='pp','Public Proxy',\n    epd_Code='hp','Hosting Provder',\n    epd_Code='tr','TOR Exit Node',\n    epd_Code='dp','Smart DNS Proxy',\n    epd_Code='rp','Residential Proxy',\n    epd_Code='vc','VPN Data Centre','')\nas epd_Category,\nmultiIf(epd_ActionCode='0', 'Request Denied',\n    epd_ActionCode='1', 'Request Allowed(override)',\n    epd_ActionCode='2', 'Request Redirected', '')\nas epd_ActionName,\nsplitByChar('|',assumeNotNull(securityRules))[1] as policy,\nsplitByChar('|',assumeNotNull(securityRules))[3] as denyRule,\nif(empty(splitByChar('|',assumeNotNull(securityRules))[3]),0,1) as denied,\nmultiIf(denyRule like '%REP%','Reputation', \n\tdenyRule like '3%' or denyRule like 'BOT-%', 'BOT',\n\tdenyRule like 'IP%', 'DOS',\n\tdenyRule like 'XSS%' or denyRule like 'WAT-%' or denyRule like 'RFI-ANOMALY%' or denyRule like 'PLATFORM-ANOMALY' or  denyRule like 'SQL%' or denyRule like 'LFI%' or denyRule like 'CMD-INJECTION%' or denyRule like 'PROTOCOL-ANOMALY%'  or denyRule like 'ADAPTIVE_UA_IP_BLOCK%' or denyRule like '6%', 'WAF Rule',\n\t''\n\t) as denyGroup,\nsplitByChar('|',assumeNotNull(earlyHints))[1] as userHints,\nsplitByChar('|',assumeNotNull(earlyHints))[2] as userHintsBytes,\nsplitByChar('|',assumeNotNull(earlyHints))[3] as akamaiHints,\nsplitByChar('|',assumeNotNull(earlyHints))[4] as akamaiHintsBytes,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[1] as ew_stageInformation,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[2] as ew_ID,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[3] as ew_processTime,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[4] as ew_totalTime,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[5] as ew_totalStageTime,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[6] as ew_usedMemory,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[7] as ew_edgeServerFlow,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[8] as ew_errorCode,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[9] as ew_httpStatus,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[10] as ew_cpuFlits,\nakamai_edge_worker_execution(assumeNotNull(ewExecutionInfo))[11] as ew_tierID,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[1] as ew_uID,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[2] as ew_version,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[3] as ew_eventHandler,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[4] as ew_offReason,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[5] as ew_logicExecuted,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[6] as ew_status,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[7] as ew_revisionID,\nakamai_edge_worker(assumeNotNull(ewUsageInfo))[8] as ew_metrics,\nsplitByChar(':',splitByChar('|',coalesce(assumeNotNull(securityRules),'||'))[2]) as rulesTriggered,\nconcat(reqHost, reqPath) as URL,\nmultiIf(\ncacheStatus=1,1,\nbreadcrumbs IS NULL OR empty(breadcrumbs),0,\nOrigin_IP IS NULL OR empty(Origin_IP),1,0\n) as cacheStatus,\n*\nFROM {STREAM}",
     "null_values": [
       "-",
       "-1",
       "^"
     ],
-    "sample_data": {"reqTimeSec": 1725353165},
+    "sample_data": {
+      "reqTimeSec": 1725353165
+    },
+    "shadow_table": null,
     "output_columns": [
       {
         "name": "version",
         "datatype": {
           "type": "uint8",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -28,10 +36,26 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
+          "suppress": false
+        }
+      },
+      {
+        "name": "ts_sec_idx",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
           "suppress": false
         }
       },
@@ -40,10 +64,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -52,10 +77,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -64,10 +90,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -76,10 +103,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -89,11 +117,11 @@
           "type": "epoch",
           "index": false,
           "primary": true,
-          "source": null,
           "format": "s",
           "resolution": "ms",
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -102,10 +130,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -114,10 +143,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -126,10 +156,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -138,10 +169,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -150,10 +182,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -162,10 +195,11 @@
         "datatype": {
           "type": "boolean",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -174,10 +208,11 @@
         "datatype": {
           "type": "boolean",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -186,10 +221,11 @@
         "datatype": {
           "type": "string",
           "index": false,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": true
         }
       },
@@ -198,10 +234,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -210,10 +247,11 @@
         "datatype": {
           "type": "string",
           "index": false,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -222,10 +260,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -234,10 +273,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -246,10 +286,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -258,10 +299,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -270,10 +312,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -282,10 +325,11 @@
         "datatype": {
           "type": "boolean",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -294,10 +338,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -306,10 +351,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -318,10 +364,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -330,10 +377,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -342,10 +390,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -354,10 +403,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -366,10 +416,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -378,10 +429,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -390,10 +442,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -402,10 +455,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -414,10 +468,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -426,10 +481,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -438,10 +494,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -450,10 +507,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -462,10 +520,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -474,10 +533,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -486,10 +546,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -498,10 +559,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -510,10 +572,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -522,10 +585,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -534,10 +598,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -546,10 +611,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -558,10 +624,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -570,10 +637,11 @@
         "datatype": {
           "type": "uint32",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -582,10 +650,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -594,10 +663,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -606,10 +676,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -618,10 +689,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -630,10 +702,11 @@
         "datatype": {
           "type": "uint64",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -642,10 +715,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -654,12 +728,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -668,12 +743,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -682,12 +758,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -696,12 +773,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -710,12 +788,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -724,12 +803,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -738,12 +818,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -752,12 +833,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -766,12 +848,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -780,12 +863,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -794,12 +878,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -808,12 +893,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -822,12 +908,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -836,12 +923,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -850,12 +938,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -864,12 +953,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -878,12 +968,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -892,12 +983,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -906,12 +998,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -920,12 +1013,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -934,12 +1028,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -948,12 +1043,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -962,12 +1058,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -976,12 +1073,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -990,12 +1088,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1004,12 +1103,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1018,12 +1118,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1032,12 +1133,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1046,12 +1148,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1060,12 +1163,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1074,12 +1178,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1088,12 +1193,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1102,12 +1208,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1116,12 +1223,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1130,12 +1238,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1144,12 +1253,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1158,12 +1268,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1172,12 +1283,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1186,12 +1298,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1200,12 +1313,13 @@
         "datatype": {
           "type": "uint8",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1214,12 +1328,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1228,12 +1343,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1242,12 +1358,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1256,12 +1373,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1270,12 +1388,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1284,12 +1403,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1298,12 +1418,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1312,12 +1433,13 @@
         "datatype": {
           "type": "uint8",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1326,12 +1448,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1340,12 +1463,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1354,12 +1478,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1368,12 +1493,13 @@
         "datatype": {
           "type": "string",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1382,12 +1508,13 @@
         "datatype": {
           "type": "uint8",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1396,12 +1523,13 @@
         "datatype": {
           "type": "uint64",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1410,12 +1538,13 @@
         "datatype": {
           "type": "uint32",
           "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
           "source": {
             "from_input_field": "sql_transform"
           },
-          "format": null,
-          "default": null,
-          "script": null,
           "suppress": false
         }
       },
@@ -1424,10 +1553,11 @@
         "datatype": {
           "type": "boolean",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1436,10 +1566,11 @@
         "datatype": {
           "type": "uint8",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1448,10 +1579,11 @@
         "datatype": {
           "type": "string",
           "index": true,
-          "source": null,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1460,9 +1592,9 @@
         "datatype": {
           "type": "map",
           "index": true,
-          "source": null,
           "catch_all": true,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1475,6 +1607,7 @@
               "index": true
             }
           ],
+          "source": null,
           "suppress": true
         }
       },
@@ -1487,11 +1620,12 @@
             "fulltext": false
           },
           "primary": false,
-          "source": null,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1504,11 +1638,12 @@
             "fulltext": false
           },
           "primary": false,
-          "source": null,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1521,11 +1656,12 @@
             "fulltext": false
           },
           "primary": false,
-          "source": null,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1538,11 +1674,12 @@
             "fulltext": false
           },
           "primary": false,
-          "source": null,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1555,11 +1692,12 @@
             "fulltext": false
           },
           "primary": false,
-          "source": null,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
@@ -1572,66 +1710,71 @@
             "fulltext": false
           },
           "primary": false,
-          "source": null,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
+          "source": null,
           "suppress": false
         }
       },
       {
-          "name": "contentProtectionInfo",
-          "datatype": {
-              "type": "string",
-              "index": true,
-              "source": null,
-              "format": null,
-              "default": null,
-              "script": null,
-              "suppress": true
-          }
+        "name": "contentProtectionInfo",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": true
+        }
       },
       {
-          "name": "deliveryFormat",
-          "datatype": {
-              "type": "string",
-              "index": true,
-              "source": null,
-              "format": null,
-              "default": null,
-              "script": null,
-              "suppress": false
-          }
+        "name": "deliveryFormat",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
-          "name": "deliveryType",
-          "datatype": {
-              "type": "string",
-              "index": true,
-              "source": null,
-              "format": null,
-              "default": null,
-              "script": null,
-              "suppress": false
-          }
+        "name": "deliveryType",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
-          "name": "mediaEncryption",
-          "datatype": {
-              "type": "boolean",
-              "index": true,
-              "index_options": {
-                  "fulltext": false
-              },
-              "primary": false,
-              "source": null,
-              "ignore": false,
-              "format": null,
-              "default": null,
-              "script": null,
-              "suppress": false
-          }
+        "name": "mediaEncryption",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
         "name": "epd_Match",
@@ -1641,6 +1784,7 @@
           "primary": false,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1660,6 +1804,7 @@
           "primary": false,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1676,6 +1821,7 @@
           "primary": false,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1692,6 +1838,7 @@
           "primary": false,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1708,6 +1855,7 @@
           "primary": false,
           "ignore": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "source": {
@@ -1717,80 +1865,76 @@
         }
       },
       {
-          "name": "policy",
-          "datatype":
-          {
-              "type": "string",
-              "index": true,
-              "index_options":
-              {
-                  "fulltext": false
-              },
-              "primary": false,
-              "ignore": false,
-              "format": null,
-              "default": null,
-              "script": null,
-              "source": null,
-              "suppress": false
-          }
+        "name": "policy",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
-          "name": "denyRule",
-          "datatype":
-          {
-              "type": "string",
-              "index": true,
-              "index_options":
-              {
-                  "fulltext": false
-              },
-              "primary": false,
-              "ignore": false,
-              "format": null,
-              "default": null,
-              "script": null,
-              "source": null,
-              "suppress": false
-          }
+        "name": "denyRule",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
-          "name": "denied",
-          "datatype":
-          {
-              "type": "boolean",
-              "index": true,
-              "index_options":
-              {
-                  "fulltext": false
-              },
-              "primary": false,
-              "ignore": false,
-              "format": null,
-              "default": null,
-              "script": null,
-              "source": null,
-              "suppress": false
-          }
+        "name": "denied",
+        "datatype": {
+          "type": "boolean",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
-          "name": "denyGroup",
-          "datatype":
-          {
-              "type": "string",
-              "index": true,
-              "index_options":
-              {
-                  "fulltext": false
-              },
-              "primary": false,
-              "ignore": false,
-              "format": null,
-              "default": null,
-              "script": null,
-              "source": null,
-              "suppress": false
-          }
+        "name": "denyGroup",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "index_options": {
+            "fulltext": false
+          },
+          "primary": false,
+          "ignore": false,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
       {
         "name": "rulesTriggered",
@@ -1798,6 +1942,7 @@
           "type": "array",
           "index": false,
           "format": null,
+          "resolution": null,
           "default": null,
           "script": null,
           "elements": [
@@ -1813,351 +1958,375 @@
         }
       },
       {
-    "name": "earlyHints",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": null,
-      "suppress": true
-    }
-  },
-  {
-    "name": "userHints",
-    "datatype": {
-      "type": "uint32",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": null,
-      "suppress": false
-    }
-  },
-  {
-    "name": "userHintsBytes",
-    "datatype": {
-      "type": "uint32",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": null,
-      "suppress": false
-    }
-  },
-  {
-    "name": "akamaiHints",
-    "datatype": {
-      "type": "uint32",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": null,
-      "suppress": false
-    }
-  },
-  {
-    "name": "akamaiHintsBytes",
-    "datatype": {
-      "type": "uint32",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": null,
-      "suppress": false
-    }
-  },
-  { 
-    "name": "ew_stageInformation",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+        "name": "earlyHints",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": true
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_ID",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "userHints",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_processTime",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "userHintsBytes",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_errorCode",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "akamaiHints",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_totalTime",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "akamaiHintsBytes",
+        "datatype": {
+          "type": "uint32",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": null,
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_totalStageTime",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_stageInformation",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_usedMemory",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_ID",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_edgeServerFlow",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_processTime",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_httpStatus",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_errorCode",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_cpuFlits",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_totalTime",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_tierID",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_totalStageTime",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_uID",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_usedMemory",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_version",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_edgeServerFlow",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_eventHandler",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_httpStatus",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_offReason",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_cpuFlits",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_logicExecuted",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_tierID",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_status",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_uID",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_revisionID",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_version",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "ew_metrics",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_eventHandler",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  },
-  {
-    "name": "URL",
-    "datatype": {
-      "type": "string",
-      "index": true,
-      "format": null,
-      "default": null,
-      "script": null,
-      "source": {
-        "from_input_field": "sql_transform"
+      {
+        "name": "ew_offReason",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
       },
-      "suppress": false
-    }
-  }
+      {
+        "name": "ew_logicExecuted",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ew_status",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ew_revisionID",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "ew_metrics",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      },
+      {
+        "name": "URL",
+        "datatype": {
+          "type": "string",
+          "index": true,
+          "format": null,
+          "resolution": null,
+          "default": null,
+          "script": null,
+          "source": {
+            "from_input_field": "sql_transform"
+          },
+          "suppress": false
+        }
+      }
     ],
     "compression": "none",
     "wurfl": null,
     "format_details": {
       "flattening": {
-        "depth": null,
         "active": false,
         "map_flattening_strategy": {
           "left": "",
@@ -2166,9 +2335,12 @@
         "slice_flattening_strategy": {
           "left": "",
           "right": ""
-        }
+        },
+        "depth": null
       }
     }
   },
-  "type": "json"
+  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/367ba127-d9ff-4399-9d7b-4f4e796f7050/transforms/959a0421-38f8-4aa2-8770-3cca5930d863",
+  "type": "json",
+  "table": "367ba127-d9ff-4399-9d7b-4f4e796f7050"
 }
