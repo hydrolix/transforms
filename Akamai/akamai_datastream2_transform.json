@@ -1,9 +1,6 @@
 {
   "name": "new_default_ds2_20250609",
   "description": "",
-  "uuid": "959a0421-38f8-4aa2-8770-3cca5930d863",
-  "created": "2025-06-09T09:28:12.338931Z",
-  "modified": "2025-09-05T14:20:04.890161Z",
   "settings": {
     "is_default": true,
     "rate_limit": null,
@@ -2340,7 +2337,5 @@
       }
     }
   },
-  "url": "https://demo.trafficpeak.live/config/v1/orgs/c1834e11-9716-4971-9a5f-d8c07f4f6b3a/projects/4c9086f5-6a75-4ebb-bc37-0f8177a36aee/tables/367ba127-d9ff-4399-9d7b-4f4e796f7050/transforms/959a0421-38f8-4aa2-8770-3cca5930d863",
-  "type": "json",
-  "table": "367ba127-d9ff-4399-9d7b-4f4e796f7050"
+  "type": "json"
 }
